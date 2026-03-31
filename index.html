@@ -1,1 +1,171 @@
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rodrigo Pontes | Variedades</title>
+    <link rel="canonical" href="https://rodrigopontesdev.github.io" />
+
+    <meta name="description" content="Portal de variedades de Rodrigo Pontes. Informação e conteúdo diverso.">
+    <meta name="author" content="Rodrigo Pontes">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rodrigopontesdev.github.io">
+    <meta property="og:title" content="Rodrigo Pontes | Variedades">
+    <meta property="og:image" content="thumbnail.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Rodrigo Pontes Variedades",
+      "url": "https://rodrigopontesdev.github.io"
+    }
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CONFIGURAÇÕES TÉCNICAS CSS */
+        :root {
+            --navy-dark: #001a33; /* Azul Marinho Escuro */
+            --active-orange: #ff8c00; /* Laranja clique */
+            --footer-gray: #2b2b2b; /* Cinza Escuro */
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho */
+        header { background-color: var(--navy-dark); }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        /* Efeito Laranja Temporário */
+        .nav-link.active-click { color: var(--active-orange) !important; }
+
+        /* Sidebar e Main */
+        main { flex: 1; }
+        .sidebar-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        #clock {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--navy-dark);
+            text-align: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--footer-gray);
+            color: #ffffff;
+            padding: 40px 0 20px;
+        }
+
+        footer a { color: #ffffff; text-decoration: none; }
+        footer a:hover { color: var(--active-orange); }
+
+        .social-icons i { font-size: 1.8rem; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-top shadow">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand text-white fw-bold" href="https://rodrigopontesdev.github.io" style="font-family:'Montserrat';">RODRIGO PONTES</a>
+                <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                    <span class="bi bi-list text-white"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMain">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contatos">Contatos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8">
+                </div>
+
+            <aside class="col-lg-4">
+                <div class="sidebar-box shadow-sm">
+                    <h6 class="fw-bold mb-3 text-uppercase">Horário Atual</h6>
+                    <div id="clock">00:00:00</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12 mb-4 social-icons">
+                    <a href="https://instagram.com/fatorx.media" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://facebook.com/omundoesuashistorias" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://youtube.com/historiaescuriosidadescanal" target="_blank"><i class="bi bi-youtube"></i></a>
+                    <a href="mailto:historiaecuriosidades@outlook.com" id="contatos"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <a href="https://rodrigopontesdev.github.io/privacidade" class="small">Política de Privacidade</a>
+                </div>
+
+                <div class="col-12">
+                    <p class="small mb-0">&copy; <span id="year"></span> Rodrigo Pontes. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Relógio
+        function updateClock() {
+            document.getElementById('clock').textContent = new Date().toLocaleTimeString('pt-BR');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Ano Automático
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Efeito Laranja (2 segundos)
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(l => {
+            l.addEventListener('click', function() {
+                this.classList.add('active-click');
+                setTimeout(() => this.classList.remove('active-click'), 2000);
+            });
+        });
+    </script>
+</body>
+</html>

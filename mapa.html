@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>Mapa com Checkpoints</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.player {
+  width: 85vw;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* painel lateral */
+.sidebar {
+  width: 35%;
+  background: #f7f7f7;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.sidebar button {
+  width: 100%;
+  margin: 4px 0;
+  padding: 8px;
+  border: none;
+  background: #1e90ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* mapa */
+#map {
+  width: 65%;
+  height: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="player">
+
+  <div class="sidebar">
+    <h3>Checkpoints 🧭</h3>
+    <div id="lista"></div>
+    <button onclick="limpar()">Limpar mapa</button>
+  </div>
+
+  <div id="map"></div>
+
+</div>
+
+<script>
+
+const data = [
+  { rua: "Rua Botafogo", cep: "90150-050" },
+  { rua: "Rua Uruguaiana", cep: "90110-330" },
+  { rua: "Rua Duque de Caxias", cep: "90010-280" },
+  { rua: "Praça da Alfândega", cep: "90010-150" },
+  { rua: "Rua Riachuelo", cep: "90010-270" }
+];
+
+const map = L.map('map').setView([-30.0346, -51.2177], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+let markers = [];
+
+// geocoding
+async function geocode(q) {
+  const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q + ", Porto Alegre")}`);
+  return await res.json();
+}
+
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+// cria lista de botões
+function renderLista() {
+  const div = document.getElementById("lista");
+
+  data.forEach((item, index) => {
+    const btn = document.createElement("button");
+    btn.innerText = `Checkpoint: ${item.rua}`;
+    btn.onclick = () => ativarCheckpoint(index);
+    div.appendChild(btn);
+  });
+}
+
+// ativa checkpoint individual
+async function ativarCheckpoint(index) {
+
+  const item = data[index];
+
+  const res = await geocode(item.rua);
+
+  if (res.length > 0) {
+
+    const lat = res[0].lat;
+    const lon = res[0].lon;
+
+    const marker = L.marker([lat, lon])
+      .addTo(map)
+      .bindPopup(`<b>${item.rua}</b><br>${item.cep}`);
+
+    markers.push(marker);
+
+    map.setView([lat, lon], 15);
+  }
+}
+
+// limpa tudo
+function limpar() {
+  markers.forEach(m => map.removeLayer(m));
+  markers = [];
+}
+
+renderLista();
+
+</script>
+
+</body>
+</html>

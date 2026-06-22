@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Consulta de Devedores</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.label {
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🔎 Consulta de CPF / CNPJ</h2>
+
+<input type="text" id="cpf" placeholder="Digite CPF ou CNPJ">
+<button onclick="buscar()">Buscar</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "cadastro-intimacoes.firebaseapp.com",
+  projectId: "cadastro-intimacoes",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// limpa CPF/CNPJ
+function limpar(valor) {
+  return (valor || "").replace(/\D/g, "");
+}
+
+window.buscar = async function () {
+
+  const input = document.getElementById("cpf").value;
+  const resultado = document.getElementById("resultado");
+
+  const id = limpar(input);
+
+  if (!id) {
+    resultado.innerHTML = "<p>Digite um CPF/CNPJ válido</p>";
+    return;
+  }
+
+  resultado.innerHTML = "<p>🔄 Buscando...</p>";
+
+  try {
+
+    // 🔥 CORREÇÃO AQUI: coleção certa
+    const ref = doc(db, "devedores_importados", id);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists()) {
+      resultado.innerHTML = "<p>❌ Registro não encontrado</p>";
+      return;
+    }
+
+    const data = snap.data();
+
+    resultado.innerHTML = `
+      <div class="card">
+        <p><span class="label">Devedor:</span> ${data.devedor || ""}</p>
+        <p><span class="label">CPF/CNPJ:</span> ${data.cpf_cnpj || ""}</p>
+        <p><span class="label">Endereço:</span> ${data.endereco || ""}</p>
+        <p><span class="label">CEP:</span> ${data.cep || ""}</p>
+      </div>
+    `;
+
+  } catch (err) {
+    resultado.innerHTML = "<p>Erro: " + err.message + "</p>";
+  }
+};
+</script>
+
+</body>
+</html>

@@ -19,9 +19,9 @@
                 <input type="text" id="nome" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">E-mail Corporativo</label>
-                <!-- Dica: use pattern para forçar um domínio específico se quiser -->
-                <input type="email" id="email" class="form-control" placeholder="seu.nome@tabelionato.com" required>
+                <label class="form-label">E-mail</label>
+                <!-- Removida a restrição de domínio -->
+                <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Senha</label>
@@ -56,27 +56,22 @@
         const btn = document.getElementById("btnCadastrar");
         
         const nome = document.getElementById("nome").value;
+        // Apenas padroniza para minúsculas e remove espaços
         const email = document.getElementById("email").value.toLowerCase().trim();
         const senha = document.getElementById("senha").value;
-
-        // Validação simples de domínio (opcional)
-        if (!email.endsWith("@tabelionato.com")) {
-            msg.innerHTML = '<div class="alert alert-warning">Use apenas e-mails corporativos (@tabelionato.com).</div>';
-            return;
-        }
 
         try {
             btn.disabled = true;
             msg.innerHTML = '<div class="alert alert-info">Processando cadastro...</div>';
 
-            // 1. Cria Auth
+            // 1. Cria Auth (qualquer e-mail válido é aceito)
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
             
             // 2. Cria documento com role 'pendente'
             await setDoc(doc(db, "funcionarios", userCredential.user.uid), {
                 nome: nome,
                 email: email,
-                role: "pendente", // Começa sem permissões
+                role: "pendente", 
                 status: "aguardando_aprovacao",
                 criadoEm: serverTimestamp()
             });
@@ -88,7 +83,8 @@
             console.error(error);
             let erroMsg = "Erro ao cadastrar.";
             if (error.code === 'auth/email-already-in-use') erroMsg = "Este e-mail já possui uma conta.";
-            if (error.code === 'auth/weak-password') erroMsg = "Senha muito fraca.";
+            if (error.code === 'auth/weak-password') erroMsg = "Senha muito fraca (mínimo 6 caracteres).";
+            if (error.code === 'auth/invalid-email') erroMsg = "Formato de e-mail inválido.";
             
             msg.innerHTML = `<div class="alert alert-danger">${erroMsg}</div>`;
         } finally {
@@ -99,4 +95,3 @@
 
 </body>
 </html>
-

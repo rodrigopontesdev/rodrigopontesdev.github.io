@@ -157,25 +157,43 @@
 
 <script>
 
-alert("CHEGUEI NO SCRIPT");
+const { createClient } = supabase;
 
+const supabaseUrl = 'https://idcntslmjikqarutsmsb.supabase.co';
+const supabaseKey = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
 
-const supabase = window.supabase;
+const client = createClient(
+    supabaseUrl,
+    supabaseKey
+);
 
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
-if(supabase){
+    e.preventDefault();
 
-    alert("BIBLIOTECA SUPABASE OK");
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const message = document.getElementById('message');
 
-}else{
+    message.textContent = "Conectando...";
 
-    alert("SUPABASE NÃO CARREGOU");
+    const { error } = await client.auth.signInWithPassword({
+        email,
+        password
+    });
 
-}
+    if (error) {
+        message.textContent = error.message;
+        return;
+    }
 
+    message.textContent = "Login realizado com sucesso!";
+
+    window.location.href = "dashboard-admin.html";
+
+});
 
 </script>
-    <h1>TESTE PAGES 123</h1>
 </body>
 
 </html>

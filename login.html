@@ -159,7 +159,10 @@
 const supabaseUrl = 'https://idcntslmjikqarutsmsb.supabase.com';
 const supabaseKey = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
 
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
 
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
@@ -174,7 +177,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
-        password: password,
+        password: password
     });
 
     if (error) {
@@ -187,8 +190,14 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         messageDiv.textContent = "Login realizado com sucesso!";
         messageDiv.className = "mt-3 text-center text-success";
 
+        console.log("Usuário autenticado:", data);
+
         setTimeout(() => {
+
+            alert("Login OK. Redirecionando para dashboard-admin.html");
+
             window.location.href = "dashboard-admin.html";
+
         }, 1500);
 
     }

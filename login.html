@@ -156,6 +156,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
 <script>
+
+alert("Script carregou!");
+
 const supabaseUrl = 'https://idcntslmjikqarutsmsb.supabase.com';
 const supabaseKey = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
 
@@ -168,40 +171,27 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
+    alert("Formulário enviado!");
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+
     const messageDiv = document.getElementById('message');
 
     messageDiv.textContent = "Conectando...";
-    messageDiv.className = "mt-3 text-center";
 
     const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
+        email,
+        password
     });
-
     if (error) {
-
         messageDiv.textContent = "Erro: " + error.message;
-        messageDiv.className = "mt-3 text-center text-danger";
-
     } else {
-
         messageDiv.textContent = "Login realizado com sucesso!";
-        messageDiv.className = "mt-3 text-center text-success";
-
-        console.log("Usuário autenticado:", data);
-
         setTimeout(() => {
-
-            alert("Login OK. Redirecionando para dashboard-admin.html");
-
             window.location.href = "dashboard-admin.html";
-
         }, 1500);
-
     }
-
 });
 </script>
 </body>

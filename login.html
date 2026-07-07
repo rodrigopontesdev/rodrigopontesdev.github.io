@@ -157,69 +157,22 @@
 
 <script>
 
-const supabaseUrl = 'https://idcntslmjikqarutsmsb.supabase.co';
-
-const supabaseKey = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
+alert("CHEGUEI NO SCRIPT");
 
 
-const supabase = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-);
-
-alert("SCRIPT NOVO CARREGADO");
-    
-document.getElementById('loginForm').addEventListener('submit', async function(e) {
-
-    e.preventDefault();
+const supabase = window.supabase;
 
 
-    const email = document.getElementById('email').value;
+if(supabase){
 
-    const password = document.getElementById('password').value;
+    alert("BIBLIOTECA SUPABASE OK");
 
-    const message = document.getElementById('message');
+}else{
 
+    alert("SUPABASE NÃO CARREGOU");
 
-    message.innerHTML = "Validando login...";
+}
 
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-
-        email: email,
-
-        password: password
-
-    });
-
-
-
-    if(error){
-
-        alert("Erro login: " + error.message);
-
-        message.innerHTML = "Erro: " + error.message;
-
-        return;
-
-    }
-
-
-
-    alert("Login OK! Redirecionando...");
-
-
-    message.innerHTML = "Login realizado com sucesso!";
-
-
-    setTimeout(function(){
-
-        window.location.assign("dashboard-admin.html");
-
-    }, 1000);
-
-
-});
 
 </script>
 </body>

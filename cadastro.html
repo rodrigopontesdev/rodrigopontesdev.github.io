@@ -3,259 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitação de Cadastro</title>
-
+    <title>2º Tabelionato de Protestos de Porto Alegre - Cadastro</title>
+    
+    <!-- Bootstrap 5.3.8 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <style>
-        html, body {
-            height: 100%;
-            background-color: #ffffff;
+        :root {
+            --verde-principal: #2e7d32;
+            --verde-escuro: #1b5e20;
+            --verde-claro: #4caf50;
         }
-
+        
         body {
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
         }
-
-        .top-header {
-            background: #198754;
-            color: #fff;
-            padding: 20px;
+        
+        header, footer {
+            background-color: var(--verde-principal);
+            color: #ffffff;
+        }
+        
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 3px solid var(--verde-escuro);
+        }
+        
+        header h1 {
+            font-weight: bold;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
             text-align: center;
         }
-
-        .top-header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .top-header p {
-            margin: 2px 0;
-            font-size: .95rem;
-        }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 15px;
-        }
-
-        .cadastro-card {
-            width: 100%;
-            max-width: 650px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.08);
-        }
-
-        .cadastro-card .card-body {
-            padding: 35px;
-        }
-
-        .titulo-cadastro {
+        
+        .info-contato {
             text-align: center;
-            color: #198754;
-            font-weight: 700;
-            margin-bottom: 25px;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            line-height: 1.6;
         }
-
-        .footer {
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
+        
+        .info-contato p {
+            margin: 0;
+        }
+        
+        main {
+            flex: flex;
+            padding: 2rem 0;
+        }
+        
+        footer {
+            padding: 1rem 0;
             text-align: center;
-            padding: 15px;
-            color: #666;
-            font-size: .9rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--verde-escuro);
         }
-
-        .form-label {
-            font-weight: 600;
+        
+        footer p {
+            margin: 0;
         }
-
+        
+        /* Responsividade */
         @media (max-width: 576px) {
-            .cadastro-card .card-body {
-                padding: 25px;
+            header h1 {
+                font-size: 1.3rem;
             }
-
-            .top-header h1 {
-                font-size: 1.2rem;
+            
+            .info-contato {
+                font-size: 0.8rem;
             }
-
-            .top-header p {
-                font-size: .85rem;
+            
+            header {
+                padding: 1rem 0;
             }
         }
     </style>
 </head>
 <body>
 
-<header class="top-header">
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="container">
+            <h1>2º Tabelionato de Protestos de Porto Alegre</h1>
+            <div class="info-contato">
+                <p>Rua dos Andradas, 1234 • 4º Andar</p>
+                <p>Centro Histórico • Porto Alegre/RS • CEP 90020-008</p>
+                <p>CNPJ: 04.438.173/0001-47 • (51) 3027-3500</p>
+            </div>
+        </div>
+    </header>
 
-    <h1>2º Tabelionato de Protestos</h1>
+    <!-- CONTEÚDO PRINCIPAL - PÁGINA DE CADASTRO -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    
+                    <!-- Card do formulário -->
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body p-4 p-md-5">
+                            
+                            <!-- Título do formulário -->
+                            <div class="text-center mb-4">
+                                <h2 class="h4 fw-bold mb-2">Cadastro de Usuário</h2>
+                                <p class="text-muted small mb-0">
+                                    Registre um novo administrador ou intimador no sistema
+                                </p>
+                            </div>
 
-    <p>Rua dos Andradas, 1234 - 4º Andar - Porto Alegre - RS</p>
+                            <!-- Alerta de feedback (sucesso/erro) -->
+                            <div id="alerta-cadastro" class="alert d-none" role="alert"></div>
 
-    <p>CNPJ: 04.438.173/0001-47</p>
+                            <!-- Formulário de cadastro -->
+                            <form id="form-cadastro" novalidate>
+                                
+                                <!-- Nome Completo -->
+                                <div class="mb-3">
+                                    <label for="nome-completo" class="form-label fw-semibold">
+                                        Nome Completo <span class="text-danger">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="nome-completo" 
+                                        name="nomeCompleto"
+                                        placeholder="Digite o nome completo"
+                                        required
+                                        minlength="3"
+                                        autocomplete="name"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Informe o nome completo (mínimo 3 caracteres).
+                                    </div>
+                                </div>
 
-    <p>Horário de Atendimento: 09h às 17h</p>
+                                <!-- Email -->
+                                <div class="mb-3">
+                                    <label for="email" class="form-label fw-semibold">
+                                        E-mail <span class="text-danger">*</span>
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email" 
+                                        name="email"
+                                        placeholder="exemplo@dominio.com"
+                                        required
+                                        autocomplete="email"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Informe um e-mail válido.
+                                    </div>
+                                </div>
 
-</header>
+                                <!-- Senha -->
+                                <div class="mb-3">
+                                    <label for="senha" class="form-label fw-semibold">
+                                        Senha <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="password" 
+                                            class="form-control" 
+                                            id="senha" 
+                                            name="senha"
+                                            placeholder="Mínimo 6 caracteres"
+                                            required
+                                            minlength="6"
+                                            autocomplete="new-password"
+                                        >
+                                        <button 
+                                            class="btn btn-outline-secondary btn-toggle-senha" 
+                                            type="button" 
+                                            data-target="senha"
+                                            aria-label="Mostrar senha"
+                                        >
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <div class="invalid-feedback">
+                                            A senha deve ter no mínimo 6 caracteres.
+                                        </div>
+                                    </div>
+                                </div>
 
-<main class="main-content">
+                                <!-- Confirmação de Senha -->
+                                <div class="mb-4">
+                                    <label for="confirmar-senha" class="form-label fw-semibold">
+                                        Confirmar Senha <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="password" 
+                                            class="form-control" 
+                                            id="confirmar-senha" 
+                                            name="confirmarSenha"
+                                            placeholder="Digite a senha novamente"
+                                            required
+                                            minlength="6"
+                                            autocomplete="new-password"
+                                        >
+                                        <button 
+                                            class="btn btn-outline-secondary btn-toggle-senha" 
+                                            type="button" 
+                                            data-target="confirmar-senha"
+                                            aria-label="Mostrar confirmação de senha"
+                                        >
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <div class="invalid-feedback">
+                                            Confirme a senha (mínimo 6 caracteres).
+                                        </div>
+                                    </div>
+                                    <div id="erro-senhas" class="form-text text-danger d-none">
+                                        As senhas não coincidem.
+                                    </div>
+                                </div>
 
-    <div class="card cadastro-card">
+                                <!-- Botão de envio -->
+                                <div class="d-grid">
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-success btn-lg fw-semibold" 
+                                        id="btn-cadastrar"
+                                    >
+                                        <span id="texto-btn">Cadastrar</span>
+                                        <span id="spinner-btn" class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
 
-        <div class="card-body">
-
-            <h3 class="titulo-cadastro">
-                Solicitação de Cadastro
-            </h3>
-
-            <div id="mensagemSistema"></div>
-
-            <form id="formCadastro">
-
-                <div class="mb-3">
-
-                    <label for="nomeCompleto" class="form-label">
-                        Nome Completo
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="nomeCompleto"
-                        required>
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="emailGoogle" class="form-label">
-                        E-mail Google
-                    </label>
-
-                    <input
-                        type="email"
-                        class="form-control"
-                        id="emailGoogle"
-                        placeholder="seuemail@gmail.com"
-                        required>
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="celular" class="form-label">
-                        Celular
-                    </label>
-
-                    <input
-                        type="tel"
-                        class="form-control"
-                        id="celular"
-                        maxlength="15"
-                        placeholder="(51) 99999-9999"
-                        required>
-
-                    <div class="form-text">
-                        Informe o número com DDD.
+                            </form>
+                        </div>
                     </div>
 
                 </div>
-
-                <div class="form-check mb-4">
-
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="aceiteTermos"
-                        required>
-
-                    <label
-                        class="form-check-label"
-                        for="aceiteTermos">
-
-                        Estou ciente de que meu acesso dependerá de aprovação administrativa.
-
-                    </label>
-
-                </div>
-
-                <div class="d-grid gap-2">
-
-                    <button
-                        type="submit"
-                        id="btnSolicitarCadastro"
-                        class="btn btn-success btn-lg">
-
-                        Enviar Solicitação
-
-                    </button>
-
-                    <a
-                        href="index.html"
-                        class="btn btn-outline-secondary">
-
-                        Voltar para Login
-
-                    </a>
-
-                </div>
-
-            </form>
-
+            </div>
         </div>
+    </main>
 
-    </div>
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="ano-atual"></span> 2º Tabelionato de Protestos de Porto Alegre. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-</main>
+    <!-- Bootstrap 5.3.8 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Supabase JS v2 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Script para ano automático no footer -->
+    <script>
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
 
-<footer class="footer">
-    © <span id="anoAtual"></span> 2º Tabelionato de Protestos. Todos os direitos reservados.
-</footer>
+    <!-- Script do formulário de cadastro -->
+    <script>
+        // =========================================================
+        // CONFIGURAÇÃO DO SUPABASE v2 - FORMA CORRETA
+        // =========================================================
+        const SUPABASE_URL = 'https://idcntslmjikqarutsmsb.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
+        
+        // ✅ SINTAXE CORRETA SUPABASE v2 via CDN
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        // =========================================================
+        // TOGGLE DE SENHA (mostrar/ocultar)
+        // =========================================================
+        document.querySelectorAll('.btn-toggle-senha').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                const icon = btn.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('bi-eye');
+                    icon.classList.add('bi-eye-slash');
+                    btn.setAttribute('aria-label', 'Ocultar senha');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('bi-eye-slash');
+                    icon.classList.add('bi-eye');
+                    btn.setAttribute('aria-label', 'Mostrar senha');
+                }
+            });
+        });
 
-<script src="js/firebase.js"></script>
-<script src="js/app.js"></script>
+        // =========================================================
+        // FUNÇÃO DE EXIBIR ALERTAS
+        // =========================================================
+        function exibirAlerta(mensagem, tipo = 'success') {
+            const alerta = document.getElementById('alerta-cadastro');
+            alerta.className = `alert alert-${tipo}`;
+            alerta.textContent = mensagem;
+            alerta.classList.remove('d-none');
+            
+            // Auto-ocultar após 6 segundos
+            setTimeout(() => {
+                alerta.classList.add('d-none');
+            }, 6000);
+        }
 
-<script>
+        // =========================================================
+        // SUBMIT DO FORMULÁRIO -> SUPABASE AUTH v2
+        // =========================================================
+        const form = document.getElementById('form-cadastro');
+        const btnCadastrar = document.getElementById('btn-cadastrar');
+        const textoBtn = document.getElementById('texto-btn');
+        const spinnerBtn = document.getElementById('spinner-btn');
+        const erroSenhas = document.getElementById('erro-senhas');
 
-document.getElementById("anoAtual").textContent =
-new Date().getFullYear();
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            erroSenhas.classList.add('d-none');
 
-const celular = document.getElementById("celular");
+            // Validação nativa do Bootstrap
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
 
-celular.addEventListener("input", function () {
+            // Captura dos valores
+            const nomeCompleto = document.getElementById('nome-completo').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-    let valor = this.value.replace(/\D/g, "");
+            // Validação de senhas coincidentes
+            if (senha !== confirmarSenha) {
+                erroSenhas.classList.remove('d-none');
+                document.getElementById('confirmar-senha').focus();
+                return;
+            }
 
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
-    valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+            // Estado de carregamento
+            btnCadastrar.disabled = true;
+            textoBtn.textContent = 'Cadastrando...';
+            spinnerBtn.classList.remove('d-none');
 
-    this.value = valor;
+            try {
+                // =====================================================
+                // CHAMADA AO SUPABASE AUTH v2 - signUp
+                // =====================================================
+                const { data, error } = await supabaseClient.auth.signUp({
+                    email: email,
+                    password: senha,
+                    options: {
+                        data: {
+                            nome_completo: nomeCompleto
+                        }
+                    }
+                });
 
-});
+                if (error) throw error;
 
-document
-.getElementById("formCadastro")
-.addEventListener("submit", function(e){
+                // Sucesso
+                exibirAlerta(
+                    'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar a conta.',
+                    'success'
+                );
+                form.reset();
+                form.classList.remove('was-validated');
 
-    e.preventDefault();
+                console.log('✅ Usuário criado:', data);
 
-    // Firebase Firestore
-    // Implementaremos posteriormente
-
-    console.log("Solicitação enviada");
-
-});
-
-</script>
+            } catch (erro) {
+                console.error('❌ Erro no cadastro:', erro);
+                
+                // Mensagens amigáveis para erros comuns do Supabase
+                let mensagem = 'Erro ao realizar cadastro. Tente novamente.';
+                
+                if (erro.message.includes('already registered')) {
+                    mensagem = 'Este e-mail já está cadastrado no sistema.';
+                } else if (erro.message.includes('invalid')) {
+                    mensagem = 'E-mail ou senha inválidos.';
+                } else if (erro.message.includes('Password')) {
+                    mensagem = 'A senha deve ter no mínimo 6 caracteres.';
+                } else if (erro.message.includes('Email')) {
+                    mensagem = 'Formato de e-mail inválido.';
+                }
+                
+                exibirAlerta(mensagem, 'danger');
+            } finally {
+                // Restaura o botão
+                btnCadastrar.disabled = false;
+                textoBtn.textContent = 'Cadastrar';
+                spinnerBtn.classList.add('d-none');
+            }
+        });
+    </script>
 
 </body>
 </html>

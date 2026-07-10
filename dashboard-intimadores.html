@@ -125,12 +125,208 @@
 <!-- ============================================ -->
 <!-- CONTEÚDO PRINCIPAL - PAINEL DO INTIMADOR -->
 <!-- ============================================ -->
+<!-- ============================================ -->
+<!-- CONTEÚDO PRINCIPAL - PAINEL DO INTIMADOR -->
+<!-- ============================================ -->
 <main>
-    <div class="container">
-        <!-- AQUI VEM O CONTEÚDO DO PAINEL DO INTIMADOR -->
-        <p class="text-center text-muted">Carregando painel do intimador...</p>
+    <div class="container py-4">
+        
+        <!-- Cabeçalho do Painel -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <h2 class="text-success fw-bold mb-0">
+                <i class="bi bi-clipboard-check"></i> Minhas Intimações
+            </h2>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-success" id="btn-recarregar">
+                    <i class="bi bi-arrow-clockwise"></i> Atualizar
+                </button>
+                <button class="btn btn-outline-danger btn-sm" id="btn-logout">
+                    <i class="bi bi-box-arrow-right"></i> Sair
+                </button>
+            </div>
+        </div>
+
+        <!-- Aviso de Diligência em Andamento -->
+        <div id="alerta-andamento" class="alert alert-warning d-none" role="alert">
+            <i class="bi bi-exclamation-triangle"></i> 
+            <strong>Atenção!</strong> Você tem uma diligência em andamento. 
+            Conclua-a antes de iniciar outra.
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" id="search-intimacoes" 
+                                   placeholder="Buscar por CEP, CPF/CNPJ ou nome do devedor...">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success w-100" id="btn-buscar">
+                            <i class="bi bi-funnel"></i> Filtrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Intimações (Desktop) -->
+        <div id="lista-desktop" class="d-none d-md-block">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Devedor</th>
+                            <th>Endereço</th>
+                            <th>CEP</th>
+                            <th>Status</th>
+                            <th class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-intimacoes">
+                        <tr><td colspan="5" class="text-center text-muted">Carregando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Cards de Intimações (Mobile) -->
+        <div id="lista-mobile" class="d-md-none">
+            <div id="cards-intimacoes" class="row g-3">
+                <div class="col-12 text-center text-muted">Carregando...</div>
+            </div>
+        </div>
+
+        <!-- Paginação -->
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center" id="pagination-intimacoes"></ul>
+        </nav>
+
     </div>
 </main>
+
+<!-- ============================================ -->
+<!-- MODAIS -->
+<!-- ============================================ -->
+
+<!-- Modal: Iniciar Diligência -->
+<div class="modal fade" id="modalIniciar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title"><i class="bi bi-play-circle"></i> Iniciar Diligência</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja iniciar a diligência para <strong id="nome-devedor-iniciar"></strong>?</p>
+                <p class="text-muted small">Sua localização GPS será registrada.</p>
+                <div id="status-gps" class="alert alert-info d-none">
+                    <i class="bi bi-geo-alt"></i> Obtendo localização...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="btn-confirmar-iniciar">
+                    <i class="bi bi-check-circle"></i> Confirmar Início
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Checkpoint -->
+<div class="modal fade" id="modalCheckpoint" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title"><i class="bi bi-geo-alt"></i> Registrar Checkpoint</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Registrar checkpoint para <strong id="nome-devedor-checkpoint"></strong>?</p>
+                <p class="text-muted small">Coordenadas GPS e data/hora serão registrados automaticamente.</p>
+                <div id="status-gps-checkpoint" class="alert alert-info d-none">
+                    <i class="bi bi-geo-alt"></i> Obtendo localização...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btn-confirmar-checkpoint">
+                    <i class="bi bi-check-circle"></i> Registrar Checkpoint
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Justificativa (após 10 checkpoints) -->
+<div class="modal fade" id="modalJustificativa" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Justificativa Obrigatória</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Você registrou mais de 10 checkpoints. Por favor, justifique:</p>
+                <textarea class="form-control" id="texto-justificativa" 
+                          maxlength="140" rows="4" 
+                          placeholder="Descreva o motivo (máximo 140 caracteres, sem emojis)"></textarea>
+                <div class="form-text"><span id="contador-chars">0</span>/140 caracteres</div>
+                <div id="erro-justificativa" class="text-danger small mt-2 d-none"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-warning" id="btn-confirmar-justificativa">
+                    <i class="bi bi-check-circle"></i> Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Concluir Diligência -->
+<div class="modal fade" id="modalConcluir" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title"><i class="bi bi-flag-checkered"></i> Concluir Diligência</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Como deseja finalizar a diligência de <strong id="nome-devedor-concluir"></strong>?</p>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-warning" id="btn-pendente">
+                        <i class="bi bi-arrow-counterclockwise"></i> 
+                        <strong>Pendente</strong> - Voltará para a fila de atribuição
+                    </button>
+                    <button class="btn btn-outline-danger" id="btn-encerrado">
+                        <i class="bi bi-x-circle"></i> 
+                        <strong>Encerrado</strong> - Diligência finalizada definitivamente
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Mensagem Genérica (Sucesso/Erro) -->
+<div class="modal fade" id="modalMensagem" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center p-4">
+                <div id="icone-mensagem" class="mb-3" style="font-size: 3rem;"></div>
+                <p id="texto-mensagem" class="mb-0"></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer>
     <div class="container">
@@ -148,8 +344,605 @@
 <!-- SCRIPTS DO PAINEL DO INTIMADOR -->
 <!-- ============================================ -->
 <script>
-    // AQUI VEM O JAVASCRIPT DO PAINEL DO INTIMADOR
-    console.log('Painel do Intimador - Aguardando instruções...');
+    // ============================================
+    // 1. CONFIGURAÇÃO DO SUPABASE
+    // ============================================
+    const SUPABASE_URL = 'https://idcntslmjikqarutsmsb.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Variáveis globais
+    let usuarioAtual = null;
+    let diligenciasEmCache = [];
+    let paginaAtual = 1;
+    const ITENS_POR_PAGINA = 10;
+    let diligenciaEmAndamentoId = null; // ID da diligência em andamento (bloqueia as outras)
+    let diligenciaSelecionadaId = null; // ID da diligência selecionada para ações
+    let contadorCheckpoints = 0;
+
+    // ============================================
+    // 2. VERIFICAÇÃO DE AUTENTICAÇÃO
+    // ============================================
+    async function verificarAutenticacao() {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+
+        if (!session) {
+            window.location.href = 'https://rodrigopontesdev.github.io/';
+            return;
+        }
+
+        const { data: perfil, error } = await supabaseClient
+            .from('perfis')
+            .select('id, nome_completo, role')
+            .eq('id', session.user.id)
+            .single();
+
+        if (error || !perfil || perfil.role !== 'intimador') {
+            alert('Acesso restrito a intimadores!');
+            await supabaseClient.auth.signOut();
+            window.location.href = 'https://rodrigopontesdev.github.io/';
+            return;
+        }
+
+        usuarioAtual = perfil;
+        carregarDiligencias();
+        configurarLogout();
+    }
+
+    // ============================================
+    // 3. LOGOUT
+    // ============================================
+    function configurarLogout() {
+        document.getElementById('btn-logout').addEventListener('click', async () => {
+            await supabaseClient.auth.signOut();
+            window.location.href = 'https://rodrigopontesdev.github.io/';
+        });
+    }
+
+    // ============================================
+    // 4. CARREGAR DILIGÊNCIAS
+    // ============================================
+    async function carregarDiligencias(page = 1, searchTerm = '') {
+        paginaAtual = page;
+        const offset = (page - 1) * ITENS_POR_PAGINA;
+
+        try {
+            let query = supabaseClient
+                .from('diligencias')
+                .select('*, clientes:cliente_id(*)', { count: 'exact' })
+                .eq('intimador_id', usuarioAtual.id)
+                .in('status', ['pendente', 'em_andamento'])
+                .order('criada_em', { ascending: false });
+
+            // Aplicar filtro de busca
+            if (searchTerm) {
+                query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
+            }
+
+            query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
+
+            const { data, error, count } = await query;
+
+            if (error) {
+                console.error('Erro ao carregar diligências:', error);
+                mostrarMensagem('Erro ao carregar intimações', 'erro');
+                return;
+            }
+
+            diligenciasEmCache = data || [];
+
+            // Verificar se há alguma em andamento (bloqueia as outras)
+            diligenciaEmAndamentoId = null;
+            const emAndamento = diligenciasEmCache.find(d => d.status === 'em_andamento');
+            if (emAndamento) {
+                diligenciaEmAndamentoId = emAndamento.id;
+                document.getElementById('alerta-andamento').classList.remove('d-none');
+            } else {
+                document.getElementById('alerta-andamento').classList.add('d-none');
+            }
+
+            renderizarLista();
+            atualizarPaginacao(count || 0);
+
+        } catch (err) {
+            console.error('Erro inesperado:', err);
+        }
+    }
+
+    // ============================================
+    // 5. RENDERIZAR LISTA (Desktop e Mobile)
+    // ============================================
+    function renderizarLista() {
+        const tbody = document.getElementById('tbody-intimacoes');
+        const cardsContainer = document.getElementById('cards-intimacoes');
+
+        if (diligenciasEmCache.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Nenhuma intimação encontrada</td></tr>';
+            cardsContainer.innerHTML = '<div class="col-12 text-center text-muted">Nenhuma intimação encontrada</div>';
+            return;
+        }
+
+        // Desktop - Tabela
+        tbody.innerHTML = diligenciasEmCache.map(d => {
+            const cliente = d.clientes || {};
+            const bloqueada = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
+            const statusBadge = getStatusBadge(d.status);
+            const botoes = getBotoesAcao(d, bloqueada);
+
+            return `
+                <tr>
+                    <td><strong>${cliente.devedor || '-'}</strong></td>
+                    <td>${cliente.endereco || '-'}</td>
+                    <td>${cliente.cep || '-'}</td>
+                    <td>${statusBadge}</td>
+                    <td class="text-end">${botoes}</td>
+                </tr>
+            `;
+        }).join('');
+
+        // Mobile - Cards
+        cardsContainer.innerHTML = diligenciasEmCache.map(d => {
+            const cliente = d.clientes || {};
+            const bloqueada = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
+            const statusBadge = getStatusBadge(d.status);
+            const botoes = getBotoesAcao(d, bloqueada);
+
+            return `
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body p-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0 fw-bold text-truncate" style="max-width: 70%;" title="${cliente.devedor || ''}">
+                                    ${cliente.devedor || '-'}
+                                </h6>
+                                ${statusBadge}
+                            </div>
+                            <p class="mb-1 small text-muted">
+                                <i class="bi bi-geo-alt"></i> ${cliente.endereco || '-'}
+                            </p>
+                            <p class="mb-2 small text-muted">
+                                <i class="bi bi-mailbox"></i> CEP: ${cliente.cep || '-'}
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                ${botoes}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function getStatusBadge(status) {
+        const cores = {
+            'pendente': 'bg-secondary',
+            'em_andamento': 'bg-warning text-dark',
+            'concluida': 'bg-success',
+            'encerrada': 'bg-danger'
+        };
+        const labels = {
+            'pendente': 'Pendente',
+            'em_andamento': 'Em Andamento',
+            'concluida': 'Concluída',
+            'encerrada': 'Encerrada'
+        };
+        return `<span class="badge ${cores[status] || 'bg-secondary'}">${labels[status] || status}</span>`;
+    }
+
+    function getBotoesAcao(diligencia, bloqueada) {
+        if (bloqueada) {
+            return `<button class="btn btn-sm btn-secondary" disabled title="Conclua a diligência em andamento primeiro">
+                        <i class="bi bi-lock"></i> Bloqueada
+                    </button>`;
+        }
+
+        const status = diligencia.status;
+        let botoes = '';
+
+        if (status === 'pendente') {
+            botoes += `<button class="btn btn-sm btn-success btn-iniciar" data-id="${diligencia.id}">
+                            <i class="bi bi-play-circle"></i> Iniciar
+                       </button>`;
+        }
+
+        if (status === 'em_andamento') {
+            botoes += `<button class="btn btn-sm btn-primary btn-checkpoint" data-id="${diligencia.id}">
+                            <i class="bi bi-geo-alt"></i> Checkpoint
+                       </button>`;
+            botoes += `<button class="btn btn-sm btn-info btn-concluir" data-id="${diligencia.id}">
+                            <i class="bi bi-flag-checkered"></i> Concluir
+                       </button>`;
+        }
+
+        return botoes || '<span class="text-muted small">Sem ações</span>';
+    }
+
+    // ============================================
+    // 6. PAGINAÇÃO
+    // ============================================
+    function atualizarPaginacao(totalItems) {
+        const totalPages = Math.ceil(totalItems / ITENS_POR_PAGINA);
+        const pagination = document.getElementById('pagination-intimacoes');
+
+        if (totalPages <= 1) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        let html = `
+            <li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}">
+                <a class="page-link btn-page" data-page="${paginaAtual - 1}">Anterior</a>
+            </li>
+        `;
+
+        for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+            html += `
+                <li class="page-item ${i === paginaAtual ? 'active' : ''}">
+                    <a class="page-link btn-page" data-page="${i}">${i}</a>
+                </li>
+            `;
+        }
+
+        html += `
+            <li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}">
+                <a class="page-link btn-page" data-page="${paginaAtual + 1}">Próximo</a>
+            </li>
+        `;
+
+        pagination.innerHTML = html;
+
+        pagination.querySelectorAll('.btn-page').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = parseInt(link.dataset.page);
+                const searchTerm = document.getElementById('search-intimacoes').value;
+                carregarDiligencias(page, searchTerm);
+            });
+        });
+    }
+
+    // ============================================
+    // 7. EVENT LISTENERS GERAIS
+    // ============================================
+    document.addEventListener('DOMContentLoaded', () => {
+        // Botão recarregar
+        document.getElementById('btn-recarregar').addEventListener('click', () => {
+            carregarDiligencias(1);
+        });
+
+        // Busca
+        document.getElementById('btn-buscar').addEventListener('click', () => {
+            const searchTerm = document.getElementById('search-intimacoes').value;
+            carregarDiligencias(1, searchTerm);
+        });
+
+        document.getElementById('search-intimacoes').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerm = document.getElementById('search-intimacoes').value;
+                carregarDiligencias(1, searchTerm);
+            }
+        });
+
+        // Delegação de eventos para botões dinâmicos
+        document.addEventListener('click', (e) => {
+            const btnIniciar = e.target.closest('.btn-iniciar');
+            const btnCheckpoint = e.target.closest('.btn-checkpoint');
+            const btnConcluir = e.target.closest('.btn-concluir');
+
+            if (btnIniciar) {
+                diligenciaSelecionadaId = btnIniciar.dataset.id;
+                abrirModalIniciar();
+            }
+            if (btnCheckpoint) {
+                diligenciaSelecionadaId = btnCheckpoint.dataset.id;
+                abrirModalCheckpoint();
+            }
+            if (btnConcluir) {
+                diligenciaSelecionadaId = btnConcluir.dataset.id;
+                abrirModalConcluir();
+            }
+        });
+
+        // Confirmar início
+        document.getElementById('btn-confirmar-iniciar').addEventListener('click', confirmarIniciar);
+
+        // Confirmar checkpoint
+        document.getElementById('btn-confirmar-checkpoint').addEventListener('click', confirmarCheckpoint);
+
+        // Contador de caracteres da justificativa
+        document.getElementById('texto-justificativa').addEventListener('input', function() {
+            // Remover emojis
+            this.value = removerEmojis(this.value);
+            document.getElementById('contador-chars').textContent = this.value.length;
+        });
+
+        // Confirmar justificativa
+        document.getElementById('btn-confirmar-justificativa').addEventListener('click', confirmarJustificativa);
+
+        // Concluir - Pendente
+        document.getElementById('btn-pendente').addEventListener('click', () => finalizarDiligencia('pendente'));
+
+        // Concluir - Encerrado
+        document.getElementById('btn-encerrado').addEventListener('click', () => finalizarDiligencia('encerrada'));
+
+        // Iniciar verificação
+        verificarAutenticacao();
+    });
+
+    // ============================================
+    // 8. MODAL INICIAR DILIGÊNCIA
+    // ============================================
+    function abrirModalIniciar() {
+        const diligencia = diligenciasEmCache.find(d => d.id === diligenciaSelecionadaId);
+        if (!diligencia) return;
+
+        document.getElementById('nome-devedor-iniciar').textContent = diligencia.clientes?.devedor || 'Devedor';
+        document.getElementById('status-gps').classList.add('d-none');
+
+        const modal = new bootstrap.Modal(document.getElementById('modalIniciar'));
+        modal.show();
+    }
+
+    async function confirmarIniciar() {
+        const statusGps = document.getElementById('status-gps');
+        statusGps.classList.remove('d-none');
+
+        // Pedir permissão de geolocalização
+        if (!navigator.geolocation) {
+            mostrarMensagem('Geolocalização não suportada pelo navegador', 'erro');
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                // GPS obtido com sucesso
+                const { latitude, longitude } = position.coords;
+                console.log('GPS obtido:', latitude, longitude);
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('diligencias')
+                        .update({
+                            status: 'em_andamento',
+                            iniciada_em: new Date().toISOString()
+                        })
+                        .eq('id', diligenciaSelecionadaId);
+
+                    if (error) throw error;
+
+                    bootstrap.Modal.getInstance(document.getElementById('modalIniciar')).hide();
+                    mostrarMensagem('Diligência iniciada com sucesso!', 'sucesso');
+                    carregarDiligencias(paginaAtual);
+
+                } catch (err) {
+                    console.error('Erro ao iniciar:', err);
+                    mostrarMensagem('Erro ao iniciar diligência', 'erro');
+                }
+            },
+            (error) => {
+                // GPS negado ou erro
+                statusGps.classList.add('d-none');
+                let msg = 'Não foi possível obter sua localização.';
+                if (error.code === 1) msg = 'Permissão de localização negada. A diligência não pode ser iniciada sem GPS.';
+                else if (error.code === 2) msg = 'Localização indisponível.';
+                else if (error.code === 3) msg = 'Tempo esgotado ao obter localização.';
+
+                mostrarMensagem(msg, 'erro');
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    }
+
+    // ============================================
+    // 9. MODAL CHECKPOINT
+    // ============================================
+    async function abrirModalCheckpoint() {
+        const diligencia = diligenciasEmCache.find(d => d.id === diligenciaSelecionadaId);
+        if (!diligencia) return;
+
+        document.getElementById('nome-devedor-checkpoint').textContent = diligencia.clientes?.devedor || 'Devedor';
+        document.getElementById('status-gps-checkpoint').classList.add('d-none');
+
+        // Contar checkpoints existentes
+        const { count } = await supabaseClient
+            .from('checkpoints')
+            .select('id', { count: 'exact', head: true })
+            .eq('diligencia_id', diligenciaSelecionadaId);
+
+        contadorCheckpoints = count || 0;
+
+        const modal = new bootstrap.Modal(document.getElementById('modalCheckpoint'));
+        modal.show();
+    }
+
+    async function confirmarCheckpoint() {
+        const statusGps = document.getElementById('status-gps-checkpoint');
+        statusGps.classList.remove('d-none');
+
+        if (!navigator.geolocation) {
+            mostrarMensagem('Geolocalização não suportada', 'erro');
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const { latitude, longitude } = position.coords;
+                const agora = new Date().toISOString();
+
+                try {
+                    // Inserir checkpoint
+                    const { error } = await supabaseClient
+                        .from('checkpoints')
+                        .insert({
+                            diligencia_id: diligenciaSelecionadaId,
+                            sequencial: contadorCheckpoints + 1,
+                            latitude: latitude,
+                            longitude: longitude,
+                            data_hora: agora
+                        });
+
+                    if (error) throw error;
+
+                    contadorCheckpoints++;
+                    bootstrap.Modal.getInstance(document.getElementById('modalCheckpoint')).hide();
+                    mostrarMensagem(`Checkpoint #${contadorCheckpoints} registrado com sucesso!`, 'sucesso');
+
+                    // Se passou de 10, abrir modal de justificativa
+                    if (contadorCheckpoints > 10) {
+                        setTimeout(() => {
+                            const justificativaModal = new bootstrap.Modal(document.getElementById('modalJustificativa'));
+                            justificativaModal.show();
+                        }, 1000);
+                    }
+
+                } catch (err) {
+                    console.error('Erro ao registrar checkpoint:', err);
+                    mostrarMensagem('Erro ao registrar checkpoint', 'erro');
+                }
+            },
+            (error) => {
+                statusGps.classList.add('d-none');
+                let msg = 'Não foi possível obter sua localização.';
+                if (error.code === 1) msg = 'Permissão de localização negada.';
+                mostrarMensagem(msg, 'erro');
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    }
+
+    // ============================================
+    // 10. MODAL JUSTIFICATIVA
+    // ============================================
+    function removerEmojis(texto) {
+        // Regex para remover emojis
+        return texto.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{FE0F}]/gu, '');
+    }
+
+    async function confirmarJustificativa() {
+        const texto = document.getElementById('texto-justificativa').value.trim();
+        const erroDiv = document.getElementById('erro-justificativa');
+
+        if (!texto) {
+            erroDiv.textContent = 'A justificativa é obrigatória.';
+            erroDiv.classList.remove('d-none');
+            return;
+        }
+
+        if (texto.length > 140) {
+            erroDiv.textContent = 'Máximo de 140 caracteres.';
+            erroDiv.classList.remove('d-none');
+            return;
+        }
+
+        // Verificar se tem emojis
+        const semEmojis = removerEmojis(texto);
+        if (semEmojis !== texto) {
+            erroDiv.textContent = 'Emojis não são permitidos.';
+            erroDiv.classList.remove('d-none');
+            return;
+        }
+
+        try {
+            // Atualizar último checkpoint com justificativa
+            const { error } = await supabaseClient
+                .from('checkpoints')
+                .update({ justificativa: texto })
+                .eq('diligencia_id', diligenciaSelecionadaId)
+                .eq('sequencial', contadorCheckpoints);
+
+            if (error) throw error;
+
+            bootstrap.Modal.getInstance(document.getElementById('modalJustificativa')).hide();
+            document.getElementById('texto-justificativa').value = '';
+            document.getElementById('contador-chars').textContent = '0';
+            mostrarMensagem('Justificativa registrada com sucesso!', 'sucesso');
+
+        } catch (err) {
+            console.error('Erro ao salvar justificativa:', err);
+            mostrarMensagem('Erro ao salvar justificativa', 'erro');
+        }
+    }
+
+    // ============================================
+    // 11. MODAL CONCLUIR
+    // ============================================
+    async function abrirModalConcluir() {
+        const diligencia = diligenciasEmCache.find(d => d.id === diligenciaSelecionadaId);
+        if (!diligencia) return;
+
+        // Contar checkpoints
+        const { count } = await supabaseClient
+            .from('checkpoints')
+            .select('id', { count: 'exact', head: true })
+            .eq('diligencia_id', diligenciaSelecionadaId);
+
+        if (count < 3) {
+            mostrarMensagem(`Mínimo de 3 checkpoints obrigatórios. Você tem ${count || 0}.`, 'erro');
+            return;
+        }
+
+        document.getElementById('nome-devedor-concluir').textContent = diligencia.clientes?.devedor || 'Devedor';
+
+        const modal = new bootstrap.Modal(document.getElementById('modalConcluir'));
+        modal.show();
+    }
+
+    async function finalizarDiligencia(novoStatus) {
+        try {
+            const updateData = { status: novoStatus };
+            if (novoStatus === 'encerrada') {
+                updateData.concluida_em = new Date().toISOString();
+            }
+
+            const { error } = await supabaseClient
+                .from('diligencias')
+                .update(updateData)
+                .eq('id', diligenciaSelecionadaId);
+
+            if (error) throw error;
+
+            bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
+
+            const msg = novoStatus === 'pendente' 
+                ? 'Diligência marcada como Pendente. Voltará para a fila de atribuição.'
+                : 'Diligência Encerrada com sucesso!';
+
+            mostrarMensagem(msg, 'sucesso');
+            carregarDiligencias(paginaAtual);
+
+        } catch (err) {
+            console.error('Erro ao finalizar:', err);
+            mostrarMensagem('Erro ao finalizar diligência', 'erro');
+        }
+    }
+
+    // ============================================
+    // 12. MODAL GENÉRICO DE MENSAGEM
+    // ============================================
+    function mostrarMensagem(texto, tipo = 'info') {
+        const icone = document.getElementById('icone-mensagem');
+        const textoEl = document.getElementById('texto-mensagem');
+
+        const icones = {
+            'sucesso': '<i class="bi bi-check-circle-fill text-success"></i>',
+            'erro': '<i class="bi bi-x-circle-fill text-danger"></i>',
+            'info': '<i class="bi bi-info-circle-fill text-info"></i>',
+            'alerta': '<i class="bi bi-exclamation-triangle-fill text-warning"></i>'
+        };
+
+        icone.innerHTML = icones[tipo] || icones['info'];
+        textoEl.textContent = texto;
+
+        const modal = new bootstrap.Modal(document.getElementById('modalMensagem'));
+        modal.show();
+
+        // Fechar automaticamente após 3 segundos (exceto erros)
+        if (tipo !== 'erro') {
+            setTimeout(() => {
+                modal.hide();
+            }, 3000);
+        }
+    }
 </script>
 
 </body>

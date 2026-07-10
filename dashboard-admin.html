@@ -55,12 +55,10 @@
         }
         
         main {
-            flex: 1;
-            padding: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    flex: 1;
+    padding: 2rem 0;
+    /* Remove display: flex, align-items e justify-content */
+}
         
         .manutencao-container {
             text-align: center;
@@ -315,7 +313,7 @@
                   <!-- Supabase JS v2 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
-    <!-- Scripts do Dashboard Admin -->
+       <!-- Scripts do Dashboard Admin -->
     <script>
         // 1. Ano automático no footer
         document.getElementById('ano-atual').textContent = new Date().getFullYear();
@@ -365,7 +363,8 @@
 
             // Tudo certo, carregar dados
             carregarIntimacoes();
-            carregarUsuarios(); // Carregar usuários na aba Usuários
+            carregarUsuarios();
+            carregarRelatorios(); // Carregar relatórios na aba Acompanhamento
             configurarLogout();
         }
 
@@ -387,12 +386,10 @@
                     .from('clientes')
                     .select('*', { count: 'exact' });
 
-                // Aplicar filtro de busca se houver
                 if (searchTerm) {
                     query = query.or(`cep.ilike.%${searchTerm}%,cpf_cnpj.ilike.%${searchTerm}%,devedor.ilike.%${searchTerm}%`);
                 }
 
-                // Aplicar paginação
                 query = query.range(offset, offset + ITEMS_PER_PAGE - 1);
 
                 const { data, error, count } = await query;
@@ -410,7 +407,6 @@
                     return;
                 }
 
-                // Renderizar tabela
                 const tbody = document.getElementById('tbody-intimacoes');
                 tbody.innerHTML = data.map(cliente => `
                     <tr>
@@ -423,7 +419,6 @@
                     </tr>
                 `).join('');
 
-                // Atualizar paginação
                 atualizarPaginacao(count, ITEMS_PER_PAGE, page, searchTerm);
 
             } catch (err) {
@@ -438,14 +433,12 @@
             
             let html = '';
             
-            // Botão Anterior
             html += `
                 <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
                     <a class="page-link" href="#" data-page="${currentPage - 1}">Anterior</a>
                 </li>
             `;
             
-            // Números das páginas
             for (let i = 1; i <= Math.min(totalPages, 5); i++) {
                 html += `
                     <li class="page-item ${i === currentPage ? 'active' : ''}">
@@ -454,7 +447,6 @@
                 `;
             }
             
-            // Botão Próximo
             html += `
                 <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
                     <a class="page-link" href="#" data-page="${currentPage + 1}">Próximo</a>
@@ -463,7 +455,6 @@
             
             pagination.innerHTML = html;
             
-            // Adicionar event listeners
             pagination.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -506,8 +497,7 @@
                         </td>
                         <td class="text-end">
                             <select class="form-select form-select-sm d-inline-block w-auto" 
-                                    onchange="alterarRole('${usuario.id}', this.value)"
-                                    ${usuario.role === 'administrador' && usuario.id === '${session?.user.id}' ? 'disabled' : ''}>
+                                    onchange="alterarRole('${usuario.id}', this.value)">
                                 <option value="administrador" ${usuario.role === 'administrador' ? 'selected' : ''}>Administrador</option>
                                 <option value="intimador" ${usuario.role === 'intimador' ? 'selected' : ''}>Intimador</option>
                             </select>
@@ -523,7 +513,7 @@
         // Alterar role do usuário
         async function alterarRole(userId, newRole) {
             if (!confirm(`Tem certeza que deseja alterar o cargo deste usuário para "${newRole}"?`)) {
-                carregarUsuarios(); // Recarrega para manter o valor anterior
+                carregarUsuarios();
                 return;
             }
 
@@ -540,13 +530,161 @@
                 }
 
                 alert('Cargo alterado com sucesso!');
-                carregarUsuarios(); // Recarrega a lista
+                carregarUsuarios();
 
             } catch (err) {
                 console.error('Erro ao alterar role:', err);
                 alert('Erro inesperado ao alterar cargo');
                 carregarUsuarios();
             }
+        }
+
+        // 7. CARREGAR RELATÓRIOS (ABA ACOMPANHAMENTO)
+        async function carregarRelatorios(searchTerm = '') {
+            try {
+                // Buscar todos os intimadores
+                const { data: intimadores, error: errorIntimadores } = await supabaseClient
+                    .from('perfis')
+                    .select('id, nome_completo')
+                    .eq('role', 'intimador');
+
+                if (errorIntimadores) throw errorIntimadores;
+
+                if (!intimadores || intimadores.length === 0) {
+                    document.getElementById('tbody-intimadores').innerHTML = 
+                        '<tr><td colspan="5" class="text-center text-muted">Nenhum intimador cadastrado</td></tr>';
+                    return;
+                }
+
+                // Buscar estatísticas de diligências para cada intimador
+                const tbody = document.getElementById('tbody-intimadores');
+                let html = '';
+
+                for (const intimador of intimadores) {
+                    // Contar diligências por status
+                    const { data: diligencias, error: errorDiligencias } = await supabaseClient
+                        .from('diligencias')
+                        .select('status, cliente_id')
+                        .eq('intimador_id', intimador.id);
+
+                    if (errorDiligencias) {
+                        console.error('Erro ao carregar diligências:', errorDiligencias);
+                        continue;
+                    }
+
+                    const ativas = diligencias?.filter(d => d.status === 'em_andamento').length || 0;
+                    const concluidas = diligencias?.filter(d => d.status === 'concluida' || d.status === 'encerrada').length || 0;
+                    const pendentes = diligencias?.filter(d => d.status === 'pendente').length || 0;
+
+                    // Filtrar por busca
+                    if (searchTerm) {
+                        const nomeMatch = intimador.nome_completo?.toLowerCase().includes(searchTerm.toLowerCase());
+                        if (!nomeMatch) continue;
+                    }
+
+                    html += `
+                        <tr>
+                            <td><strong>${intimador.nome_completo || 'Sem nome'}</strong></td>
+                            <td class="text-center"><span class="badge bg-warning text-dark">${ativas}</span></td>
+                            <td class="text-center"><span class="badge bg-success">${concluidas}</span></td>
+                            <td class="text-center"><span class="badge bg-secondary">${pendentes}</span></td>
+                            <td class="text-end">
+                                <button class="btn btn-sm btn-outline-primary btn-ver-detalhes" data-id="${intimador.id}">
+                                    <i class="bi bi-eye"></i> Ver Detalhes
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
+
+                if (html === '') {
+                    tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Nenhum intimador encontrado</td></tr>';
+                } else {
+                    tbody.innerHTML = html;
+                }
+
+            } catch (err) {
+                console.error('Erro ao carregar relatórios:', err);
+                document.getElementById('tbody-intimadores').innerHTML = 
+                    `<tr><td colspan="5" class="text-center text-danger">Erro: ${err.message}</td></tr>`;
+            }
+        }
+
+        // Exportar dados para CSV
+        async function exportarCSV() {
+            try {
+                const { data: diligencias, error } = await supabaseClient
+                    .from('diligencias')
+                    .select(`
+                        id,
+                        status,
+                        iniciada_em,
+                        concluida_em,
+                        criada_em,
+                        intimador_id,
+                        cliente_id,
+                        perfis:intimador_id(nome_completo, email),
+                        clientes:cliente_id(devedor, cpf_cnpj, endereco, cep)
+                    `);
+
+                if (error) throw error;
+
+                // Converter para CSV
+                let csv = 'ID,Diligência,Intimador,Devedor,CPF/CNPJ,Endereço,Status,Iniciada,Concluída,Criada\n';
+                
+                diligencias.forEach(d => {
+                    const intimador = d.perfis;
+                    const cliente = d.clientes;
+                    csv += `${d.id},"${intimador?.nome_completo || '-'}","${cliente?.devedor || '-'}","${cliente?.cpf_cnpj || '-'}","${cliente?.endereco || '-'}",${d.status},${d.iniciada_em || '-'},${d.concluida_em || '-'},${d.criada_em}\n`;
+                });
+
+                // Download
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `relatorio_diligencias_${new Date().toISOString().split('T')[0]}.csv`;
+                link.click();
+
+            } catch (err) {
+                alert('Erro ao exportar CSV: ' + err.message);
+            }
+        }
+
+        // Exportar dados para JSON
+        async function exportarJSON() {
+            try {
+                const { data: diligencias, error } = await supabaseClient
+                    .from('diligencias')
+                    .select(`
+                        id,
+                        status,
+                        iniciada_em,
+                        concluida_em,
+                        criada_em,
+                        intimador_id,
+                        cliente_id,
+                        perfis:intimador_id(nome_completo, email),
+                        clientes:cliente_id(devedor, cpf_cnpj, endereco, cep),
+                        checkpoints(id, sequencial, latitude, longitude, data_hora, justificativa)
+                    `);
+
+                if (error) throw error;
+
+                // Download
+                const blob = new Blob([JSON.stringify(diligencias, null, 2)], { type: 'application/json' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `relatorio_diligencias_${new Date().toISOString().split('T')[0]}.json`;
+                link.click();
+
+            } catch (err) {
+                alert('Erro ao exportar JSON: ' + err.message);
+            }
+        }
+
+        // Exportar dados para PDF (simplificado)
+        async function exportarPDF() {
+            alert('Funcionalidade de PDF será implementada em breve! Use CSV ou JSON por enquanto.');
         }
 
         // Event listeners para busca e atribuição
@@ -560,6 +698,18 @@
                 if (e.key === 'Enter') {
                     const searchTerm = document.getElementById('search-intimacoes').value;
                     carregarIntimacoes(1, searchTerm);
+                }
+            });
+
+            // Busca na aba Acompanhamento
+            document.getElementById('btn-export-csv').addEventListener('click', exportarCSV);
+            document.getElementById('btn-export-json').addEventListener('click', exportarJSON);
+            document.getElementById('btn-export-pdf').addEventListener('click', exportarPDF);
+
+            document.getElementById('search-intimadores').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const searchTerm = document.getElementById('search-intimadores').value;
+                    carregarRelatorios(searchTerm);
                 }
             });
 
@@ -584,9 +734,8 @@
                 }
             });
 
-            // ========== NOVO CÓDIGO DO MODAL DE ATRIBUIÇÃO ==========
+            // ========== MODAL DE ATRIBUIÇÃO ==========
             
-            // Carregar intimadores para o modal
             async function carregarIntimadores() {
                 const { data, error } = await supabaseClient
                     .from('perfis')
@@ -601,7 +750,6 @@
                 return data || [];
             }
 
-            // Abrir modal de atribuição
             document.getElementById('btn-atribuir').addEventListener('click', async () => {
                 const checkboxes = document.querySelectorAll('.cliente-checkbox:checked');
                 const clienteIds = Array.from(checkboxes).map(cb => parseInt(cb.value));
@@ -611,7 +759,6 @@
                     return;
                 }
 
-                // Carregar lista de intimadores
                 const intimadores = await carregarIntimadores();
                 
                 const select = document.getElementById('select-intimador');
@@ -628,15 +775,12 @@
                     });
                 }
 
-                // Armazenar IDs para usar depois
                 select.dataset.clienteIds = JSON.stringify(clienteIds);
 
-                // Abrir modal
                 const modal = new bootstrap.Modal(document.getElementById('modalAtribuir'));
                 modal.show();
             });
 
-            // Confirmar atribuição
             document.getElementById('btn-confirmar-atribuicao').addEventListener('click', async () => {
                 const select = document.getElementById('select-intimador');
                 const intimadorId = select.value;
@@ -647,7 +791,6 @@
                     return;
                 }
 
-                // Criar diligências para cada cliente selecionado
                 const diligencias = clienteIds.map(clienteId => ({
                     cliente_id: clienteId,
                     intimador_id: intimadorId,
@@ -666,18 +809,14 @@
 
                 alert(`✅ ${data.length} intimação(ões) atribuída(s) com sucesso!`);
                 
-                // Fechar modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalAtribuir'));
                 modal.hide();
 
-                // Recarregar intimações
                 carregarIntimacoes();
             });
-            
-            // ========== FIM DO CÓDIGO DO MODAL ==========
         });
 
-        // 7. Iniciar verificação quando a página carregar
+        // 8. Iniciar verificação quando a página carregar
         verificarAutenticacao();
     </script>
 </body>

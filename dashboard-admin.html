@@ -538,29 +538,43 @@
        // Exportar CSV
 async function exportarCSV() {
     try {
-        // Buscar todas as diligências com dados relacionados
-        const { data: diligencias, error } = await supabaseClient
+        // Buscar todas as diligências
+        const { data: diligencias, error: errorDiligencias } = await supabaseClient
             .from('diligencias')
-            .select(`
-                *,
-                perfis:intimador_id(id, nome_completo, email),
-                clientes:cliente_id(id, devedor, cpf_cnpj, endereco, cep)
-            `)
+            .select('*')
             .order('criada_em', { ascending: false });
 
-        if (error) throw error;
+        if (errorDiligencias) throw errorDiligencias;
         if (!diligencias || diligencias.length === 0) {
             alert('Nenhuma diligência encontrada para exportar.');
             return;
         }
 
+        // Buscar intimadores e clientes separadamente
+        const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
+        const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
+
+        const { data: intimadores } = await supabaseClient
+            .from('perfis')
+            .select('id, nome_completo, email')
+            .in('id', intimadorIds);
+
+        const { data: clientes } = await supabaseClient
+            .from('clientes')
+            .select('id, devedor, cpf_cnpj, endereco, cep')
+            .in('id', clienteIds);
+
+        // Criar mapas para busca rápida
+        const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
+        const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
+
         // Converter para CSV
-        let csv = 'ID,Diligência,Intimador,Email Intimador,Devedor,CPF/CNPJ,Endereço,CEP,Status,Iniciada,Concluída,Criada\n';
+        let csv = 'ID,Intimador,Email Intimador,Devedor,CPF/CNPJ,Endereço,CEP,Status,Iniciada,Concluída,Criada\n';
         
         diligencias.forEach(d => {
-            const intimador = d.perfis;
-            const cliente = d.clientes;
-            csv += `"${d.id}","${intimador?.nome_completo || 'Não atribuído'}","${intimador?.email || '-'}","${cliente?.devedor || '-'}","${cliente?.cpf_cnpj || '-'}","${cliente?.endereco || '-'}","${cliente?.cep || '-'}","${d.status}","${d.iniciada_em || '-'}","${d.concluida_em || '-'}","${d.criada_em}"\n`;
+            const intimador = mapIntimadores[d.intimador_id] || {};
+            const cliente = mapClientes[d.cliente_id] || {};
+            csv += `"${d.id}","${intimador.nome_completo || 'Não atribuído'}","${intimador.email || '-'}","${cliente.devedor || '-'}","${cliente.cpf_cnpj || '-'}","${cliente.endereco || '-'}","${cliente.cep || '-'}","${d.status}","${d.iniciada_em || '-'}","${d.concluida_em || '-'}","${d.criada_em}"\n`;
         });
 
         // Download
@@ -578,22 +592,49 @@ async function exportarCSV() {
 // Exportar JSON
 async function exportarJSON() {
     try {
-        // Buscar todas as diligências com dados relacionados
-        const { data: diligencias, error } = await supabaseClient
+        // Buscar todas as diligências
+        const { data: diligencias, error: errorDiligencias } = await supabaseClient
             .from('diligencias')
-            .select(`
-                *,
-                perfis:intimador_id(id, nome_completo, email),
-                clientes:cliente_id(id, devedor, cpf_cnpj, endereco, cep),
-                checkpoints(id, sequencial, latitude, longitude, data_hora, justificativa, criado_em)
-            `)
+            .select('*')
             .order('criada_em', { ascending: false });
 
-        if (error) throw error;
+        if (errorDiligencias) throw errorDiligencias;
         if (!diligencias || diligencias.length === 0) {
             alert('Nenhuma diligência encontrada para exportar.');
             return;
         }
+
+        // Buscar dados relacionados
+        const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
+        const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
+        const diligenciaIds = diligencias.map(d => d.id);
+
+        const { data: intimadores } = await supabaseClient
+            .from('perfis')
+            .select('id, nome_completo, email')
+            .in('id', intimadorIds);
+
+        const { data: clientes } = await supabaseClient
+            .from('clientes')
+            .select('id, devedor, cpf_cnpj, endereco, cep')
+            .in('id', clienteIds);
+
+        const { data: checkpoints } = await supabaseClient
+            .from('checkpoints')
+            .select('*')
+            .in('diligencia_id', diligenciaIds)
+            .order('sequencial');
+
+        // Criar mapas
+        const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
+        const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
+        
+        // Agrupar checkpoints por diligência
+        const mapCheckpoints = {};
+        (checkpoints || []).forEach(cp => {
+            if (!mapCheckpoints[cp.diligencia_id]) mapCheckpoints[cp.diligencia_id] = [];
+            mapCheckpoints[cp.diligencia_id].push(cp);
+        });
 
         // Montar objeto completo para auditoria
         const resultado = diligencias.map(d => ({
@@ -604,18 +645,18 @@ async function exportarJSON() {
             criada_em: d.criada_em,
             atualizada_em: d.atualizada_em,
             intimador: {
-                id: d.perfis?.id || null,
-                nome: d.perfis?.nome_completo || 'Não atribuído',
-                email: d.perfis?.email || '-'
+                id: d.intimador_id,
+                nome: mapIntimadores[d.intimador_id]?.nome_completo || 'Não atribuído',
+                email: mapIntimadores[d.intimador_id]?.email || '-'
             },
             cliente: {
-                id: d.clientes?.id || null,
-                devedor: d.clientes?.devedor || '-',
-                cpf_cnpj: d.clientes?.cpf_cnpj || '-',
-                endereco: d.clientes?.endereco || '-',
-                cep: d.clientes?.cep || '-'
+                id: d.cliente_id,
+                devedor: mapClientes[d.cliente_id]?.devedor || '-',
+                cpf_cnpj: mapClientes[d.cliente_id]?.cpf_cnpj || '-',
+                endereco: mapClientes[d.cliente_id]?.endereco || '-',
+                cep: mapClientes[d.cliente_id]?.cep || '-'
             },
-            checkpoints: (d.checkpoints || []).map(cp => ({
+            checkpoints: (mapCheckpoints[d.id] || []).map(cp => ({
                 sequencial: cp.sequencial,
                 latitude: cp.latitude,
                 longitude: cp.longitude,
@@ -623,7 +664,7 @@ async function exportarJSON() {
                 registrado_em: cp.criado_em,
                 justificativa: cp.justificativa || null
             })),
-            total_checkpoints: (d.checkpoints || []).length,
+            total_checkpoints: (mapCheckpoints[d.id] || []).length,
             duracao_minutos: d.iniciada_em && d.concluida_em 
                 ? Math.round((new Date(d.concluida_em) - new Date(d.iniciada_em)) / 60000)
                 : null

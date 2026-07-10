@@ -939,92 +939,104 @@
             }
         }
 
-        // 13. Exportar JSON Geral
-        async function exportarJSON() {
-            try {
-                const { data: diligencias, error } = await supabaseClient
-                    .from('diligencias')
-                    .select('*')
-                    .order('criada_em', { ascending: false });
+        // Exportar JSON Geral
+async function exportarJSON() {
+    try {
+        const { data: diligencias, error } = await supabaseClient
+            .from('diligencias')
+            .select('*')
+            .order('criada_em', { ascending: false });
 
-                if (error) throw error;
-                if (!diligencias || diligencias.length === 0) {
-                    alert('Nenhuma diligência encontrada para exportar.');
-                    return;
-                }
-
-                const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
-                const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
-                const diligenciaIds = diligencias.map(d => d.id);
-
-                const { data: intimadores } = await supabaseClient
-                    .from('perfis')
-                    .select('id, nome_completo, email')
-                    .in('id', intimadorIds);
-
-                const { data: clientes } = await supabaseClient
-                    .from('clientes')
-                    .select('id, devedor, cpf_cnpj, endereco, cep')
-                    .in('id', clienteIds);
-
-                const { data: checkpoints } = await supabaseClient
-                    .from('checkpoints')
-                    .select('*')
-                    .in('diligencia_id', diligenciaIds)
-                    .order('sequencial');
-
-                const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
-                const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
-                
-                const mapCheckpoints = {};
-                (checkpoints || []).forEach(cp => {
-                    if (!mapCheckpoints[cp.diligencia_id]) mapCheckpoints[cp.diligencia_id] = [];
-                    mapCheckpoints[cp.diligencia_id].push(cp);
-                });
-
-                const resultado = diligencias.map(d => ({
-                    id: d.id,
-                    status: d.status,
-                    iniciada_em: d.iniciada_em,
-                    concluida_em: d.concluida_em,
-                    criada_em: d.criada_em,
-                    atualizada_em: d.atualizada_em,
-                    intimador: {
-                        id: d.intimador_id,
-                        nome: mapIntimadores[d.intimador_id]?.nome_completo || `Intimador ID: ${d.intimador_id?.substring(0, 8)}...`,
-                        email: mapIntimadores[d.intimador_id]?.email || '-'
-                    },
-                    cliente: {
-                        id: d.cliente_id,
-                        devedor: mapClientes[d.cliente_id]?.devedor || '-',
-                        cpf_cnpj: mapClientes[d.cliente_id]?.cpf_cnpj || '-',
-                        endereco: mapClientes[d.cliente_id]?.endereco || '-',
-                        cep: mapClientes[d.cliente_id]?.cep || '-'
-                    },
-                    checkpoints: (mapCheckpoints[d.id] || []).map(cp => ({
-                        sequencial: cp.sequencial,
-                        latitude: cp.latitude,
-                        longitude: cp.longitude,
-                        data_hora: cp.data_hora,
-                        registrado_em: cp.criado_em,
-                        justificativa: cp.justificativa || null
-                    })),
-                    total_checkpoints: (mapCheckpoints[d.id] || []).length,
-                    duracao_minutos: d.iniciada_em && d.concluida_em 
-                        ? Math.round((new Date(d.concluida_em) - new Date(d.iniciada_em)) / 60000)
-                        : null
-                }));
-
-                const blob = new Blob([JSON.stringify(resultado, null, 2)], { type: 'application/json' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `relatorio_auditoria_${new Date().toISOString().split('T')[0]}.json`;
-                link.click();
-
-            } catch (err) {
-                alert('Erro ao exportar JSON: ' + err.message);
-            }
+        if (error) throw error;
+        if (!diligencias || diligencias.length === 0) {
+            alert('Nenhuma diligência encontrada para exportar.');
+            return;
         }
+
+        const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
+        const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
+        const diligenciaIds = diligencias.map(d => d.id);
+
+        // Buscar perfis (sem email)
+        const { data: perfis } = await supabaseClient
+            .from('perfis')
+            .select('id, nome_completo, role')
+            .in('id', intimadorIds);
+
+        // Buscar emails de auth.users (requer permissão de admin)
+        const { data: authData, error: authError } = await supabaseClient.auth.admin.listUsers();
+        
+        if (authError) {
+            console.error('Erro ao buscar auth.users:', authError);
+        }
+
+        const authUsers = authData?.users || [];
+        const mapAuthUsers = Object.fromEntries(authUsers.map(u => [u.id, u.email]));
+
+        const { data: clientes } = await supabaseClient
+            .from('clientes')
+            .select('id, devedor, cpf_cnpj, endereco, cep')
+            .in('id', clienteIds);
+
+        const { data: checkpoints } = await supabaseClient
+            .from('checkpoints')
+            .select('*')
+            .in('diligencia_id', diligenciaIds)
+            .order('sequencial');
+
+        const mapPerfis = Object.fromEntries((perfis || []).map(p => [p.id, p]));
+        const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
+        
+        const mapCheckpoints = {};
+        (checkpoints || []).forEach(cp => {
+            if (!mapCheckpoints[cp.diligencia_id]) mapCheckpoints[cp.diligencia_id] = [];
+            mapCheckpoints[cp.diligencia_id].push(cp);
+        });
+
+        const resultado = diligencias.map(d => ({
+            id: d.id,
+            status: d.status,
+            iniciada_em: d.iniciada_em,
+            concluida_em: d.concluida_em,
+            criada_em: d.criada_em,
+            atualizada_em: d.atualizada_em,
+            intimador: {
+                id: d.intimador_id,
+                nome: mapPerfis[d.intimador_id]?.nome_completo || `Não encontrado (ID: ${d.intimador_id?.substring(0, 8)}...)`,
+                email: mapAuthUsers[d.intimador_id] || '-',
+                role: mapPerfis[d.intimador_id]?.role || '-'
+            },
+            cliente: {
+                id: d.cliente_id,
+                devedor: mapClientes[d.cliente_id]?.devedor || '-',
+                cpf_cnpj: mapClientes[d.cliente_id]?.cpf_cnpj || '-',
+                endereco: mapClientes[d.cliente_id]?.endereco || '-',
+                cep: mapClientes[d.cliente_id]?.cep || '-'
+            },
+            checkpoints: (mapCheckpoints[d.id] || []).map(cp => ({
+                sequencial: cp.sequencial,
+                latitude: cp.latitude,
+                longitude: cp.longitude,
+                data_hora: cp.data_hora,
+                registrado_em: cp.criado_em,
+                justificativa: cp.justificativa || null
+            })),
+            total_checkpoints: (mapCheckpoints[d.id] || []).length,
+            duracao_minutos: d.iniciada_em && d.concluida_em 
+                ? Math.round((new Date(d.concluida_em) - new Date(d.iniciada_em)) / 60000)
+                : null
+        }));
+
+        const blob = new Blob([JSON.stringify(resultado, null, 2)], { type: 'application/json' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `relatorio_auditoria_${new Date().toISOString().split('T')[0]}.json`;
+        link.click();
+
+    } catch (err) {
+        alert('Erro ao exportar JSON: ' + err.message);
+    }
+}
 
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {

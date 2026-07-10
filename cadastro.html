@@ -254,7 +254,7 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 JS Bundle -->
+        <!-- Bootstrap 5.3.8 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Supabase JS v2 -->
@@ -273,7 +273,6 @@
         const SUPABASE_URL = 'https://idcntslmjikqarutsmsb.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
         
-        // ✅ SINTAXE CORRETA SUPABASE v2 via CDN
         const { createClient } = supabase;
         const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -309,7 +308,6 @@
             alerta.textContent = mensagem;
             alerta.classList.remove('d-none');
             
-            // Auto-ocultar após 6 segundos
             setTimeout(() => {
                 alerta.classList.add('d-none');
             }, 6000);
@@ -328,34 +326,27 @@
             e.preventDefault();
             erroSenhas.classList.add('d-none');
 
-            // Validação nativa do Bootstrap
             if (!form.checkValidity()) {
                 form.classList.add('was-validated');
                 return;
             }
 
-            // Captura dos valores
             const nomeCompleto = document.getElementById('nome-completo').value.trim();
             const email = document.getElementById('email').value.trim();
             const senha = document.getElementById('senha').value;
             const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-            // Validação de senhas coincidentes
             if (senha !== confirmarSenha) {
                 erroSenhas.classList.remove('d-none');
                 document.getElementById('confirmar-senha').focus();
                 return;
             }
 
-            // Estado de carregamento
             btnCadastrar.disabled = true;
             textoBtn.textContent = 'Cadastrando...';
             spinnerBtn.classList.remove('d-none');
 
             try {
-                // =====================================================
-                // CHAMADA AO SUPABASE AUTH v2 - signUp
-                // =====================================================
                 const { data, error } = await supabaseClient.auth.signUp({
                     email: email,
                     password: senha,
@@ -370,7 +361,7 @@
 
                 // Sucesso
                 exibirAlerta(
-                    'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar a conta.',
+                    'Cadastro realizado com sucesso! Aguarde o administrador atribuir seu cargo.',
                     'success'
                 );
                 form.reset();
@@ -381,7 +372,6 @@
             } catch (erro) {
                 console.error('❌ Erro no cadastro:', erro);
                 
-                // Mensagens amigáveis para erros comuns do Supabase
                 let mensagem = 'Erro ao realizar cadastro. Tente novamente.';
                 
                 if (erro.message.includes('already registered')) {
@@ -396,7 +386,6 @@
                 
                 exibirAlerta(mensagem, 'danger');
             } finally {
-                // Restaura o botão
                 btnCadastrar.disabled = false;
                 textoBtn.textContent = 'Cadastrar';
                 spinnerBtn.classList.add('d-none');

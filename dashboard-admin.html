@@ -890,54 +890,54 @@
             }
         }
 
-        // 12. Exportar CSV Geral
-        async function exportarCSV() {
-            try {
-                const { data: diligencias, error } = await supabaseClient
-                    .from('diligencias')
-                    .select('*')
-                    .order('criada_em', { ascending: false });
+     // Exportar CSV Geral
+async function exportarCSV() {
+    try {
+        const { data: diligencias, error } = await supabaseClient
+            .from('diligencias')
+            .select('*')
+            .order('criada_em', { ascending: false });
 
-                if (error) throw error;
-                if (!diligencias || diligencias.length === 0) {
-                    alert('Nenhuma diligência encontrada para exportar.');
-                    return;
-                }
-
-                const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
-                const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
-
-                const { data: intimadores } = await supabaseClient
-                    .from('perfis')
-                    .select('id, nome_completo, email')
-                    .in('id', intimadorIds);
-
-                const { data: clientes } = await supabaseClient
-                    .from('clientes')
-                    .select('id, devedor, cpf_cnpj, endereco, cep')
-                    .in('id', clienteIds);
-
-                const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
-                const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
-
-                let csv = 'ID,Intimador,Email Intimador,Devedor,CPF/CNPJ,Endereço,CEP,Status,Iniciada,Concluída,Criada\n';
-                
-                diligencias.forEach(d => {
-                    const intimador = mapIntimadores[d.intimador_id];
-                    const cliente = mapClientes[d.cliente_id] || {};
-                    csv += `"${d.id}","${intimador?.nome_completo || 'Não atribuído'}","${intimador?.email || '-'}","${cliente.devedor || '-'}","${cliente.cpf_cnpj || '-'}","${cliente.endereco || '-'}","${cliente.cep || '-'}","${d.status}","${d.iniciada_em || '-'}","${d.concluida_em || '-'}","${d.criada_em}"\n`;
-                });
-
-                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `relatorio_geral_${new Date().toISOString().split('T')[0]}.csv`;
-                link.click();
-
-            } catch (err) {
-                alert('Erro ao exportar CSV: ' + err.message);
-            }
+        if (error) throw error;
+        if (!diligencias || diligencias.length === 0) {
+            alert('Nenhuma diligência encontrada para exportar.');
+            return;
         }
+
+        const intimadorIds = [...new Set(diligencias.map(d => d.intimador_id).filter(Boolean))];
+        const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
+
+        const { data: intimadores } = await supabaseClient
+            .from('perfis')
+            .select('id, nome_completo, email')
+            .in('id', intimadorIds);
+
+        const { data: clientes } = await supabaseClient
+            .from('clientes')
+            .select('id, devedor, cpf_cnpj, endereco, cep')
+            .in('id', clienteIds);
+
+        const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
+        const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
+
+        let csv = 'ID,Intimador,Email Intimador,Devedor,CPF/CNPJ,Endereço,CEP,Status,Iniciada,Concluída,Criada\n';
+        
+        diligencias.forEach(d => {
+            const intimador = mapIntimadores[d.intimador_id] || {};
+            const cliente = mapClientes[d.cliente_id] || {};
+            csv += `"${d.id}","${intimador.nome_completo || 'Não atribuído'}","${intimador.email || '-'}","${cliente.devedor || '-'}","${cliente.cpf_cnpj || '-'}","${cliente.endereco || '-'}","${cliente.cep || '-'}","${d.status}","${d.iniciada_em || '-'}","${d.concluida_em || '-'}","${d.criada_em}"\n`;
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `relatorio_geral_${new Date().toISOString().split('T')[0]}.csv`;
+        link.click();
+
+    } catch (err) {
+        alert('Erro ao exportar CSV: ' + err.message);
+    }
+}
 
         // Exportar JSON Geral
 async function exportarJSON() {
@@ -957,21 +957,11 @@ async function exportarJSON() {
         const clienteIds = [...new Set(diligencias.map(d => d.cliente_id).filter(Boolean))];
         const diligenciaIds = diligencias.map(d => d.id);
 
-        // Buscar perfis (sem email)
-        const { data: perfis } = await supabaseClient
+        // Buscar perfis COM email (agora existe na tabela)
+        const { data: intimadores } = await supabaseClient
             .from('perfis')
-            .select('id, nome_completo, role')
+            .select('id, nome_completo, email, role')
             .in('id', intimadorIds);
-
-        // Buscar emails de auth.users (requer permissão de admin)
-        const { data: authData, error: authError } = await supabaseClient.auth.admin.listUsers();
-        
-        if (authError) {
-            console.error('Erro ao buscar auth.users:', authError);
-        }
-
-        const authUsers = authData?.users || [];
-        const mapAuthUsers = Object.fromEntries(authUsers.map(u => [u.id, u.email]));
 
         const { data: clientes } = await supabaseClient
             .from('clientes')
@@ -984,7 +974,7 @@ async function exportarJSON() {
             .in('diligencia_id', diligenciaIds)
             .order('sequencial');
 
-        const mapPerfis = Object.fromEntries((perfis || []).map(p => [p.id, p]));
+        const mapIntimadores = Object.fromEntries((intimadores || []).map(i => [i.id, i]));
         const mapClientes = Object.fromEntries((clientes || []).map(c => [c.id, c]));
         
         const mapCheckpoints = {};
@@ -1002,9 +992,9 @@ async function exportarJSON() {
             atualizada_em: d.atualizada_em,
             intimador: {
                 id: d.intimador_id,
-                nome: mapPerfis[d.intimador_id]?.nome_completo || `Não encontrado (ID: ${d.intimador_id?.substring(0, 8)}...)`,
-                email: mapAuthUsers[d.intimador_id] || '-',
-                role: mapPerfis[d.intimador_id]?.role || '-'
+                nome: mapIntimadores[d.intimador_id]?.nome_completo || 'Não atribuído',
+                email: mapIntimadores[d.intimador_id]?.email || '-',
+                role: mapIntimadores[d.intimador_id]?.role || '-'
             },
             cliente: {
                 id: d.cliente_id,

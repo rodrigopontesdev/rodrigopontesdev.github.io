@@ -312,7 +312,7 @@
      <!-- Bootstrap 5.3.8 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     
-         <!-- Supabase JS v2 -->
+             <!-- Supabase JS v2 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <!-- Scripts do Dashboard Admin -->
@@ -327,33 +327,23 @@
 
         // 3. Verificar autenticação ao carregar a página
         async function verificarAutenticacao() {
-            console.log('🔍 Iniciando verificação...');
-            
             const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
             
             if (sessionError) {
                 console.error('Erro na sessão:', sessionError);
             }
             
-            console.log('👤 Sessão:', session);
-            
             if (!session) {
-                console.log('❌ Sem sessão, redirecionando...');
                 window.location.href = 'https://rodrigopontesdev.github.io/';
                 return;
             }
 
-            console.log(' Buscando perfil do usuário:', session.user.id);
-            
             // Verificar se é administrador
             const { data: perfil, error } = await supabaseClient
                 .from('perfis')
                 .select('id, role')
                 .eq('id', session.user.id)
                 .single();
-
-            console.log('📄 Perfil retornado:', perfil);
-            console.log('⚠️ Erro (se houver):', error);
 
             if (error) {
                 console.error('Erro ao buscar perfil:', error);
@@ -362,21 +352,17 @@
             }
 
             if (!perfil) {
-                console.error('❌ Perfil não encontrado!');
                 alert('Perfil não encontrado no sistema!');
                 return;
             }
 
             if (perfil.role !== 'administrador') {
-                console.error('❌ Usuário não é admin. Role:', perfil.role);
                 alert('Acesso restrito a administradores! Seu cargo: ' + perfil.role);
                 await supabaseClient.auth.signOut();
                 window.location.href = 'https://rodrigopontesdev.github.io/';
                 return;
             }
 
-            console.log('✅ Usuário é ADMINISTRADOR! Acesso concedido.');
-            
             // Tudo certo, carregar dados
             carregarIntimacoes();
             configurarLogout();
@@ -390,16 +376,140 @@
             });
         }
 
-        // 5. Carregar intimações (será implementado no próximo passo)
-        function carregarIntimacoes() {
-            console.log('Autenticação OK! Carregando intimações...');
-            document.getElementById('tbody-intimacoes').innerHTML = 
-                '<tr><td colspan="6" class="text-center text-success">✅ Conectado ao Supabase! Próximo passo: carregar dados...</td></tr>';
+        // 5. Carregar intimações da tabela clientes
+        async function carregarIntimacoes(page = 1, searchTerm = '') {
+            const ITEMS_PER_PAGE = 10;
+            const offset = (page - 1) * ITEMS_PER_PAGE;
+
+            try {
+                let query = supabaseClient
+                    .from('clientes')
+                    .select('*', { count: 'exact' });
+
+                // Aplicar filtro de busca se houver
+                if (searchTerm) {
+                    query = query.or(`cep.ilike.%${searchTerm}%,cpf_cnpj.ilike.%${searchTerm}%,devedor.ilike.%${searchTerm}%`);
+                }
+
+                // Aplicar paginação
+                query = query.range(offset, offset + ITEMS_PER_PAGE - 1);
+
+                const { data, error, count } = await query;
+
+                if (error) {
+                    console.error('Erro ao carregar intimações:', error);
+                    document.getElementById('tbody-intimacoes').innerHTML = 
+                        `<tr><td colspan="6" class="text-center text-danger">Erro: ${error.message}</td></tr>`;
+                    return;
+                }
+
+                if (!data || data.length === 0) {
+                    document.getElementById('tbody-intimacoes').innerHTML = 
+                        '<tr><td colspan="6" class="text-center text-muted">Nenhuma intimação encontrada</td></tr>';
+                    return;
+                }
+
+                // Renderizar tabela
+                const tbody = document.getElementById('tbody-intimacoes');
+                tbody.innerHTML = data.map(cliente => `
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input cliente-checkbox" value="${cliente.id}"></td>
+                        <td>${cliente.id}</td>
+                        <td>${cliente.devedor || '-'}</td>
+                        <td>${cliente.cpf_cnpj || '-'}</td>
+                        <td>${cliente.endereco || '-'}</td>
+                        <td><span class="badge bg-secondary">Pendente</span></td>
+                    </tr>
+                `).join('');
+
+                // Atualizar paginação
+                atualizarPaginacao(count, ITEMS_PER_PAGE, page, searchTerm);
+
+            } catch (err) {
+                console.error('Erro inesperado:', err);
+            }
         }
+
+        // Atualizar controles de paginação
+        function atualizarPaginacao(totalItems, itemsPerPage, currentPage, searchTerm) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pagination = document.getElementById('pagination-intimacoes');
+            
+            let html = '';
+            
+            // Botão Anterior
+            html += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage - 1}">Anterior</a>
+                </li>
+            `;
+            
+            // Números das páginas
+            for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+                html += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>
+                `;
+            }
+            
+            // Botão Próximo
+            html += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage + 1}">Próximo</a>
+                </li>
+            `;
+            
+            pagination.innerHTML = html;
+            
+            // Adicionar event listeners
+            pagination.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = parseInt(link.dataset.page);
+                    carregarIntimacoes(page, searchTerm);
+                });
+            });
+        }
+
+        // Event listeners para busca e atribuição
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn-buscar-intimacoes').addEventListener('click', () => {
+                const searchTerm = document.getElementById('search-intimacoes').value;
+                carregarIntimacoes(1, searchTerm);
+            });
+
+            document.getElementById('search-intimacoes').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const searchTerm = document.getElementById('search-intimacoes').value;
+                    carregarIntimacoes(1, searchTerm);
+                }
+            });
+
+            // Checkbox "Selecionar Todos"
+            document.getElementById('select-all-intimacoes').addEventListener('change', (e) => {
+                const checkboxes = document.querySelectorAll('.cliente-checkbox');
+                checkboxes.forEach(cb => cb.checked = e.target.checked);
+                atualizarBotaoAtribuir();
+            });
+
+            // Atualizar botão de atribuir quando checkboxes mudam
+            function atualizarBotaoAtribuir() {
+                const checkboxes = document.querySelectorAll('.cliente-checkbox:checked');
+                const btnAtribuir = document.getElementById('btn-atribuir');
+                btnAtribuir.disabled = checkboxes.length === 0;
+            }
+
+            // Adicionar listener dinâmico para checkboxes
+            document.addEventListener('change', (e) => {
+                if (e.target.classList.contains('cliente-checkbox')) {
+                    atualizarBotaoAtribuir();
+                }
+            });
+        });
 
         // 6. Iniciar verificação quando a página carregar
         verificarAutenticacao();
     </script>
-
 </body>
 </html>

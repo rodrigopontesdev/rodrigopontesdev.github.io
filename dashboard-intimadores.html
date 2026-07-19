@@ -1,624 +1,424 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- EDITE LIVREMENTE -->
-    <title>2º Tabelionato de Protestos de Porto Alegre - Painel do Intimador</title>
-
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="2º Tabelionato de Protestos de Porto Alegre">
-    <meta name="robots" content="index,follow">
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.seusite.com.br/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
+    <title>Painel do Intimador - 2º Tabelionato</title>
+    
     <!-- Bootstrap 5.3.8 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            background: #f4f6f8;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-        }
-
-        header {
-            background: #198754;
-            color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,.15);
-        }
-
-        .header-content {
-            padding: 18px 0;
-            text-align: center;
-        }
-
-        .header-content h1 {
-            margin: 0;
-            font-size: 1.55rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .header-content p {
-            margin: 4px 0;
-            font-size: .92rem;
-            opacity: .96;
-        }
-
-        main {
-            flex: 1;
-            background: #fff;
-            padding: 30px 0;
-        }
-
-        footer {
-            background: #198754;
-            color: #fff;
-            text-align: center;
-            padding: 14px 0;
-            font-size: .88rem;
-        }
-
-        @media (max-width: 768px) {
-
-            .header-content {
-                padding: 16px 10px;
-            }
-
-            .header-content h1 {
-                font-size: 1.25rem;
-            }
-
-            .header-content p {
-                font-size: .84rem;
-                line-height: 1.45;
-            }
-
-            footer {
-                font-size: .82rem;
-            }
-
-        }
+        body { background: #f4f6f8; min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: #198754; color: #fff; padding: 1rem 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,.15); }
+        main { flex: 1; padding: 2rem 0; }
+        footer { background: #198754; color: #fff; text-align: center; padding: 1rem 0; font-size: .88rem; margin-top: auto; }
+        
+        /* Ajuste para cards mobile não ficarem cortados */
+        .card-intimacao { border-left: 4px solid #198754; transition: transform 0.2s; }
+        .card-intimacao:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,.1); }
+        .status-badge { font-size: 0.85em; padding: 0.4em 0.8em; }
     </style>
 </head>
 
 <body>
-
-<header>
-    <div class="container">
-        <div class="header-content">
-
-            <h1>2º Tabelionato de Protestos de Porto Alegre</h1>
-
-            <p>Rua dos Andradas, 1234 • 4º Andar</p>
-
-            <p>Centro Histórico • Porto Alegre/RS • CEP 90020-008</p>
-
-            <p>CNPJ: 04.438.173/0001-47 • (51) 3027-3500</p>
-
+    <header>
+        <div class="container">
+            <h1 class="fw-bold mb-0">2º Tabelionato de Protestos de Porto Alegre</h1>
+            <p class="mb-0 small opacity-75">Rua dos Andradas, 1234 • Centro Histórico • CEP 90020-008</p>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- ============================================ -->
-<!-- CONTEÚDO PRINCIPAL - PAINEL DO INTIMADOR -->
-<!-- ============================================ -->
-<!-- ============================================ -->
-<!-- CONTEÚDO PRINCIPAL - PAINEL DO INTIMADOR -->
-<!-- ============================================ -->
-<main>
-    <div class="container py-4">
-        
-        <!-- Cabeçalho do Painel -->
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <h2 class="text-success fw-bold mb-0">
-                <i class="bi bi-clipboard-check"></i> Minhas Intimações
-            </h2>
-            <div class="d-flex gap-2">
-                <button class="btn btn-outline-success" id="btn-recarregar">
-                    <i class="bi bi-arrow-clockwise"></i> Atualizar
-                </button>
-                <button class="btn btn-outline-danger btn-sm" id="btn-logout">
-                    <i class="bi bi-box-arrow-right"></i> Sair
-                </button>
+    <main>
+        <div class="container py-4">
+            <!-- Cabeçalho do Painel -->
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                <h2 class="text-success fw-bold mb-0"><i class="bi bi-clipboard-check"></i> Minhas Intimações</h2>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-success" id="btn-recarregar"><i class="bi bi-arrow-clockwise"></i> Atualizar</button>
+                    <button class="btn btn-outline-danger btn-sm" id="btn-logout"><i class="bi bi-box-arrow-right"></i> Sair</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Aviso de Diligência em Andamento -->
-        <div id="alerta-andamento" class="alert alert-warning d-none" role="alert">
-            <i class="bi bi-exclamation-triangle"></i> 
-            <strong>Atenção!</strong> Você tem uma diligência em andamento. 
-            Conclua-a antes de iniciar outra.
-        </div>
+            <!-- Aviso de Diligência em Andamento -->
+            <div id="alerta-andamento" class="alert alert-warning d-none" role="alert">
+                <i class="bi bi-exclamation-triangle"></i> <strong>Atenção!</strong> Você tem uma diligência em andamento. Conclua-a antes de iniciar outra.
+            </div>
 
-        <!-- Barra de Busca -->
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-8">
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control" id="search-intimacoes" 
-                                   placeholder="Buscar por CEP, CPF/CNPJ ou nome do devedor...">
+            <!-- Barra de Busca -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control" id="search-intimacoes" placeholder="Buscar por CEP, CPF/CNPJ ou nome...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-success w-100" id="btn-buscar"><i class="bi bi-funnel"></i> Filtrar</button>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-success w-100" id="btn-buscar">
-                            <i class="bi bi-funnel"></i> Filtrar
+                </div>
+            </div>
+
+            <!-- Lista Desktop (Tabela) -->
+            <div id="lista-desktop" class="d-none d-md-block">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle bg-white rounded shadow-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Devedor</th>
+                                <th>Endereço</th>
+                                <th>CEP</th>
+                                <th>Status</th>
+                                <th class="text-end">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-intimacoes">
+                            <tr><td colspan="5" class="text-center text-muted py-4">Carregando...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Lista Mobile (Cards) -->
+            <div id="lista-mobile" class="d-md-none row g-3">
+                <div class="col-12 text-center text-muted py-4">Carregando...</div>
+            </div>
+
+            <!-- Paginação -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center" id="pagination-intimacoes"></ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- MODAIS DE FLUXO E CONCLUSÃO                  -->
+    <!-- ============================================ -->
+
+    <!-- Modal: Iniciar Diligência -->
+    <div class="modal fade" id="modalIniciar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-play-circle"></i> Iniciar Diligência</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Deseja iniciar a diligência para <strong id="nome-devedor-iniciar"></strong>?</p>
+                    <p class="text-muted small">Sua localização GPS será registrada obrigatoriamente.</p>
+                    <div id="status-gps" class="alert alert-info d-none"><i class="bi bi-geo-alt"></i> Obtendo localização...</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" id="btn-confirmar-iniciar">Confirmar Início</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Checkpoint -->
+    <div class="modal fade" id="modalCheckpoint" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-geo-alt"></i> Registrar Checkpoint</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Registrar checkpoint para <strong id="nome-devedor-checkpoint"></strong>?</p>
+                    <p class="text-muted small">Coordenadas GPS e data/hora serão registrados automaticamente.</p>
+                    <div id="status-gps-checkpoint" class="alert alert-info d-none"><i class="bi bi-geo-alt"></i> Obtendo localização...</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btn-confirmar-checkpoint">Registrar Checkpoint</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Justificativa (>10 checkpoints) -->
+    <div class="modal fade" id="modalJustificativa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Justificativa Obrigatória</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você registrou mais de 10 checkpoints. Por favor, justifique:</p>
+                    <textarea class="form-control" id="texto-justificativa" maxlength="140" rows="4" placeholder="Descreva o motivo (máx. 140 caracteres, sem emojis)"></textarea>
+                    <div class="form-text mt-1"><span id="contador-chars">0</span>/140 caracteres</div>
+                    <div id="erro-justificativa" class="text-danger small mt-2 d-none"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" id="btn-confirmar-justificativa">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Concluir Diligência (COM CÓDIGOS DE OCORRÊNCIA) -->
+    <div class="modal fade" id="modalConcluir" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title"><i class="bi bi-flag-checkered"></i> Concluir Diligência</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Como deseja finalizar a diligência de <strong id="nome-devedor-concluir"></strong>?</p>
+                    
+                    <!-- Seleção de Status -->
+                    <div class="d-grid gap-2 mt-3 mb-3">
+                        <button class="btn btn-outline-warning" id="btn-opcao-pendente">
+                            <i class="bi bi-arrow-counterclockwise"></i> Pendente - Voltará para a fila
+                        </button>
+                        <button class="btn btn-outline-danger" id="btn-opcao-encerrado">
+                            <i class="bi bi-x-circle"></i> Encerrado - Finalizada definitivamente
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Lista de Intimações (Desktop) -->
-        <div id="lista-desktop" class="d-none d-md-block">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Devedor</th>
-                            <th>Endereço</th>
-                            <th>CEP</th>
-                            <th>Status</th>
-                            <th class="text-end">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-intimacoes">
-                        <tr><td colspan="5" class="text-center text-muted">Carregando...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Cards de Intimações (Mobile) -->
-        <div id="lista-mobile" class="d-md-none">
-            <div id="cards-intimacoes" class="row g-3">
-                <div class="col-12 text-center text-muted">Carregando...</div>
-            </div>
-        </div>
-
-        <!-- Paginação -->
-        <nav class="mt-4">
-            <ul class="pagination justify-content-center" id="pagination-intimacoes"></ul>
-        </nav>
-
-    </div>
-</main>
-
-<!-- ============================================ -->
-<!-- MODAIS -->
-<!-- ============================================ -->
-
-<!-- Modal: Iniciar Diligência -->
-<div class="modal fade" id="modalIniciar" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-                <h5 class="modal-title"><i class="bi bi-play-circle"></i> Iniciar Diligência</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Deseja iniciar a diligência para <strong id="nome-devedor-iniciar"></strong>?</p>
-                <p class="text-muted small">Sua localização GPS será registrada.</p>
-                <div id="status-gps" class="alert alert-info d-none">
-                    <i class="bi bi-geo-alt"></i> Obtendo localização...
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="btn-confirmar-iniciar">
-                    <i class="bi bi-check-circle"></i> Confirmar Início
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal: Checkpoint -->
-<div class="modal fade" id="modalCheckpoint" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title"><i class="bi bi-geo-alt"></i> Registrar Checkpoint</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Registrar checkpoint para <strong id="nome-devedor-checkpoint"></strong>?</p>
-                <p class="text-muted small">Coordenadas GPS e data/hora serão registrados automaticamente.</p>
-                <div id="status-gps-checkpoint" class="alert alert-info d-none">
-                    <i class="bi bi-geo-alt"></i> Obtendo localização...
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="btn-confirmar-checkpoint">
-                    <i class="bi bi-check-circle"></i> Registrar Checkpoint
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal: Justificativa (após 10 checkpoints) -->
-<div class="modal fade" id="modalJustificativa" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-warning text-dark">
-                <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Justificativa Obrigatória</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Você registrou mais de 10 checkpoints. Por favor, justifique:</p>
-                <textarea class="form-control" id="texto-justificativa" 
-                          maxlength="140" rows="4" 
-                          placeholder="Descreva o motivo (máximo 140 caracteres, sem emojis)"></textarea>
-                <div class="form-text"><span id="contador-chars">0</span>/140 caracteres</div>
-                <div id="erro-justificativa" class="text-danger small mt-2 d-none"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-warning" id="btn-confirmar-justificativa">
-                    <i class="bi bi-check-circle"></i> Confirmar
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal: Concluir Diligência -->
-<div class="modal fade" id="modalConcluir" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-info text-white">
-                <h5 class="modal-title"><i class="bi bi-flag-checkered"></i> Concluir Diligência</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Como deseja finalizar a diligência de <strong id="nome-devedor-concluir"></strong>?</p>
-                
-                <!-- Seleção de Status -->
-                <div class="d-grid gap-2 mt-3 mb-3">
-                    <button class="btn btn-outline-warning" id="btn-opcao-pendente">
-                        <i class="bi bi-arrow-counterclockwise"></i> Pendente - Voltará para a fila
-                    </button>
-                    <button class="btn btn-outline-danger" id="btn-opcao-encerrado">
-                        <i class="bi bi-x-circle"></i> Encerrado - Finalizada definitivamente
-                    </button>
-                </div>
-
-                <!-- Área de Código de Ocorrência (Oculta inicialmente) -->
-                <div id="area-codigo-ocorrencia" class="d-none p-3 bg-light rounded border">
-                    <label for="select-codigo-ocorrencia" class="form-label fw-bold">
-                        <i class="bi bi-list-check"></i> Selecione o Código de Ocorrência:
-                    </label>
-                    <select class="form-select" id="select-codigo-ocorrencia">
-                        <option value="" selected disabled>Escolha um código...</option>
-                        <option value="221">221 - Assinado</option>
-                        <option value="19">19 - Recusa</option>
-                        <option value="132">132 - Deixei aviso</option>
-                        <option value="35">35 - Mudou-se</option>
-                        <option value="43">43 - Desconhecido</option>
-                        <option value="27">27 - S/ número</option>
-                        <option value="51">51 - Informar sala/lj/cj/ap</option>
-                        <option value="124">124 - Não existe acesso / Inacessível</option>
-                        <option value="190">190 - Área de risco / S/ acesso</option>
-                        <option value="60">60 - Endereço inexistente</option>
-                        <option value="184">184 - Em construção</option>
-                    </select>
-                    <div class="form-text text-muted small mt-1">Este código será registrado na auditoria.</div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <!-- Botão Confirmar (só aparece após selecionar status e código) -->
-                <button type="button" class="btn btn-success d-none" id="btn-confirmar-finalizacao">
-                    <i class="bi bi-check-circle"></i> Confirmar Conclusão
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal: Mensagem Genérica (Sucesso/Erro) -->
-<div class="modal fade" id="modalMensagem" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content">
-            <div class="modal-body text-center p-4">
-                <div id="icone-mensagem" class="mb-3" style="font-size: 3rem;"></div>
-                <p id="texto-mensagem" class="mb-0"></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <div class="container">
-        © 2026 2º Tabelionato de Protestos de Porto Alegre. Todos os direitos reservados.
-    </div>
-</footer>
-
-<!-- Bootstrap 5.3.8 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Supabase JS v2 -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-    // ============================================
-    // 1. CONFIGURAÇÃO DO SUPABASE
-    // ============================================
-    const SUPABASE_URL = 'https://idcntslmjikqarutsmsb.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Variáveis globais
-    let usuarioAtual = null;
-    let diligenciasEmCache = [];
-    let paginaAtual = 1;
-    const ITENS_POR_PAGINA = 10;
-    let diligenciaEmAndamentoId = null; // ID da diligência em andamento (bloqueia as outras)
-    let diligenciaSelecionadaId = null; // ID da diligência selecionada para ações
-    let contadorCheckpoints = 0;
-    let statusFinalizacaoSelecionado = null; // Nova variável para controle do modal
-
-    // ============================================
-    // 2. VERIFICAÇÃO DE AUTENTICAÇÃO
-    // ============================================
-    async function verificarAutenticacao() {
-        const { data: { session } } = await supabaseClient.auth.getSession();
-
-        if (!session) {
-            window.location.href = 'https://rodrigopontesdev.github.io/';
-            return;
-        }
-
-        const { data: perfil, error } = await supabaseClient
-            .from('perfis')
-            .select('id, nome_completo, role')
-            .eq('id', session.user.id)
-            .single();
-
-        if (error || !perfil || perfil.role !== 'intimador') {
-            alert('Acesso restrito a intimadores!');
-            await supabaseClient.auth.signOut();
-            window.location.href = 'https://rodrigopontesdev.github.io/';
-            return;
-        }
-
-        usuarioAtual = perfil;
-        carregarDiligencias();
-        configurarLogout();
-    }
-
-    // ============================================
-    // 3. LOGOUT
-    // ============================================
-    function configurarLogout() {
-        document.getElementById('btn-logout').addEventListener('click', async () => {
-            await supabaseClient.auth.signOut();
-            window.location.href = 'https://rodrigopontesdev.github.io/';
-        });
-    }
-
-    // ============================================
-    // 4. CARREGAR DILIGÊNCIAS
-    // ============================================
-    async function carregarDiligencias(page = 1, searchTerm = '') {
-        paginaAtual = page;
-        const offset = (page - 1) * ITENS_POR_PAGINA;
-
-        try {
-            let query = supabaseClient
-                .from('diligencias')
-                .select('*, clientes:cliente_id(*)', { count: 'exact' })
-                .eq('intimador_id', usuarioAtual.id)
-                .in('status', ['pendente', 'em_andamento'])
-                .order('criada_em', { ascending: false });
-
-            // Aplicar filtro de busca
-            if (searchTerm) {
-                query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
-            }
-
-            query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
-            const { data, error, count } = await query;
-
-            if (error) throw error;
-
-            diligenciasEmCache = data || [];
-
-            // Verificar se há alguma em andamento (bloqueia as outras)
-            diligenciaEmAndamentoId = null;
-            const emAndamento = diligenciasEmCache.find(d => d.status === 'em_andamento');
-            if (emAndamento) {
-                diligenciaEmAndamentoId = emAndamento.id;
-                document.getElementById('alerta-andamento').classList.remove('d-none');
-            } else {
-                document.getElementById('alerta-andamento').classList.add('d-none');
-            }
-
-            renderizarLista();
-            atualizarPaginacao(count || 0);
-
-        } catch (err) {
-            console.error('Erro ao carregar diligências:', err);
-            mostrarMensagem('Erro ao carregar intimações', 'erro');
-        }
-    }
-
-    // ============================================
-    // 5. RENDERIZAR LISTA
-    // ============================================
-    function renderizarLista() {
-        const tbody = document.getElementById('tbody-intimacoes');
-        const cardsContainer = document.getElementById('cards-intimacoes');
-
-        if (diligenciasEmCache.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Nenhuma intimação encontrada</td></tr>';
-            cardsContainer.innerHTML = '<div class="col-12 text-center text-muted">Nenhuma intimação encontrada</div>';
-            return;
-        }
-
-        // Desktop
-        tbody.innerHTML = diligenciasEmCache.map(d => {
-            const cliente = d.clientes || {};
-            const bloqueada = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
-            return `
-                <tr>
-                    <td><strong>${cliente.devedor || '-'}</strong></td>
-                    <td>${cliente.endereco || '-'}</td>
-                    <td>${cliente.cep || '-'}</td>
-                    <td>${getStatusBadge(d.status)}</td>
-                    <td class="text-end">${getBotoesAcao(d, bloqueada)}</td>
-                </tr>
-            `;
-        }).join('');
-
-        // Mobile
-        cardsContainer.innerHTML = diligenciasEmCache.map(d => {
-            const cliente = d.clientes || {};
-            const bloqueada = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
-            return `
-                <div class="col-12">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body p-3">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h6 class="mb-0 fw-bold text-truncate" style="max-width: 70%;" title="${cliente.devedor || ''}">
-                                    ${cliente.devedor || '-'}
-                                </h6>
-                                ${getStatusBadge(d.status)}
-                            </div>
-                            <p class="mb-1 small text-muted"><i class="bi bi-geo-alt"></i> ${cliente.endereco || '-'}</p>
-                            <p class="mb-2 small text-muted"><i class="bi bi-mailbox"></i> CEP: ${cliente.cep || '-'}</p>
-                            <div class="d-flex gap-2 flex-wrap">${getBotoesAcao(d, bloqueada)}</div>
-                        </div>
+                    <!-- Área de Código de Ocorrência (Oculta inicialmente) -->
+                    <div id="area-codigo-ocorrencia" class="d-none p-3 bg-light rounded border mt-3">
+                        <label for="select-codigo-ocorrencia" class="form-label fw-bold">
+                            <i class="bi bi-list-check"></i> Selecione o Código de Ocorrência:
+                        </label>
+                        <select class="form-select" id="select-codigo-ocorrencia">
+                            <option value="" selected disabled>Escolha um código...</option>
+                            <option value="221">221 - Assinado</option>
+                            <option value="19">19 - Recusa</option>
+                            <option value="132">132 - Deixei aviso</option>
+                            <option value="35">35 - Mudou-se</option>
+                            <option value="43">43 - Desconhecido</option>
+                            <option value="27">27 - S/ número</option>
+                            <option value="51">51 - Informar sala/lj/cj/ap</option>
+                            <option value="124">124 - Não existe acesso / Inacessível</option>
+                            <option value="190">190 - Área de risco / S/ acesso</option>
+                            <option value="60">60 - Endereço inexistente</option>
+                            <option value="184">184 - Em construção</option>
+                        </select>
+                        <div class="form-text text-muted small mt-1">Este código será registrado na auditoria.</div>
                     </div>
                 </div>
-            `;
-        }).join('');
-    }
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success d-none" id="btn-confirmar-finalizacao">Confirmar Conclusão</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    function getStatusBadge(status) {
-        const cores = { 'pendente': 'bg-secondary', 'em_andamento': 'bg-warning text-dark', 'concluida': 'bg-success', 'encerrada': 'bg-danger' };
-        const labels = { 'pendente': 'Pendente', 'em_andamento': 'Em Andamento', 'concluida': 'Concluída', 'encerrada': 'Encerrada' };
-        return `<span class="badge ${cores[status] || 'bg-secondary'}">${labels[status] || status}</span>`;
-    }
+    <!-- Modal Genérico de Mensagem -->
+    <div class="modal fade" id="modalMensagem" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <div id="icone-mensagem" class="mb-3" style="font-size: 3rem;"></div>
+                    <p id="texto-mensagem" class="mb-0"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    function getBotoesAcao(diligencia, bloqueada) {
-        if (bloqueada) return `<button class="btn btn-sm btn-secondary" disabled><i class="bi bi-lock"></i> Bloqueada</button>`;
-        
-        let botoes = '';
-        if (diligencia.status === 'pendente') {
-            botoes += `<button class="btn btn-sm btn-success btn-iniciar" data-id="${diligencia.id}"><i class="bi bi-play-circle"></i> Iniciar</button>`;
-        }
-        if (diligencia.status === 'em_andamento') {
-            botoes += `<button class="btn btn-sm btn-primary btn-checkpoint" data-id="${diligencia.id}"><i class="bi bi-geo-alt"></i> Checkpoint</button>`;
-            botoes += `<button class="btn btn-sm btn-info btn-concluir" data-id="${diligencia.id}"><i class="bi bi-flag-checkered"></i> Concluir</button>`;
-        }
-        return botoes || '<span class="text-muted small">Sem ações</span>';
-    }
+    <footer>
+        <div class="container">© <span id="ano-footer"></span> 2º Tabelionato de Protestos de Porto Alegre. Todos os direitos reservados.</div>
+    </footer>
 
-    // ============================================
-    // 6. PAGINAÇÃO
-    // ============================================
-    function atualizarPaginacao(totalItems) {
-        const totalPages = Math.ceil(totalItems / ITENS_POR_PAGINA);
-        const pagination = document.getElementById('pagination-intimacoes');
-        if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        let html = `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual - 1}">Anterior</a></li>`;
-        for (let i = 1; i <= Math.min(totalPages, 5); i++) {
-            html += `<li class="page-item ${i === paginaAtual ? 'active' : ''}><a class="page-link btn-page" data-page="${i}">${i}</a></li>`;
-        }
-        html += `<li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual + 1}">Próximo</a></li>`;
-        
-        pagination.innerHTML = html;
-        pagination.querySelectorAll('.btn-page').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                carregarDiligencias(parseInt(link.dataset.page), document.getElementById('search-intimacoes').value);
+    <script>
+        // CONFIGURAÇÃO SUPABASE
+        const SUPABASE_URL = 'https://idcntslmjikqarutsmsb.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_Esc3bs1bfOkHAcmuFXUsQQ_SiDJnAOM';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let usuarioAtual = null;
+        let diligenciasEmCache = [];
+        let paginaAtual = 1;
+        const ITENS_POR_PAGINA = 10;
+        let diligenciaEmAndamentoId = null;
+        let diligenciaSelecionadaId = null;
+        let contadorCheckpoints = 0;
+        let statusFinalizacaoSelecionado = null;
+
+        document.getElementById('ano-footer').textContent = new Date().getFullYear();
+
+        // AUTENTICAÇÃO E LOGOUT
+        async function verificarAutenticacao() {
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (!session) return window.location.href = 'https://rodrigopontesdev.github.io/';
+
+            const { data: perfil, error } = await supabaseClient.from('perfis').select('id, nome_completo, email, role').eq('id', session.user.id).single();
+            if (error || !perfil || perfil.role !== 'intimador') {
+                await supabaseClient.auth.signOut();
+                return window.location.href = 'https://rodrigopontesdev.github.io/';
+            }
+
+            usuarioAtual = perfil;
+            carregarDiligencias();
+            
+            document.getElementById('btn-logout').addEventListener('click', async () => {
+                await supabaseClient.auth.signOut();
+                window.location.href = 'https://rodrigopontesdev.github.io/';
             });
-        });
-    }
+        }
 
-    // ============================================
-    // 7. EVENT LISTENERS GERAIS
-    // ============================================
-    document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('btn-recarregar').addEventListener('click', () => carregarDiligencias(1));
-        document.getElementById('btn-buscar').addEventListener('click', () => carregarDiligencias(1, document.getElementById('search-intimacoes').value));
-        document.getElementById('search-intimacoes').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') carregarDiligencias(1, document.getElementById('search-intimacoes').value);
-        });
+        // CARREGAR DILIGÊNCIAS
+        async function carregarDiligencias(page = 1, searchTerm = '') {
+            paginaAtual = page;
+            const offset = (page - 1) * ITENS_POR_PAGINA;
+            
+            try {
+                let query = supabaseClient.from('diligencias').select('*, clientes:cliente_id(*)', { count: 'exact' })
+                    .eq('intimador_id', usuarioAtual.id)
+                    .in('status', ['pendente', 'em_andamento'])
+                    .order('criada_em', { ascending: false });
 
-        // Delegação de eventos dinâmicos
-        document.addEventListener('click', (e) => {
-            const btnIniciar = e.target.closest('.btn-iniciar');
-            const btnCheckpoint = e.target.closest('.btn-checkpoint');
-            const btnConcluir = e.target.closest('.btn-concluir');
+                if (searchTerm) query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
+                
+                query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
+                const { data, error, count } = await query;
+                if (error) throw error;
 
-            if (btnIniciar) { diligenciaSelecionadaId = btnIniciar.dataset.id; abrirModalIniciar(); }
-            if (btnCheckpoint) { diligenciaSelecionadaId = btnCheckpoint.dataset.id; abrirModalCheckpoint(); }
-            if (btnConcluir) { diligenciaSelecionadaId = btnConcluir.dataset.id; abrirModalConcluir(); }
-        });
+                diligenciasEmCache = data || [];
+                diligenciaEmAndamentoId = diligenciasEmCache.find(d => d.status === 'em_andamento')?.id || null;
+                
+                document.getElementById('alerta-andamento').classList.toggle('d-none', !diligenciaEmAndamentoId);
+                renderizarLista();
+                atualizarPaginacao(count || 0);
+            } catch (err) { mostrarMensagem('Erro ao carregar intimações', 'erro'); }
+        }
 
-        // Listeners dos Modais
-        document.getElementById('btn-confirmar-iniciar').addEventListener('click', confirmarIniciar);
-        document.getElementById('btn-confirmar-checkpoint').addEventListener('click', confirmarCheckpoint);
-        document.getElementById('btn-confirmar-justificativa').addEventListener('click', confirmarJustificativa);
-        
-        // Textarea de justificativa
-        document.getElementById('texto-justificativa').addEventListener('input', function() {
-            this.value = removerEmojis(this.value);
-            document.getElementById('contador-chars').textContent = this.value.length;
-        });
+        // RENDERIZAÇÃO RESPONSIVA
+        function renderizarLista() {
+            const tbody = document.getElementById('tbody-intimacoes');
+            const mobileContainer = document.getElementById('lista-mobile');
+            
+            if (diligenciasEmCache.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">Nenhuma intimação encontrada</td></tr>';
+                mobileContainer.innerHTML = '<div class="col-12 text-center text-muted py-4">Nenhuma intimação encontrada</div>';
+                return;
+            }
 
-        // NOVA LÓGICA DE CONCLUSÃO COM CÓDIGO DE OCORRÊNCIA
-        document.getElementById('btn-opcao-pendente').addEventListener('click', () => {
-            statusFinalizacaoSelecionado = 'pendente';
-            document.getElementById('area-codigo-ocorrencia').classList.remove('d-none');
-            document.getElementById('btn-confirmar-finalizacao').classList.remove('d-none');
-            document.getElementById('btn-opcao-pendente').disabled = true;
-            document.getElementById('btn-opcao-encerrado').disabled = true;
-        });
+            const gerarBotoes = (d, bloqueada) => {
+                if (bloqueada) return `<button class="btn btn-sm btn-secondary" disabled><i class="bi bi-lock"></i> Bloqueada</button>`;
+                let botoes = '';
+                if (d.status === 'pendente') botoes += `<button class="btn btn-sm btn-success btn-iniciar" data-id="${d.id}"><i class="bi bi-play-circle"></i> Iniciar</button>`;
+                if (d.status === 'em_andamento') {
+                    botoes += `<button class="btn btn-sm btn-primary btn-checkpoint" data-id="${d.id}"><i class="bi bi-geo-alt"></i> Checkpoint</button>`;
+                    botoes += `<button class="btn btn-sm btn-info btn-concluir" data-id="${d.id}"><i class="bi bi-flag-checkered"></i> Concluir</button>`;
+                }
+                return botoes;
+            };
 
-        document.getElementById('btn-opcao-encerrado').addEventListener('click', () => {
-            statusFinalizacaoSelecionado = 'encerrada';
-            document.getElementById('area-codigo-ocorrencia').classList.remove('d-none');
-            document.getElementById('btn-confirmar-finalizacao').classList.remove('d-none');
-            document.getElementById('btn-opcao-pendente').disabled = true;
-            document.getElementById('btn-opcao-encerrado').disabled = true;
-        });
+            const getBadge = (s) => {
+                const map = { 'pendente': 'bg-secondary', 'em_andamento': 'bg-warning text-dark' };
+                const label = { 'pendente': 'Pendente', 'em_andamento': 'Em Andamento' };
+                return `<span class="badge ${map[s] || 'bg-secondary'}">${label[s] || s}</span>`;
+            };
 
-        document.getElementById('btn-confirmar-finalizacao').addEventListener('click', confirmarFinalizacaoComCodigo);
+            // Desktop
+            tbody.innerHTML = diligenciasEmCache.map(d => {
+                const c = d.clientes || {};
+                const bloq = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
+                return `<tr>
+                    <td><strong>${c.devedor || '-'}</strong></td>
+                    <td>${c.endereco || '-'}</td>
+                    <td>${c.cep || '-'}</td>
+                    <td>${getBadge(d.status)}</td>
+                    <td class="text-end">${gerarBotoes(d, bloq)}</td>
+                </tr>`;
+            }).join('');
 
-        // Resetar modal ao fechar
-        const modalConcluirEl = document.getElementById('modalConcluir');
-        if (modalConcluirEl) {
-            modalConcluirEl.addEventListener('hidden.bs.modal', function () {
+            // Mobile
+            mobileContainer.innerHTML = diligenciasEmCache.map(d => {
+                const c = d.clientes || {};
+                const bloq = diligenciaEmAndamentoId && diligenciaEmAndamentoId !== d.id;
+                return `<div class="col-12">
+                    <div class="card card-intimacao shadow-sm border-0">
+                        <div class="card-body p-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0 fw-bold text-truncate" style="max-width: 70%;" title="${c.devedor || ''}">${c.devedor || '-'}</h6>
+                                ${getBadge(d.status)}
+                            </div>
+                            <p class="mb-1 small text-muted"><i class="bi bi-geo-alt"></i> ${c.endereco || '-'}</p>
+                            <p class="mb-2 small text-muted"><i class="bi bi-mailbox"></i> CEP: ${c.cep || '-'}</p>
+                            <div class="d-flex gap-2 flex-wrap">${gerarBotoes(d, bloq)}</div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function atualizarPaginacao(totalItems) {
+            const totalPages = Math.ceil(totalItems / ITENS_POR_PAGINA);
+            const pag = document.getElementById('pagination-intimacoes');
+            if (totalPages <= 1) { pag.innerHTML = ''; return; }
+            
+            let html = `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual - 1}">Anterior</a></li>`;
+            for (let i = 1; i <= Math.min(totalPages, 5); i++) html += `<li class="page-item ${i === paginaAtual ? 'active' : ''}><a class="page-link btn-page" data-page="${i}">${i}</a></li>`;
+            html += `<li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual + 1}">Próximo</a></li>`;
+            
+            pag.innerHTML = html;
+            pag.querySelectorAll('.btn-page').forEach(l => l.addEventListener('click', e => {
+                e.preventDefault();
+                carregarDiligencias(parseInt(l.dataset.page), document.getElementById('search-intimacoes').value);
+            }));
+        }
+
+        // EVENT LISTENERS GERAIS
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn-recarregar').addEventListener('click', () => carregarDiligencias(1));
+            document.getElementById('btn-buscar').addEventListener('click', () => carregarDiligencias(1, document.getElementById('search-intimacoes').value));
+            document.getElementById('search-intimacoes').addEventListener('keypress', e => { if(e.key==='Enter') carregarDiligencias(1, e.target.value); });
+
+            document.addEventListener('click', e => {
+                const btnI = e.target.closest('.btn-iniciar');
+                const btnC = e.target.closest('.btn-checkpoint');
+                const btnF = e.target.closest('.btn-concluir');
+                if(btnI) { diligenciaSelecionadaId = btnI.dataset.id; abrirModalIniciar(); }
+                if(btnC) { diligenciaSelecionadaId = btnC.dataset.id; abrirModalCheckpoint(); }
+                if(btnF) { diligenciaSelecionadaId = btnF.dataset.id; abrirModalConcluir(); }
+            });
+
+            document.getElementById('btn-confirmar-iniciar').addEventListener('click', confirmarIniciar);
+            document.getElementById('btn-confirmar-checkpoint').addEventListener('click', confirmarCheckpoint);
+            document.getElementById('btn-confirmar-justificativa').addEventListener('click', confirmarJustificativa);
+            document.getElementById('texto-justificativa').addEventListener('input', function() { 
+                this.value = removerEmojis(this.value); 
+                document.getElementById('contador-chars').textContent = this.value.length; 
+            });
+
+            // LÓGICA DE CONCLUSÃO COM CÓDIGOS
+            document.getElementById('btn-opcao-pendente').addEventListener('click', () => {
+                statusFinalizacaoSelecionado = 'pendente';
+                document.getElementById('area-codigo-ocorrencia').classList.remove('d-none');
+                document.getElementById('btn-confirmar-finalizacao').classList.remove('d-none');
+                document.getElementById('btn-opcao-pendente').disabled = true;
+                document.getElementById('btn-opcao-encerrado').disabled = true;
+            });
+
+            document.getElementById('btn-opcao-encerrado').addEventListener('click', () => {
+                statusFinalizacaoSelecionado = 'encerrada';
+                document.getElementById('area-codigo-ocorrencia').classList.remove('d-none');
+                document.getElementById('btn-confirmar-finalizacao').classList.remove('d-none');
+                document.getElementById('btn-opcao-pendente').disabled = true;
+                document.getElementById('btn-opcao-encerrado').disabled = true;
+            });
+
+            document.getElementById('btn-confirmar-finalizacao').addEventListener('click', confirmarFinalizacaoComCodigo);
+
+            const modalEl = document.getElementById('modalConcluir');
+            if(modalEl) modalEl.addEventListener('hidden.bs.modal', () => {
                 statusFinalizacaoSelecionado = null;
                 document.getElementById('area-codigo-ocorrencia').classList.add('d-none');
                 document.getElementById('btn-confirmar-finalizacao').classList.add('d-none');
@@ -626,174 +426,119 @@
                 document.getElementById('btn-opcao-pendente').disabled = false;
                 document.getElementById('btn-opcao-encerrado').disabled = false;
             });
+
+            verificarAutenticacao();
+        });
+
+        // FUNÇÕES DE AÇÃO
+        function abrirModalIniciar() {
+            const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
+            if(!d) return;
+            document.getElementById('nome-devedor-iniciar').textContent = d.clientes?.devedor || 'Devedor';
+            document.getElementById('status-gps').classList.add('d-none');
+            new bootstrap.Modal(document.getElementById('modalIniciar')).show();
         }
 
-        verificarAutenticacao();
-    });
+        async function confirmarIniciar() {
+            const gpsAlert = document.getElementById('status-gps');
+            gpsAlert.classList.remove('d-none');
+            if(!navigator.geolocation) return mostrarMensagem('Geolocalização não suportada', 'erro');
 
-    // ============================================
-    // 8. FUNÇÕES DOS MODAIS
-    // ============================================
-    function abrirModalIniciar() {
-        const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
-        if (!d) return;
-        document.getElementById('nome-devedor-iniciar').textContent = d.clientes?.devedor || 'Devedor';
-        document.getElementById('status-gps').classList.add('d-none');
-        new bootstrap.Modal(document.getElementById('modalIniciar')).show();
-    }
+            navigator.geolocation.getCurrentPosition(async (pos) => {
+                try {
+                    const { error } = await supabaseClient.from('diligencias').update({ status: 'em_andamento', iniciada_em: new Date().toISOString() }).eq('id', diligenciaSelecionadaId);
+                    if(error) throw error;
+                    bootstrap.Modal.getInstance(document.getElementById('modalIniciar')).hide();
+                    mostrarMensagem('Diligência iniciada com sucesso!', 'sucesso');
+                    carregarDiligencias(paginaAtual);
+                } catch(err) { mostrarMensagem('Erro ao iniciar: ' + err.message, 'erro'); }
+            }, (err) => {
+                gpsAlert.classList.add('d-none');
+                mostrarMensagem(err.code === 1 ? 'Permissão de localização negada.' : 'Não foi possível obter localização.', 'erro');
+            }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+        }
 
-    async function confirmarIniciar() {
-        const statusGps = document.getElementById('status-gps');
-        statusGps.classList.remove('d-none');
+        async function abrirModalCheckpoint() {
+            const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
+            if(!d) return;
+            document.getElementById('nome-devedor-checkpoint').textContent = d.clientes?.devedor || 'Devedor';
+            document.getElementById('status-gps-checkpoint').classList.add('d-none');
+            const { count } = await supabaseClient.from('checkpoints').select('id', { count: 'exact', head: true }).eq('diligencia_id', diligenciaSelecionadaId);
+            contadorCheckpoints = count || 0;
+            new bootstrap.Modal(document.getElementById('modalCheckpoint')).show();
+        }
 
-        if (!navigator.geolocation) { mostrarMensagem('Geolocalização não suportada', 'erro'); return; }
+        async function confirmarCheckpoint() {
+            const gpsAlert = document.getElementById('status-gps-checkpoint');
+            gpsAlert.classList.remove('d-none');
+            if(!navigator.geolocation) return mostrarMensagem('GPS não suportado', 'erro');
 
-        navigator.geolocation.getCurrentPosition(async (pos) => {
+            navigator.geolocation.getCurrentPosition(async (pos) => {
+                try {
+                    const { error } = await supabaseClient.from('checkpoints').insert({
+                        diligencia_id: diligenciaSelecionadaId, sequencial: contadorCheckpoints + 1,
+                        latitude: pos.coords.latitude, longitude: pos.coords.longitude, data_hora: new Date().toISOString()
+                    });
+                    if(error) throw error;
+                    contadorCheckpoints++;
+                    bootstrap.Modal.getInstance(document.getElementById('modalCheckpoint')).hide();
+                    mostrarMensagem(`Checkpoint #${contadorCheckpoints} registrado!`, 'sucesso');
+                    if(contadorCheckpoints > 10) setTimeout(() => new bootstrap.Modal(document.getElementById('modalJustificativa')).show(), 1000);
+                } catch(err) { mostrarMensagem('Erro ao registrar checkpoint', 'erro'); }
+            }, () => { gpsAlert.classList.add('d-none'); mostrarMensagem('Permissão de localização negada.', 'erro'); }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+        }
+
+        function removerEmojis(t) { return t.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{FE0F}]/gu, ''); }
+
+        async function confirmarJustificativa() {
+            const txt = document.getElementById('texto-justificativa').value.trim();
+            const errDiv = document.getElementById('erro-justificativa');
+            if(!txt) { errDiv.textContent = 'Obrigatório.'; errDiv.classList.remove('d-none'); return; }
+            if(removerEmojis(txt) !== txt) { errDiv.textContent = 'Emojis não são permitidos.'; errDiv.classList.remove('d-none'); return; }
+
             try {
-                const { error } = await supabaseClient.from('diligencias').update({
-                    status: 'em_andamento', iniciada_em: new Date().toISOString()
-                }).eq('id', diligenciaSelecionadaId);
-                
-                if (error) throw error;
-                bootstrap.Modal.getInstance(document.getElementById('modalIniciar')).hide();
-                mostrarMensagem('Diligência iniciada com sucesso!', 'sucesso');
-                carregarDiligencias(paginaAtual);
-            } catch (err) { mostrarMensagem('Erro ao iniciar: ' + err.message, 'erro'); }
-        }, (err) => {
-            statusGps.classList.add('d-none');
-            const msgs = { 1: 'Permissão negada.', 2: 'Localização indisponível.', 3: 'Tempo esgotado.' };
-            mostrarMensagem(msgs[err.code] || 'Não foi possível obter localização.', 'erro');
-        }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
-    }
+                await supabaseClient.from('checkpoints').update({ justificativa: txt }).eq('diligencia_id', diligenciaSelecionadaId).eq('sequencial', contadorCheckpoints);
+                bootstrap.Modal.getInstance(document.getElementById('modalJustificativa')).hide();
+                document.getElementById('texto-justificativa').value = '';
+                mostrarMensagem('Justificativa salva!', 'sucesso');
+            } catch(err) { mostrarMensagem('Erro ao salvar justificativa', 'erro'); }
+        }
 
-    async function abrirModalCheckpoint() {
-        const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
-        if (!d) return;
-        document.getElementById('nome-devedor-checkpoint').textContent = d.clientes?.devedor || 'Devedor';
-        document.getElementById('status-gps-checkpoint').classList.add('d-none');
-        
-        const { count } = await supabaseClient.from('checkpoints').select('id', { count: 'exact', head: true }).eq('diligencia_id', diligenciaSelecionadaId);
-        contadorCheckpoints = count || 0;
-        
-        new bootstrap.Modal(document.getElementById('modalCheckpoint')).show();
-    }
-
-    async function confirmarCheckpoint() {
-        const statusGps = document.getElementById('status-gps-checkpoint');
-        statusGps.classList.remove('d-none');
-
-        if (!navigator.geolocation) { mostrarMensagem('GPS não suportado', 'erro'); return; }
-
-        navigator.geolocation.getCurrentPosition(async (pos) => {
-            try {
-                const { error } = await supabaseClient.from('checkpoints').insert({
-                    diligencia_id: diligenciaSelecionadaId,
-                    sequencial: contadorCheckpoints + 1,
-                    latitude: pos.coords.latitude,
-                    longitude: pos.coords.longitude,
-                    data_hora: new Date().toISOString()
-                });
-                
-                if (error) throw error;
-                contadorCheckpoints++;
-                bootstrap.Modal.getInstance(document.getElementById('modalCheckpoint')).hide();
-                mostrarMensagem(`Checkpoint #${contadorCheckpoints} registrado!`, 'sucesso');
-
-                if (contadorCheckpoints > 10) {
-                    setTimeout(() => new bootstrap.Modal(document.getElementById('modalJustificativa')).show(), 1000);
-                }
-            } catch (err) { mostrarMensagem('Erro ao registrar checkpoint', 'erro'); }
-        }, () => {
-            statusGps.classList.add('d-none');
-            mostrarMensagem('Permissão de localização negada.', 'erro');
-        }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
-    }
-
-    function removerEmojis(texto) {
-        return texto.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{FE0F}]/gu, '');
-    }
-
-    async function confirmarJustificativa() {
-        const texto = document.getElementById('texto-justificativa').value.trim();
-        const erroDiv = document.getElementById('erro-justificativa');
-
-        if (!texto) { erroDiv.textContent = 'Obrigatório.'; erroDiv.classList.remove('d-none'); return; }
-        if (removerEmojis(texto) !== texto) { erroDiv.textContent = 'Sem emojis.'; erroDiv.classList.remove('d-none'); return; }
-
-        try {
-            await supabaseClient.from('checkpoints').update({ justificativa: texto })
-                .eq('diligencia_id', diligenciaSelecionadaId).eq('sequencial', contadorCheckpoints);
+        async function abrirModalConcluir() {
+            const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
+            if(!d) return;
+            const { count } = await supabaseClient.from('checkpoints').select('id', { count: 'exact', head: true }).eq('diligencia_id', diligenciaSelecionadaId);
+            if(count < 3) return mostrarMensagem(`Mínimo de 3 checkpoints necessários. Você tem ${count}.`, 'erro');
             
-            bootstrap.Modal.getInstance(document.getElementById('modalJustificativa')).hide();
-            document.getElementById('texto-justificativa').value = '';
-            mostrarMensagem('Justificativa salva!', 'sucesso');
-        } catch (err) { mostrarMensagem('Erro ao salvar justificativa', 'erro'); }
-    }
-
-    async function abrirModalConcluir() {
-        const d = diligenciasEmCache.find(x => x.id === diligenciaSelecionadaId);
-        if (!d) return;
-
-        const { count } = await supabaseClient.from('checkpoints').select('id', { count: 'exact', head: true }).eq('diligencia_id', diligenciaSelecionadaId);
-        
-        if (count < 3) {
-            mostrarMensagem(`Mínimo de 3 checkpoints necessários. Você tem ${count}.`, 'erro');
-            return;
+            document.getElementById('nome-devedor-concluir').textContent = d.clientes?.devedor || 'Devedor';
+            new bootstrap.Modal(document.getElementById('modalConcluir')).show();
         }
 
-        document.getElementById('nome-devedor-concluir').textContent = d.clientes?.devedor || 'Devedor';
-        new bootstrap.Modal(document.getElementById('modalConcluir')).show();
-    }
+        async function confirmarFinalizacaoComCodigo() {
+            const codigo = document.getElementById('select-codigo-ocorrencia').value;
+            if(!codigo) return alert('Selecione um Código de Ocorrência antes de confirmar.');
 
-    // NOVA FUNÇÃO UNIFICADA PARA FINALIZAR COM CÓDIGO
-    async function confirmarFinalizacaoComCodigo() {
-        const codigo = document.getElementById('select-codigo-ocorrencia').value;
-        
-        if (!codigo) {
-            alert('Selecione um Código de Ocorrência antes de confirmar.');
-            return;
+            try {
+                const updateData = { status: statusFinalizacaoSelecionado, codigo_ocorrencia: codigo };
+                if(statusFinalizacaoSelecionado === 'encerrada') updateData.concluida_em = new Date().toISOString();
+
+                const { error } = await supabaseClient.from('diligencias').update(updateData).eq('id', diligenciaSelecionadaId);
+                if(error) throw error;
+
+                bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
+                mostrarMensagem(`Diligência ${statusFinalizacaoSelecionado === 'pendente' ? 'reatribuída' : 'encerrada'} com sucesso!`, 'sucesso');
+                carregarDiligencias(paginaAtual);
+            } catch(err) { mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro'); }
         }
 
-        try {
-            const updateData = {
-                status: statusFinalizacaoSelecionado,
-                codigo_ocorrencia: codigo
-            };
-
-            if (statusFinalizacaoSelecionado === 'encerrada') {
-                updateData.concluida_em = new Date().toISOString();
-            }
-
-            const { error } = await supabaseClient.from('diligencias').update(updateData).eq('id', diligenciaSelecionadaId);
-            if (error) throw error;
-
-            bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
-            mostrarMensagem(`Diligência ${statusFinalizacaoSelecionado === 'pendente' ? 'reatribuída' : 'encerrada'} com sucesso!`, 'sucesso');
-            carregarDiligencias(paginaAtual);
-
-        } catch (err) {
-            console.error(err);
-            mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro');
+        function mostrarMensagem(texto, tipo = 'info') {
+            const icones = { 'sucesso': '<i class="bi bi-check-circle-fill text-success"></i>', 'erro': '<i class="bi bi-x-circle-fill text-danger"></i>', 'info': '<i class="bi bi-info-circle-fill text-info"></i>' };
+            document.getElementById('icone-mensagem').innerHTML = icones[tipo] || icones['info'];
+            document.getElementById('texto-mensagem').textContent = texto;
+            const m = new bootstrap.Modal(document.getElementById('modalMensagem'));
+            m.show();
+            if(tipo !== 'erro') setTimeout(() => m.hide(), 3000);
         }
-    }
-
-    function mostrarMensagem(texto, tipo = 'info') {
-        const icone = document.getElementById('icone-mensagem');
-        const icones = {
-            'sucesso': '<i class="bi bi-check-circle-fill text-success"></i>',
-            'erro': '<i class="bi bi-x-circle-fill text-danger"></i>',
-            'info': '<i class="bi bi-info-circle-fill text-info"></i>'
-        };
-        icone.innerHTML = icones[tipo] || icones['info'];
-        document.getElementById('texto-mensagem').textContent = texto;
-        
-        const m = new bootstrap.Modal(document.getElementById('modalMensagem'));
-        m.show();
-        if (tipo !== 'erro') setTimeout(() => m.hide(), 3000);
-    }
-</script>
-
-
+    </script>
 </body>
-
-    </html>
+</html>

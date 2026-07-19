@@ -569,47 +569,66 @@
     }
 
     // ✅ FUNÇÃO PRINCIPAL DE FINALIZAÇÃO COM CÓDIGO
-    async function confirmarFinalizacaoComCodigo() {
-        const codigo = document.getElementById('select-codigo-ocorrencia').value;
+    // Função que salva o status E o código de ocorrência NA TABELA CHECKPOINTS
+async function confirmarFinalizacaoComCodigo() {
+    const codigo = document.getElementById('select-codigo-ocorrencia').value;
+    
+    if (!codigo) {
+        alert('Selecione um Código de Ocorrência antes de confirmar.');
+        return;
+    }
+
+    try {
+        // 1. Atualizar o STATUS da diligência (para bloquear/liberar outras)
+        const updateData = { status: statusFinalizacaoSelecionado };
         
-        if (!codigo) {
-            alert('Selecione um Código de Ocorrência antes de confirmar.');
-            return;
+        if (statusFinalizacaoSelecionado === 'encerrada') {
+            updateData.concluida_em = new Date().toISOString();
         }
 
-        try {
-            // 1. Atualizar status da diligência
-            const updateData = { status: statusFinalizacaoSelecionado };
-            if (statusFinalizacaoSelecionado === 'encerrada') {
-                updateData.concluida_em = new Date().toISOString();
-            }
+        await supabaseClient
+            .from('diligencias')
+            .update(updateData)
+            .eq('id', diligenciaSelecionadaId);
 
-            await supabaseClient.from('diligencias').update(updateData).eq('id', diligenciaSelecionadaId);
+        // 2. SALVAR O CÓDIGO DE OCORRÊNCIA NA TABELA CHECKPOINTS
+        // Buscamos o último checkpoint registrado nesta diligência
+        const { data: ultimoCheckpoint, error: cpError } = await supabaseClient
+            .from('checkpoints')
+            .select('id')
+            .eq('diligencia_id', diligenciaSelecionadaId)
+            .order('sequencial', { ascending: false })
+            .limit(1)
+            .single();
 
-            // 2. Salvar o código de ocorrência no ÚLTIMO checkpoint
-            const { data: ultimoCheckpoint } = await supabaseClient
-                .from('checkpoints')
-                .select('sequencial')
-                .eq('diligencia_id', diligenciaSelecionadaId)
-                .order('sequencial', { ascending: false })
-                .limit(1)
-                .single();
+        if (cpError || !ultimoCheckpoint) {
+            console.error('Erro ao buscar checkpoint:', cpError);
+            throw new Error('Não foi possível registrar o código de ocorrência.');
+        }
 
-            if (ultimoCheckpoint) {
-                await supabaseClient.from('checkpoints')
-                    .update({ codigo_ocorrencia: codigo })
-                    .eq('diligencia_id', diligenciaSelecionadaId)
-                    .eq('sequencial', ultimoCheckpoint.sequencial);
-            } else {
-                // Caso raro: cria registro especial se não houver checkpoints
-                await supabaseClient.from('checkpoints').insert({
-                    diligencia_id: diligenciaSelecionadaId,
-                    sequencial: 9999, latitude: 0, longitude: 0,
-                    data_hora: new Date().toISOString(),
-                    justificativa: 'Registro de Conclusão',
-                    codigo_ocorrencia: codigo
-                });
-            }
+        // Atualizamos o campo codigo_ocorrencia no último checkpoint
+        const { error: updateCpError } = await supabaseClient
+            .from('checkpoints')
+            .update({ codigo_ocorrencia: codigo })
+            .eq('id', ultimoCheckpoint.id);
+
+        if (updateCpError) throw updateCpError;
+
+        // 3. Feedback visual e recarregamento
+        bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
+        
+        const msg = statusFinalizacaoSelecionado === 'pendente' 
+            ? 'Diligência marcada como Pendente com sucesso!' 
+            : 'Diligência Encerrada definitivamente!';
+            
+        mostrarMensagem(msg, 'sucesso');
+        carregarDiligencias(paginaAtual);
+
+    } catch (err) {
+        console.error(err);
+        mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro');
+    }
+}
 
             bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
             const msg = statusFinalizacaoSelecionado === 'pendente' 

@@ -569,83 +569,73 @@
     }
 
     // ✅ FUNÇÃO PRINCIPAL DE FINALIZAÇÃO COM CÓDIGO
-async function confirmarFinalizacaoComCodigo() {
-    const codigo = document.getElementById('select-codigo-ocorrencia').value;
-    
-    if (!codigo) {
-        mostrarMensagem('Selecione um Código de Ocorrência antes de confirmar.', 'erro');
-        return;
-    }
-
-    try {
-        // 1. Atualizar o STATUS da diligência
-        const updateData = { status: statusFinalizacaoSelecionado };
+    async function confirmarFinalizacaoComCodigo() {
+        const codigo = document.getElementById('select-codigo-ocorrencia').value;
         
-        if (statusFinalizacaoSelecionado === 'encerrada') {
-            updateData.concluida_em = new Date().toISOString();
+        if (!codigo) {
+            mostrarMensagem('Selecione um Código de Ocorrência antes de confirmar.', 'erro');
+            return;
         }
 
-        const { error: updateError } = await supabaseClient
-            .from('diligencias')
-            .update(updateData)
-            .eq('id', diligenciaSelecionadaId);
-
-        if (updateError) throw updateError;
-
-        // 2. SALVAR O CÓDIGO DE OCORRÊNCIA NO ÚLTIMO CHECKPOINT
-        const { data: ultimoCheckpoint, error: cpError } = await supabaseClient
-            .from('checkpoints')
-            .select('id')
-            .eq('diligencia_id', diligenciaSelecionadaId)
-            .order('sequencial', { ascending: false })
-            .limit(1)
-            .single();
-
-        if (cpError || !ultimoCheckpoint) {
-            console.error('Erro ao buscar checkpoint:', cpError);
-            throw new Error('Não foi possível registrar o código de ocorrência.');
-        }
-
-        // Atualizar o último checkpoint com o código de ocorrência
-        const { error: codigoError } = await supabaseClient
-            .from('checkpoints')
-            .update({ codigo_ocorrencia: codigo })
-            .eq('id', ultimoCheckpoint.id);
-
-        if (codigoError) throw codigoError;
-
-        // 3. Feedback visual e recarregamento
-        bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
-        
-        const msg = statusFinalizacaoSelecionado === 'pendente' 
-            ? 'Diligência marcada como Pendente com sucesso!' 
-            : 'Diligência Encerrada definitivamente!';
+        try {
+            // 1. Atualizar o STATUS da diligência
+            const updateData = { status: statusFinalizacaoSelecionado };
             
-        mostrarMensagem(msg, 'sucesso');
-        carregarDiligencias(paginaAtual);
+            if (statusFinalizacaoSelecionado === 'encerrada') {
+                updateData.concluida_em = new Date().toISOString();
+            }
 
-    } catch (err) {
-        console.error('Erro detalhado:', err);
-        mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro');
-    }
-}
+            const { error: updateError } = await supabaseClient
+                .from('diligencias')
+                .update(updateData)
+                .eq('id', diligenciaSelecionadaId);
 
+            if (updateError) throw updateError;
+
+            // 2. SALVAR O CÓDIGO DE OCORRÊNCIA NO ÚLTIMO CHECKPOINT
+            const { data: ultimoCheckpoint, error: cpError } = await supabaseClient
+                .from('checkpoints')
+                .select('id')
+                .eq('diligencia_id', diligenciaSelecionadaId)
+                .order('sequencial', { ascending: false })
+                .limit(1)
+                .single();
+
+            if (cpError || !ultimoCheckpoint) {
+                console.error('Erro ao buscar checkpoint:', cpError);
+                throw new Error('Não foi possível registrar o código de ocorrência.');
+            }
+
+            // Atualizar o último checkpoint com o código de ocorrência
+            const { error: codigoError } = await supabaseClient
+                .from('checkpoints')
+                .update({ codigo_ocorrencia: codigo })
+                .eq('id', ultimoCheckpoint.id);
+
+            if (codigoError) throw codigoError;
+
+            // 3. Feedback visual e recarregamento
             bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
+            
             const msg = statusFinalizacaoSelecionado === 'pendente' 
-                ? 'Diligência marcada como Pendente!' 
+                ? 'Diligência marcada como Pendente com sucesso!' 
                 : 'Diligência Encerrada definitivamente!';
                 
             mostrarMensagem(msg, 'sucesso');
             carregarDiligencias(paginaAtual);
 
         } catch (err) {
-            console.error(err);
+            console.error('Erro detalhado:', err);
             mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro');
         }
     }
 
     function mostrarMensagem(texto, tipo = 'info') {
-        const icones = { 'sucesso': '<i class="bi bi-check-circle-fill text-success"></i>', 'erro': '<i class="bi bi-x-circle-fill text-danger"></i>', 'info': '<i class="bi bi-info-circle-fill text-info"></i>' };
+        const icones = { 
+            'sucesso': '<i class="bi bi-check-circle-fill text-success"></i>', 
+            'erro': '<i class="bi bi-x-circle-fill text-danger"></i>', 
+            'info': '<i class="bi bi-info-circle-fill text-info"></i>' 
+        };
         document.getElementById('icone-mensagem').innerHTML = icones[tipo] || icones['info'];
         document.getElementById('texto-mensagem').textContent = texto;
         const m = new bootstrap.Modal(document.getElementById('modalMensagem'));
@@ -653,5 +643,7 @@ async function confirmarFinalizacaoComCodigo() {
         if(tipo !== 'erro') setTimeout(() => m.hide(), 3000);
     }
 </script>
+</body>
+</html>
 </body>
 </html>

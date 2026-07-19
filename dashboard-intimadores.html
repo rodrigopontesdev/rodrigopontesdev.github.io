@@ -298,19 +298,36 @@
             </div>
             <div class="modal-body">
                 <p>Como deseja finalizar a diligência de <strong id="nome-devedor-concluir"></strong>?</p>
-                <div class="d-grid gap-2 mt-3">
+                
+                <!-- Área de Justificativa (Oculta inicialmente) -->
+                <div id="area-justificativa-conclusao" class="d-none mt-3 p-3 bg-light rounded border">
+                    <label for="texto-justificativa-conclusao" class="form-label fw-bold">
+                        <i class="bi bi-pencil-square"></i> Motivo da Pendência (Obrigatório):
+                    </label>
+                    <textarea class="form-control" id="texto-justificativa-conclusao" 
+                              maxlength="140" rows="3" 
+                              placeholder="Explique o motivo (ex: porta fechada, endereço incorreto...)"></textarea>
+                    <div class="form-text text-end"><span id="contador-chars-conclusao">0</span>/140 caracteres</div>
+                    <div id="erro-justificativa-conclusao" class="text-danger small mt-1 d-none"></div>
+                </div>
+
+                <div class="d-grid gap-2 mt-3" id="botoes-status-conclusao">
                     <button class="btn btn-outline-warning" id="btn-pendente">
                         <i class="bi bi-arrow-counterclockwise"></i> 
-                        <strong>Pendente</strong> - Voltará para a fila de atribuição
+                        <strong>Pendente</strong> - Voltará para a fila
                     </button>
                     <button class="btn btn-outline-danger" id="btn-encerrado">
                         <i class="bi bi-x-circle"></i> 
-                        <strong>Encerrado</strong> - Diligência finalizada definitivamente
+                        <strong>Encerrado</strong> - Finalizada definitivamente
                     </button>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <!-- Botão de Confirmar (Só aparece após escolher Pendente e preencher justificativa) -->
+                <button type="button" class="btn btn-success d-none" id="btn-confirmar-finalizacao">
+                    <i class="bi bi-check-circle"></i> Confirmar
+                </button>
             </div>
         </div>
     </div>
@@ -866,6 +883,12 @@
     // ============================================
     // 11. MODAL CONCLUIR
     // ============================================
+    // Variável para armazenar o status escolhido temporariamente
+    let statusEscolidoConclusao = null;
+
+    // ============================================
+    // 11. MODAL CONCLUIR
+    // ============================================
     async function abrirModalConcluir() {
         const diligencia = diligenciasEmCache.find(d => d.id === diligenciaSelecionadaId);
         if (!diligencia) return;
@@ -882,16 +905,93 @@
         }
 
         document.getElementById('nome-devedor-concluir').textContent = diligencia.clientes?.devedor || 'Devedor';
+        
+        // Resetar estado do modal
+        document.getElementById('area-justificativa-conclusao').classList.add('d-none');
+        document.getElementById('botoes-status-conclusao').classList.remove('d-none');
+        document.getElementById('btn-confirmar-finalizacao').classList.add('d-none');
+        document.getElementById('texto-justificativa-conclusao').value = '';
+        document.getElementById('contador-chars-conclusao').textContent = '0';
+        document.getElementById('erro-justificativa-conclusao').classList.add('d-none');
+        statusEscolidoConclusao = null;
 
         const modal = new bootstrap.Modal(document.getElementById('modalConcluir'));
         modal.show();
     }
 
-    async function finalizarDiligencia(novoStatus) {
+    // Listener para botão Pendente
+    document.getElementById('btn-pendente').addEventListener('click', () => {
+        statusEscolidoConclusao = 'pendente';
+        // Mostrar campo de justificativa e esconder botões de escolha
+        document.getElementById('botoes-status-conclusao').classList.add('d-none');
+        document.getElementById('area-justificativa-conclusao').classList.remove('d-none');
+        document.getElementById('btn-confirmar-finalizacao').classList.remove('d-none');
+        document.getElementById('texto-justificativa-conclusao').focus();
+    });
+
+    // Listener para botão Encerrado
+    document.getElementById('btn-encerrado').addEventListener('click', () => {
+        statusEscolidoConclusao = 'encerrada';
+        // Chamar finalização direta sem justificativa
+        executarFinalizacao('encerrada', null);
+    });
+
+    // Contador de caracteres da justificativa de conclusão
+    document.getElementById('texto-justificativa-conclusao').addEventListener('input', function() {
+        this.value = removerEmojis(this.value);
+        document.getElementById('contador-chars-conclusao').textContent = this.value.length;
+        document.getElementById('erro-justificativa-conclusao').classList.add('d-none');
+    });
+
+    // Listener para o botão Confirmar Finalização (aparece só na pendência)
+    document.getElementById('btn-confirmar-finalizacao').addEventListener('click', () => {
+        const justificativa = document.getElementById('texto-justificativa-conclusao').value.trim();
+        const erroDiv = document.getElementById('erro-justificativa-conclusao');
+
+        if (!justificativa) {
+            erroDiv.textContent = 'A justificativa é obrigatória para marcar como Pendente.';
+            erroDiv.classList.remove('d-none');
+            return;
+        }
+
+        if (removerEmojis(justificativa) !== justificativa) {
+            erroDiv.textContent = 'Emojis não são permitidos.';
+            erroDiv.classList.remove('d-none');
+            return;
+        }
+
+        executarFinalizacao('pendente', justificativa);
+    });
+
+    // Função centralizada de finalização
+    async function executarFinalizacao(novoStatus, justificativa) {
         try {
             const updateData = { status: novoStatus };
+            
+            // Se for encerrada, registra data de conclusão
             if (novoStatus === 'encerrada') {
                 updateData.concluida_em = new Date().toISOString();
+            }
+
+            // Se houver justificativa (caso pendente), atualiza o último checkpoint ou cria um registro específico?
+            // Para simplificar e manter auditoria, vamos atualizar o último checkpoint com essa justificativa geral de encerramento
+            if (justificativa) {
+                // Busca o último checkpoint para anexar a justificativa final
+                const { data: lastCp } = await supabaseClient
+                    .from('checkpoints')
+                    .select('sequencial')
+                    .eq('diligencia_id', diligenciaSelecionadaId)
+                    .order('sequencial', { ascending: false })
+                    .limit(1)
+                    .single();
+                
+                if (lastCp) {
+                     await supabaseClient
+                        .from('checkpoints')
+                        .update({ justificativa: justificativa }) // Sobrescreve ou adiciona contexto
+                        .eq('diligencia_id', diligenciaSelecionadaId)
+                        .eq('sequencial', lastCp.sequencial);
+                }
             }
 
             const { error } = await supabaseClient
@@ -904,8 +1004,8 @@
             bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
 
             const msg = novoStatus === 'pendente' 
-                ? 'Diligência marcada como Pendente. Voltará para a fila de atribuição.'
-                : 'Diligência Encerrada com sucesso!';
+                ? 'Diligência marcada como Pendente com sucesso.'
+                : 'Diligência Encerrada definitivamente!';
 
             mostrarMensagem(msg, 'sucesso');
             carregarDiligencias(paginaAtual);
@@ -947,4 +1047,4 @@
 
 </body>
 
-</html>
+                                           </html>

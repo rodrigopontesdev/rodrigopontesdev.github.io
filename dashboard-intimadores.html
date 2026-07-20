@@ -287,37 +287,47 @@
     // 3. CARREGAR DILIGÊNCIAS
     // ============================================
     async function carregarDiligencias(page = 1, searchTerm = '') {
-        paginaAtual = page;
-        const offset = (page - 1) * ITENS_POR_PAGINA;
+    paginaAtual = page;
+    const offset = (page - 1) * ITENS_POR_PAGINA;
 
-        try {
-            let query = supabaseClient
-                .from('diligencias')
-                .select('*, clientes:cliente_id(*)', { count: 'exact' })
-                .eq('intimador_id', usuarioAtual.id)
-                .in('status', ['pendente', 'em_andamento'])
-                .order('criada_em', { ascending: false });
+    try {
+        let query = supabaseClient
+            .from('diligencias')
+            .select('*, clientes:cliente_id(*)', { count: 'exact' })
+            .eq('intimador_id', usuarioAtual.id)
+            .in('status', ['pendente', 'em_andamento'])
+            .order('criada_em', { ascending: false });
 
-            if (searchTerm) {
-                query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
-            }
+        if (searchTerm) {
+            query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
+        }
 
-            query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
-            const { data, error, count } = await query;
+        query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
+        const { data, error, count } = await query;
 
-            if (error) throw error;
+        // Só mostra erro se for um erro REAL de permissão ou estrutura
+        if (error && error.code !== 'PGRST116') {
+            console.error('Erro crítico ao carregar:', error);
+            mostrarMensagem('Erro ao carregar intimações: ' + error.message, 'erro');
+            return; // Só retorna se for erro crítico
+        }
 
-            diligenciasEmCache = data || [];
-            diligenciaEmAndamentoId = diligenciasEmCache.find(d => d.status === 'em_andamento')?.id || null;
-            
-            document.getElementById('alerta-andamento').classList.toggle('d-none', !diligenciaEmAndamentoId);
-            renderizarLista();
-            atualizarPaginacao(count || 0);
+        diligenciasEmCache = data || [];
+        diligenciaEmAndamentoId = diligenciasEmCache.find(d => d.status === 'em_andamento')?.id || null;
+        
+        document.getElementById('alerta-andamento').classList.toggle('d-none', !diligenciaEmAndamentoId);
+        renderizarLista();
+        atualizarPaginacao(count || 0);
 
-        } catch (err) {
+    } catch (err) {
+        // Ignora erros de rede momentâneos se os dados já estiverem carregados
+        if (diligenciasEmCache.length === 0) {
             console.error('Erro ao carregar:', err);
             mostrarMensagem('Erro ao carregar intimações', 'erro');
+        } else {
+            console.log('Dados em cache mantidos, erro ignorado:', err.message);
         }
+    }
     }
 
     // ============================================

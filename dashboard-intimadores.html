@@ -642,6 +642,9 @@
         m.show();
         if(tipo !== 'erro') setTimeout(() => m.hide(), 3000);
     }
+
+    // Inicializar ano no footer
+    document.getElementById('ano-footer').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>

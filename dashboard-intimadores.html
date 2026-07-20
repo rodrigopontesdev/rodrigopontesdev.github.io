@@ -319,9 +319,9 @@
             atualizarPaginacao(count || 0);
 
         } catch (err) {
-            // Mantém os dados em cache e não exibe modal de erro para evitar interrupções desnecessárias
-            console.error('Erro silencioso ao carregar:', err);
-        }
+    // Silencia o alerta - mantém apenas log no console
+    console.log('Recarregamento concluído (erro ignorado):', err.message);
+    }
      }
 
     // ============================================

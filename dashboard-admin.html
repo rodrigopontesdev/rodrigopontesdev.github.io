@@ -480,20 +480,31 @@
         }
 
         async function alterarRole(userId, newRole) {
-            if (!confirm(`Tem certeza que deseja alterar o cargo deste usuário para "${newRole}"?`)) {
-                carregarUsuarios();
-                return;
-            }
-            try {
-                const { error } = await supabaseClient.from('perfis').update({ role: newRole }).eq('id', userId);
-                if (error) throw error;
-                alert('Cargo alterado com sucesso!');
-                carregarUsuarios();
-            } catch (err) {
-                alert('Erro ao alterar cargo: ' + err.message);
-                carregarUsuarios();
-            }
+    if (!confirm(`Tem certeza que deseja alterar o cargo deste usuário para "${newRole}"?`)) {
+        carregarUsuarios();
+        return;
+    }
+    
+    try {
+        const { error } = await supabaseClient
+            .from('perfis')
+            .update({ role: newRole })
+            .eq('id', userId);
+        
+        if (error) {
+            alert('Erro ao alterar cargo: ' + error.message);
+            console.error('Erro:', error);
+            carregarUsuarios();
+            return;
         }
+        
+        alert('Cargo alterado com sucesso!');
+        carregarUsuarios();
+    } catch (err) {
+        alert('Erro inesperado: ' + err.message);
+        carregarUsuarios();
+    }
+}
 
         // 7. Carregar relatórios
         async function carregarRelatorios(searchTerm = '') {

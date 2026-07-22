@@ -16,7 +16,6 @@
         main { flex: 1; padding: 2rem 0; }
         footer { background: #198754; color: #fff; text-align: center; padding: 1rem 0; font-size: .88rem; margin-top: auto; }
         
-        /* Ajuste para cards mobile não ficarem cortados */
         .card-intimacao { border-left: 4px solid #198754; transition: transform 0.2s; }
         .card-intimacao:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,.1); }
         .status-badge { font-size: 0.85em; padding: 0.4em 0.8em; }
@@ -45,6 +44,11 @@
             <!-- Aviso de Diligência em Andamento -->
             <div id="alerta-andamento" class="alert alert-warning d-none" role="alert">
                 <i class="bi bi-exclamation-triangle"></i> <strong>Atenção!</strong> Você tem uma diligência em andamento. Conclua-a antes de iniciar outra.
+            </div>
+
+            <!-- Aviso de Erro de Carregamento -->
+            <div id="alerta-erro-carregamento" class="alert alert-danger d-none" role="alert">
+                <i class="bi bi-wifi-off"></i> <strong>Erro ao carregar.</strong> Não foi possível conectar ao servidor. Verifique sua internet e tente novamente.
             </div>
 
             <!-- Barra de Busca -->
@@ -222,6 +226,25 @@
                 <div class="modal-body text-center p-4">
                     <div id="icone-mensagem" class="mb-3" style="font-size: 3rem;"></div>
                     <p id="texto-mensagem" class="mb-0"></p>
+                    <div id="btn-fechar-mensagem-wrap" class="mt-3 d-none">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Logout -->
+    <div class="modal fade" id="modalLogout" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-box-arrow-right text-danger" style="font-size: 2.5rem;"></i>
+                    <p class="mt-3 mb-3">Tem certeza que deseja sair do painel?</p>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-sm btn-danger" id="btn-confirmar-logout">Sair</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -277,7 +300,10 @@
     }
 
     function configurarLogout() {
-        document.getElementById('btn-logout').addEventListener('click', async () => {
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            new bootstrap.Modal(document.getElementById('modalLogout')).show();
+        });
+        document.getElementById('btn-confirmar-logout').addEventListener('click', async () => {
             await supabaseClient.auth.signOut();
             window.location.href = 'https://rodrigopontesdev.github.io/';
         });
@@ -286,9 +312,15 @@
     // ============================================
     // 3. CARREGAR DILIGÊNCIAS
     // ============================================
+    function sanitizarBusca(termo) {
+        return termo.replace(/[%_\\]/g, '');
+    }
+
     async function carregarDiligencias(page = 1, searchTerm = '') {
         paginaAtual = page;
         const offset = (page - 1) * ITENS_POR_PAGINA;
+        const alertaErro = document.getElementById('alerta-erro-carregamento');
+        alertaErro.classList.add('d-none');
 
         try {
             let query = supabaseClient
@@ -299,16 +331,19 @@
                 .order('criada_em', { ascending: false });
 
             if (searchTerm) {
-                query = query.or(`clientes.cep.ilike.%${searchTerm}%,clientes.cpf_cnpj.ilike.%${searchTerm}%,clientes.devedor.ilike.%${searchTerm}%`);
+                const termoLimpo = sanitizarBusca(searchTerm);
+                query = query.or(`clientes.cep.ilike.%${termoLimpo}%,clientes.cpf_cnpj.ilike.%${termoLimpo}%,clientes.devedor.ilike.%${termoLimpo}%`);
             }
 
             query = query.range(offset, offset + ITENS_POR_PAGINA - 1);
             const { data, error, count } = await query;
 
             if (error) {
-                // Silenciamos o erro visual para evitar o "falso alerta", 
-                // pois a ação principal já foi concluída com sucesso.
-                console.warn('Aviso ao carregar diligências (não crítico):', error);
+                alertaErro.classList.remove('d-none');
+                diligenciasEmCache = [];
+                renderizarLista();
+                atualizarPaginacao(0);
+                return;
             }
 
             diligenciasEmCache = data || [];
@@ -319,17 +354,18 @@
             atualizarPaginacao(count || 0);
 
         } catch (err) {
-    // Silencia o alerta - mantém apenas log no console
-    console.log('Recarregamento concluído (erro ignorado):', err.message);
+            alertaErro.classList.remove('d-none');
+            diligenciasEmCache = [];
+            renderizarLista();
+            atualizarPaginacao(0);
+        }
     }
-     }
 
-        // ============================================
+    // ============================================
     // 4. RENDERIZAR LISTA
     // ============================================
     function renderizarLista() {
         const tbody = document.getElementById('tbody-intimacoes');
-        // CORREÇÃO AQUI: Mudado de 'cards-intimacoes' para 'lista-mobile'
         const cardsContainer = document.getElementById('lista-mobile'); 
 
         if (diligenciasEmCache.length === 0) {
@@ -395,17 +431,37 @@
         const pagination = document.getElementById('pagination-intimacoes');
         if (totalPages <= 1) { pagination.innerHTML = ''; return; }
 
-        let html = `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual - 1}">Anterior</a></li>`;
-        for (let i = 1; i <= Math.min(totalPages, 5); i++) {
-            html += `<li class="page-item ${i === paginaAtual ? 'active' : ''}><a class="page-link btn-page" data-page="${i}">${i}</a></li>`;
+        let html = '';
+
+        html += `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}"><a class="page-link btn-page" data-page="1">Primeira</a></li>`;
+        html += `<li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}"><a class="page-link btn-page" data-page="${paginaAtual - 1}">Anterior</a></li>`;
+
+        let inicio = Math.max(1, paginaAtual - 2);
+        let fim = Math.min(totalPages, paginaAtual + 2);
+
+        if (inicio > 1) {
+            html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
         }
-        html += `<li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}><a class="page-link btn-page" data-page="${paginaAtual + 1}">Próximo</a></li>`;
+
+        for (let i = inicio; i <= fim; i++) {
+            html += `<li class="page-item ${i === paginaAtual ? 'active' : ''}"><a class="page-link btn-page" data-page="${i}">${i}</a></li>`;
+        }
+
+        if (fim < totalPages) {
+            html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+        }
+
+        html += `<li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}"><a class="page-link btn-page" data-page="${paginaAtual + 1}">Próximo</a></li>`;
+        html += `<li class="page-item ${paginaAtual === totalPages ? 'disabled' : ''}"><a class="page-link btn-page" data-page="${totalPages}">Última</a></li>`;
         
         pagination.innerHTML = html;
         pagination.querySelectorAll('.btn-page').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                carregarDiligencias(parseInt(link.dataset.page), document.getElementById('search-intimacoes').value);
+                const pg = parseInt(link.dataset.page);
+                if (pg >= 1 && pg <= totalPages) {
+                    carregarDiligencias(pg, document.getElementById('search-intimacoes').value);
+                }
             });
         });
     }
@@ -485,9 +541,17 @@
     }
 
     async function confirmarIniciar() {
+        const btn = document.getElementById('btn-confirmar-iniciar');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Aguarde...';
+
         const gpsAlert = document.getElementById('status-gps');
         gpsAlert.classList.remove('d-none');
-        if(!navigator.geolocation) return mostrarMensagem('Geolocalização não suportada', 'erro');
+        if(!navigator.geolocation) {
+            btn.disabled = false;
+            btn.innerHTML = 'Confirmar Início';
+            return mostrarMensagem('Geolocalização não suportada neste dispositivo.', 'erro');
+        }
 
         navigator.geolocation.getCurrentPosition(async (pos) => {
             try {
@@ -499,10 +563,21 @@
                 bootstrap.Modal.getInstance(document.getElementById('modalIniciar')).hide();
                 mostrarMensagem('Diligência iniciada com sucesso!', 'sucesso');
                 carregarDiligencias(paginaAtual);
-            } catch (err) { mostrarMensagem('Erro ao iniciar: ' + err.message, 'erro'); }
+            } catch (err) {
+                mostrarMensagem('Erro ao iniciar: ' + err.message, 'erro');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Confirmar Início';
+            }
         }, (err) => {
             gpsAlert.classList.add('d-none');
-            const msgs = { 1: 'Permissão negada.', 2: 'Localização indisponível.', 3: 'Tempo esgotado.' };
+            btn.disabled = false;
+            btn.innerHTML = 'Confirmar Início';
+            const msgs = {
+                1: 'Permissão de localização negada. Habilite nas configurações do navegador.',
+                2: 'Localização indisponível. Verifique se o GPS do dispositivo está ligado.',
+                3: 'Tempo esgotado ao obter localização. Tente novamente em local aberto.'
+            };
             mostrarMensagem(msgs[err.code] || 'Não foi possível obter localização.', 'erro');
         }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
     }
@@ -519,9 +594,17 @@
     }
 
     async function confirmarCheckpoint() {
+        const btn = document.getElementById('btn-confirmar-checkpoint');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Aguarde...';
+
         const gpsAlert = document.getElementById('status-gps-checkpoint');
         gpsAlert.classList.remove('d-none');
-        if(!navigator.geolocation) return mostrarMensagem('GPS não suportado', 'erro');
+        if(!navigator.geolocation) {
+            btn.disabled = false;
+            btn.innerHTML = 'Registrar Checkpoint';
+            return mostrarMensagem('GPS não suportado neste dispositivo.', 'erro');
+        }
 
         navigator.geolocation.getCurrentPosition(async (pos) => {
             try {
@@ -538,20 +621,36 @@
                 if(contadorCheckpoints > 10) {
                     setTimeout(() => new bootstrap.Modal(document.getElementById('modalJustificativa')).show(), 1000);
                 }
-            } catch (err) { mostrarMensagem('Erro ao registrar checkpoint', 'erro'); }
-        }, () => {
+            } catch (err) {
+                mostrarMensagem('Erro ao registrar checkpoint: ' + err.message, 'erro');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Registrar Checkpoint';
+            }
+        }, (err) => {
             gpsAlert.classList.add('d-none');
-            mostrarMensagem('Permissão de localização negada.', 'erro');
+            btn.disabled = false;
+            btn.innerHTML = 'Registrar Checkpoint';
+            const msgs = {
+                1: 'Permissão de localização negada. Habilite nas configurações do navegador.',
+                2: 'Localização indisponível. Verifique se o GPS do dispositivo está ligado.',
+                3: 'Tempo esgotado ao obter localização. Tente novamente em local aberto.'
+            };
+            mostrarMensagem(msgs[err.code] || 'Não foi possível obter localização.', 'erro');
         }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
     }
 
     function removerEmojis(t) { return t.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{FE0F}]/gu, ''); }
 
     async function confirmarJustificativa() {
+        const btn = document.getElementById('btn-confirmar-justificativa');
         const txt = document.getElementById('texto-justificativa').value.trim();
         const errDiv = document.getElementById('erro-justificativa');
         if(!txt) { errDiv.textContent = 'Obrigatório.'; errDiv.classList.remove('d-none'); return; }
         if(removerEmojis(txt) !== txt) { errDiv.textContent = 'Emojis não são permitidos.'; errDiv.classList.remove('d-none'); return; }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Salvando...';
 
         try {
             await supabaseClient.from('checkpoints').update({ justificativa: txt })
@@ -559,8 +658,15 @@
             
             bootstrap.Modal.getInstance(document.getElementById('modalJustificativa')).hide();
             document.getElementById('texto-justificativa').value = '';
+            document.getElementById('contador-chars').textContent = '0';
+            errDiv.classList.add('d-none');
             mostrarMensagem('Justificativa salva!', 'sucesso');
-        } catch (err) { mostrarMensagem('Erro ao salvar justificativa', 'erro'); }
+        } catch (err) {
+            mostrarMensagem('Erro ao salvar justificativa: ' + err.message, 'erro');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = 'Confirmar';
+        }
     }
 
     async function abrirModalConcluir() {
@@ -573,8 +679,8 @@
         new bootstrap.Modal(document.getElementById('modalConcluir')).show();
     }
 
-    // ✅ FUNÇÃO PRINCIPAL DE FINALIZAÇÃO COM CÓDIGO
     async function confirmarFinalizacaoComCodigo() {
+        const btn = document.getElementById('btn-confirmar-finalizacao');
         const codigo = document.getElementById('select-codigo-ocorrencia').value;
         
         if (!codigo) {
@@ -582,8 +688,10 @@
             return;
         }
 
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Concluindo...';
+
         try {
-            // 1. Atualizar o STATUS da diligência
             const updateData = { status: statusFinalizacaoSelecionado };
             
             if (statusFinalizacaoSelecionado === 'encerrada') {
@@ -597,7 +705,6 @@
 
             if (updateError) throw updateError;
 
-            // 2. SALVAR O CÓDIGO DE OCORRÊNCIA NO ÚLTIMO CHECKPOINT
             const { data: ultimoCheckpoint, error: cpError } = await supabaseClient
                 .from('checkpoints')
                 .select('id')
@@ -607,11 +714,9 @@
                 .single();
 
             if (cpError || !ultimoCheckpoint) {
-                console.error('Erro ao buscar checkpoint:', cpError);
                 throw new Error('Não foi possível registrar o código de ocorrência.');
             }
 
-            // Atualizar o último checkpoint com o código de ocorrência
             const { error: codigoError } = await supabaseClient
                 .from('checkpoints')
                 .update({ codigo_ocorrencia: codigo })
@@ -619,7 +724,6 @@
 
             if (codigoError) throw codigoError;
 
-            // 3. Feedback visual e recarregamento
             bootstrap.Modal.getInstance(document.getElementById('modalConcluir')).hide();
             
             const msg = statusFinalizacaoSelecionado === 'pendente' 
@@ -630,8 +734,10 @@
             carregarDiligencias(paginaAtual);
 
         } catch (err) {
-            console.error('Erro detalhado:', err);
             mostrarMensagem('Erro ao finalizar: ' + err.message, 'erro');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = 'Confirmar Conclusão';
         }
     }
 
@@ -643,9 +749,18 @@
         };
         document.getElementById('icone-mensagem').innerHTML = icones[tipo] || icones['info'];
         document.getElementById('texto-mensagem').textContent = texto;
+
+        const btnFecharWrap = document.getElementById('btn-fechar-mensagem-wrap');
         const m = new bootstrap.Modal(document.getElementById('modalMensagem'));
-        m.show();
-        if(tipo !== 'erro') setTimeout(() => m.hide(), 3000);
+
+        if (tipo === 'erro') {
+            btnFecharWrap.classList.remove('d-none');
+            m.show();
+        } else {
+            btnFecharWrap.classList.add('d-none');
+            m.show();
+            setTimeout(() => m.hide(), 3000);
+        }
     }
 
     // Inicializar ano no footer

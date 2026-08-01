@@ -1,0 +1,5711 @@
+Parte 1
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 1,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 64,
+  "registros": [
+    {
+      "cod": 1844,
+      "zon": "P",
+      "endereco": "1 DE JANEIRO",
+      "cep": "90470-320",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6849,
+      "zon": "I",
+      "endereco": "1 DE JUNHO",
+      "cep": "91030-450",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1846,
+      "zon": "Q",
+      "endereco": "1 DE MAIO",
+      "cep": "91660-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1847,
+      "zon": "Q",
+      "endereco": "1 DE MARCO",
+      "cep": "91520-620",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1848,
+      "zon": "Q",
+      "endereco": "1 DE SETEMBRO",
+      "cep": "91520-540",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 612,
+      "zon": "W",
+      "endereco": "10 DE AGOSTO",
+      "cep": "91130-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6149,
+      "zon": "V",
+      "endereco": "10 DE MAIO",
+      "cep": "91230-580",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8040,
+      "zon": "Q",
+      "endereco": "10 DE SETEMBRO",
+      "cep": "91520-540",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1663,
+      "zon": "I",
+      "endereco": "11 DE AGOSTO",
+      "cep": "91020-050",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5541,
+      "zon": "W",
+      "endereco": "11 DE DEZEMBRO",
+      "cep": "91130-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 795,
+      "zon": "Q",
+      "endereco": "12 DE OUTUBRO",
+      "cep": "90680-140",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3403,
+      "zon": "F",
+      "endereco": "13 DE MAIO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6411,
+      "zon": "V",
+      "endereco": "13 DE SETEMBRO",
+      "cep": "91250-530",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1908,
+      "zon": "P",
+      "endereco": "14 DE JULHO",
+      "cep": "91340-430",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6756,
+      "zon": "W",
+      "endereco": "15 DE FEVEREIRO",
+      "cep": "91110-520",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8200,
+      "zon": "W",
+      "endereco": "15 DE NOVEMBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 616,
+      "zon": "I",
+      "endereco": "16 DE JULHO",
+      "cep": "90550-020",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8374,
+      "zon": "D",
+      "endereco": "17 DE JULHO",
+      "cep": "90110-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 617,
+      "zon": "D",
+      "endereco": "17 DE JUNHO",
+      "cep": "90110-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 619,
+      "zon": "M",
+      "endereco": "18 DE NOVEMBRO",
+      "cep": "90240-040",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 620,
+      "zon": "P",
+      "endereco": "18 DE SETEMBRO",
+      "cep": "90690-180",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 618,
+      "zon": "R",
+      "endereco": "18 DO FORTE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 613,
+      "zon": "V",
+      "endereco": "19 DE ABRIL",
+      "cep": "91215-120",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2580,
+      "zon": "V",
+      "endereco": "19 DE FEVEREIRO",
+      "cep": "91270-450",
+      "ilegivel": false,
+      "observacao": "Ruído gráfico após o endereço no PDF."
+    },
+    {
+      "cod": 614,
+      "zon": "A",
+      "endereco": "19 DE MARCO",
+      "cep": "90880-190",
+      "ilegivel": false,
+      "observacao": "Texto original com ruído ao lado do endereço."
+    },
+    {
+      "cod": 615,
+      "zon": "S",
+      "endereco": "19 DE NOVEMBRO",
+      "cep": "90640-010",
+      "ilegivel": false,
+      "observacao": "Original apresentava '19 DE NOVEMBRQ'."
+    },
+    {
+      "cod": 8034,
+      "zon": "V",
+      "endereco": "2 DE MAIO",
+      "cep": "91450-490",
+      "ilegivel": false,
+      "observacao": "Texto ruidoso ao lado do endereço no PDF."
+    },
+    {
+      "cod": 6394,
+      "zon": "V",
+      "endereco": "20 DE MAIO",
+      "cep": "91380-290",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2262,
+      "zon": "A",
+      "endereco": "20 DE SETEMBRO",
+      "cep": "90130-090",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2263,
+      "zon": "W",
+      "endereco": "21 DE ABRIL",
+      "cep": "91120-630",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2264,
+      "zon": "R",
+      "endereco": "21 DE AGOSTO",
+      "cep": "91920-380",
+      "ilegivel": false,
+      "observacao": "CEP original com ruído: '.91920-380-j'."
+    },
+    {
+      "cod": 7057,
+      "zon": "V",
+      "endereco": "22 DE NOVEMBRO",
+      "cep": "91230-580",
+      "ilegivel": false,
+      "observacao": "CEP original com ruído: '.9123C-580-'."
+    },
+    {
+      "cod": 2256,
+      "zon": "V",
+      "endereco": "24 DE AGOSTO",
+      "cep": "91215-280",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2257,
+      "zon": "I",
+      "endereco": "24 DE JUNHO",
+      "cep": "90520-230",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2258,
+      "zon": "D",
+      "endereco": "24 DE MAIO",
+      "cep": "90050-180",
+      "ilegivel": false,
+      "observacao": "Ruído gráfico ao lado do endereço."
+    },
+    {
+      "cod": 2259,
+      "zon": "X",
+      "endereco": "24 DE OUTUBRO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: '90510- “2'."
+    },
+    {
+      "cod": 2955,
+      "zon": "W",
+      "endereco": "25 DE DEZEMBRO",
+      "cep": "91110-550",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2956,
+      "zon": "M",
+      "endereco": "25 DE FEVEREIRO",
+      "cep": "90240-660",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5664,
+      "zon": "I",
+      "endereco": "25 DE JULHO",
+      "cep": "91030-550",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7425,
+      "zon": "I",
+      "endereco": "25 DE JUNHO",
+      "cep": "91030-550",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7550,
+      "zon": "I",
+      "endereco": "25 DE MARCO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6845,
+      "zon": "W",
+      "endereco": "25 DE OUTUBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2959,
+      "zon": "V",
+      "endereco": "26 DE ABRIL",
+      "cep": "91380-300",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2260,
+      "zon": "Q",
+      "endereco": "26 DE DEZEMBRO",
+      "cep": "91520-590",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2261,
+      "zon": "V",
+      "endereco": "26 DE MARCO",
+      "cep": "91260-712",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2181,
+      "zon": "I",
+      "endereco": "3 DE ABRIL",
+      "cep": "90520-200",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2182,
+      "zon": "F",
+      "endereco": "3 DE MAIO",
+      "cep": "90240-670",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2184,
+      "zon": "W",
+      "endereco": "3 DE OUTUBRO",
+      "cep": "91130-470",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5836,
+      "zon": "R",
+      "endereco": "3 MENINAS",
+      "cep": "91787-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2185,
+      "zon": "V",
+      "endereco": "3 PALMEIRAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2186,
+      "zon": "I",
+      "endereco": "3 PASSOS",
+      "cep": "90520-210",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1910,
+      "zon": "D",
+      "endereco": "4 JACOS",
+      "cep": "90150-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 458,
+      "zon": "A",
+      "endereco": "5 DE NOVEMBRO",
+      "cep": "90870-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5921,
+      "zon": "V",
+      "endereco": "6 DE NOVEMBRO",
+      "cep": "91270-320",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2950,
+      "zon": "W",
+      "endereco": "6001NTA MARIA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Endereço original ruidoso: '6001NTA MARIA'."
+    },
+    {
+      "cod": 6555,
+      "zon": "P",
+      "endereco": "6123URORA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Endereço original ruidoso: '6123URORA'."
+    },
+    {
+      "cod": 5810,
+      "zon": "B",
+      "endereco": "7 DE ABRIL",
+      "cep": "90220-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2091,
+      "zon": "G",
+      "endereco": "7 DE SETEMBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1650,
+      "zon": "P",
+      "endereco": "8 DE JULHO",
+      "cep": "90690-240",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6875,
+      "zon": "W",
+      "endereco": "8 DE OUTUBRO",
+      "cep": "91110-490",
+      "ilegivel": false,
+      "observacao": "Caractere ruidoso 'F' após o endereço."
+    },
+    {
+      "cod": 1651,
+      "zon": "A",
+      "endereco": "8 DE SETEMBRO",
+      "cep": "90880-280",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7302,
+      "zon": "C",
+      "endereco": "9 DE AGOSTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6912,
+      "zon": "Q",
+      "endereco": "9 DE JULHO",
+      "cep": "91520-610",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1642,
+      "zon": "Q",
+      "endereco": "9 DE JUNHO",
+      "cep": "91520-610",
+      "ilegivel": true,
+      "observacao": "Original: '1642 Q%PE JUNHO'; zona e endereço inferidos."
+    }
+  ]
+}
+
+Parte 2
+
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 2,
+  "pagina_estimada": 2,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "nota_pagina": "Nesta página o OCR separou a coluna de CEPs. Os CEPs foram associados por ordem. Por isso pode haver erro de associação.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 1643,
+      "zon": "V",
+      "endereco": "9 DE MARCO",
+      "cep": "91370-260",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6730,
+      "zon": "R",
+      "endereco": "9 IRMAOS",
+      "cep": "91787-650",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 1,
+      "zon": "M",
+      "endereco": "A J RENNER",
+      "cep": "90250-0",
+      "ilegivel": true,
+      "observacao": "CEP original '90250- 0'; sufixo incompleto/ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 7581,
+      "zon": "Q",
+      "endereco": "ABACATEIRO",
+      "cep": "91560-480",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 2,
+      "zon": "W",
+      "endereco": "ABAETE",
+      "cep": "51130-490",
+      "ilegivel": true,
+      "observacao": "CEP original '51130-490'; possível '91130-490'. CEP associado por ordem."
+    },
+    {
+      "cod": 2409,
+      "zon": "W",
+      "endereco": "ABDO J CURI",
+      "cep": "91180-410",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8647,
+      "zon": "R",
+      "endereco": "ABEL FORTES",
+      "cep": "91750-010",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 3,
+      "zon": "A",
+      "endereco": "ABELARDO MARQUES",
+      "cep": "90850-410",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6096,
+      "zon": "W",
+      "endereco": "ABELINO N ALMEIDA",
+      "cep": "91160-290",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8453,
+      "zon": "W",
+      "endereco": "ABELINO NICOLAU ALMEIDA",
+      "cep": "91160-290",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 1854,
+      "zon": "P",
+      "endereco": "ABILIO AZAMBUJA",
+      "cep": "91410-130",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8648,
+      "zon": "W",
+      "endereco": "ABILIO FERNANDES",
+      "cep": "91120-130",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8649,
+      "zon": "W",
+      "endereco": "ABILIO FERNANDEZ",
+      "cep": "91120-130",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 4,
+      "zon": "V",
+      "endereco": "ABILIO MULER",
+      "cep": "91380-310",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 5929,
+      "zon": "R",
+      "endereco": "ABOLICAO",
+      "cep": "91790-130",
+      "ilegivel": true,
+      "observacao": "Código original ruidoso: '592y9R'. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "ABRAMO EBERLE",
+      "cep": "91360-010",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": 6097,
+      "zon": "L",
+      "endereco": "ABRAO CHARTZMAN",
+      "cep": "91350-230",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9647,
+      "zon": "V",
+      "endereco": "AC FRANCISCO MELO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8960,
+      "zon": "R",
+      "endereco": "AC HELIO A ROCHA",
+      "cep": "91740-311",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8959,
+      "zon": "R",
+      "endereco": "AC HELIO ALVES ROCHA",
+      "cep": "91740-311",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9558,
+      "zon": "Q",
+      "endereco": "AC JULIO C M PINTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9560,
+      "zon": "Q",
+      "endereco": "AC JULIO C MELO PINTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9559,
+      "zon": "Q",
+      "endereco": "AC JULIO CESAR M PINTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9557,
+      "zon": "Q",
+      "endereco": "AC JULIO CESAR MELO PINTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8201,
+      "zon": "V",
+      "endereco": "AC MARCELINO BARSKI",
+      "cep": "91210-331",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7097,
+      "zon": "V",
+      "endereco": "AC TOIAMA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7086,
+      "zon": "V",
+      "endereco": "AC TOYAMA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6,
+      "zon": "R",
+      "endereco": "ACACIAS",
+      "cep": "91560-530",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 3190,
+      "zon": "R",
+      "endereco": "ACAJU",
+      "cep": "91170-010",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 2411,
+      "zon": "W",
+      "endereco": "ACAPULCO",
+      "cep": "91340-120",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7,
+      "zon": "I",
+      "endereco": "ACEGUA",
+      "cep": "91030-130",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 5739,
+      "zon": "G",
+      "endereco": "ACELINO CARVALHO",
+      "cep": "90010-200",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8958,
+      "zon": "M",
+      "endereco": "ACELINO R AZEVEDO",
+      "cep": "90250-240",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9671,
+      "zon": "M",
+      "endereco": "ACELINO REGUERA AZEVEDO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8,
+      "zon": "L",
+      "endereco": "ACELIO DAUDT",
+      "cep": "91340-120",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8994,
+      "zon": "V",
+      "endereco": "ACESSO TOIAMA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8995,
+      "zon": "V",
+      "endereco": "ACESSO TOYAMA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 5932,
+      "zon": "M",
+      "endereco": "ACILINO R AZEVEDO",
+      "cep": "90250-240",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 9,
+      "zon": "I",
+      "endereco": "ACORES",
+      "cep": "91030-340",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 11,
+      "zon": "P",
+      "endereco": "ACRE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 2413,
+      "zon": "P",
+      "endereco": "ACUCENA",
+      "cep": "91560-020",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 2412,
+      "zon": "V",
+      "endereco": "ADA M MORAES",
+      "cep": "91220-140",
+      "ilegivel": true,
+      "observacao": "CEP original '$1220-140'; normalizado para '91220-140'. CEP associado por ordem."
+    },
+    {
+      "cod": 6997,
+      "zon": "V",
+      "endereco": "ADA MASCARENHAS MORAES",
+      "cep": "91220-140",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7424,
+      "zon": "W",
+      "endereco": "ADAIL L CUNHA",
+      "cep": "91170-480",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7423,
+      "zon": "W",
+      "endereco": "ADAIL LOPES CUNHA",
+      "cep": "91170-480",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 689,
+      "zon": "P",
+      "endereco": "ADAIr FIQUEIREDO",
+      "cep": "90940-120",
+      "ilegivel": true,
+      "observacao": "Endereço original 'ADAIr FIQUEIREDO'; possível 'ADAIr FIGUEIREDO'. CEP associado por ordem."
+    },
+    {
+      "cod": 6098,
+      "zon": "R",
+      "endereco": "ADALBERTO REMIAO",
+      "cep": "91780-190",
+      "ilegivel": true,
+      "observacao": "CEP original '$1780-190'; normalizado para '91780-190'. CEP associado por ordem."
+    },
+    {
+      "cod": 12,
+      "zon": "L",
+      "endereco": "ADAO BAINO",
+      "cep": "91350-240",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7388,
+      "zon": "V",
+      "endereco": "ADAO F AMATO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7387,
+      "zon": "V",
+      "endereco": "ADAO FAZIO AMATO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8651,
+      "zon": "A",
+      "endereco": "ADAC G PEIXOTO",
+      "cep": "90840-240",
+      "ilegivel": true,
+      "observacao": "Endereço original 'ADAC G PEIXOTO'; possível 'ADAO C PEIXOTO'. CEP associado por ordem."
+    },
+    {
+      "cod": 8650,
+      "zon": "A",
+      "endereco": "ADAO GOMES PEIXOTO",
+      "cep": "90840-240",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 5948,
+      "zon": "R",
+      "endereco": "ADAO J SOUZA",
+      "cep": "91760-130",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 5951,
+      "zon": "R",
+      "endereco": "ADAO P SILVA",
+      "cep": "91751-030",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8148,
+      "zon": "R",
+      "endereco": "ADAO PINHEIRO SILVA",
+      "cep": "91751-030",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 13,
+      "zon": "R",
+      "endereco": "ADEL CARVALHO",
+      "cep": "91760-581",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6101,
+      "zon": "Q",
+      "endereco": "ADELINA SILVA",
+      "cep": "91550-010",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6358,
+      "zon": "V",
+      "endereco": "ADELINO F JARDIM",
+      "cep": "91250-310",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 7691,
+      "zon": "V",
+      "endereco": "ADELINO FERREIRA JARDIM",
+      "cep": "91250-310",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6100,
+      "zon": "M",
+      "endereco": "ADELINO M SOUZA",
+      "cep": "90245-020",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8351,
+      "zon": "M",
+      "endereco": "ADELINO MACHADO SOUZA",
+      "cep": "90245-020",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 6099,
+      "zon": "R",
+      "endereco": "ADEMAR BARROS",
+      "cep": "91787-510",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    },
+    {
+      "cod": 8653,
+      "zon": "W",
+      "endereco": "ADERBAL R FRAGA",
+      "cep": "91120-030",
+      "ilegivel": false,
+      "observacao": "CEP associado por ordem."
+    }
+  ]
+}
+
+
+Parte 3
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 3,
+  "pagina_estimada": 3,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "nota_pagina": "Página 3 com códigos e zonas muito corrompidos no OCR. Endereços e CEPs foram associados por ordem.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 8652,
+      "zon": null,
+      "endereco": "ADERBAL ROCHA FRAGA",
+      "cep": "91120-030",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8654,
+      "zon": null,
+      "endereco": "ADOLFO ANELE",
+      "cep": "91260-690",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8655,
+      "zon": null,
+      "endereco": "ADOLFO ANELI",
+      "cep": "91260-690",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 5857,
+      "zon": null,
+      "endereco": "ADOLFO G L JUNIOR",
+      "cep": "90240-240",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8776,
+      "zon": null,
+      "endereco": "ADOLFO G LUCE JUNIOR",
+      "cep": "90240-240",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8003,
+      "zon": null,
+      "endereco": "ADOLFO GOMES",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8775,
+      "zon": null,
+      "endereco": "ADOLFO GUILHERME L JUNIOR",
+      "cep": "90240-240",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 8774,
+      "zon": null,
+      "endereco": "ADOLFO GUILHERME LUCE JUNICR",
+      "cep": "90240-240",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. Endereço original com 'JUNICR'. CEP associado por ordem."
+    },
+    {
+      "cod": 16,
+      "zon": null,
+      "endereco": "ADOLFO P BASTIDE",
+      "cep": "91315-010",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP original '91315~ 10'. CEP associado por ordem."
+    },
+    {
+      "cod": 8546,
+      "zon": null,
+      "endereco": "ADOLFO PAOLO BASTIDE",
+      "cep": "91215-010",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP original '91215~ 10'. CEP associado por ordem."
+    },
+    {
+      "cod": 2422,
+      "zon": null,
+      "endereco": "ADOLFO SILVA",
+      "cep": "91220-070",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 823,
+      "zon": null,
+      "endereco": "ADOLFO STERN",
+      "cep": "90440-100",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 17,
+      "zon": null,
+      "endereco": "ADRIANO RIBEIRO",
+      "cep": "90110-250",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 2414,
+      "zon": null,
+      "endereco": "ADROALDO CORREA",
+      "cep": "91740-300",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": 5950,
+      "zon": null,
+      "endereco": "ADROALDO M COSTA",
+      "cep": "91130-590",
+      "ilegivel": true,
+      "observacao": "Código legível; zona ilegível. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "ADROALDO N CORREA",
+      "cep": "91740-300",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "ADROALDO NOVO CORREA",
+      "cep": "91740-300",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AEROPORTO",
+      "cep": "90200-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSINA CARDOSO",
+      "cep": "91170-220",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO ALVARES",
+      "cep": "91920-430",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO ARINOS",
+      "cep": "91910-350",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO B FILHO",
+      "cep": "90240-050",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO C P SILVEIRA",
+      "cep": "91360-020",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO CARDOSO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO CAVALCANTI",
+      "cep": "90440-110",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO CELSO",
+      "cep": "91340-290",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO F BRINCO",
+      "cep": "90240-050",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO F COELHO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO FONSECA",
+      "cep": "90250-660",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO FORTIS",
+      "cep": "91750-190",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFCONSO J SILVA",
+      "cep": "91360-020",
+      "ilegivel": true,
+      "observacao": "Endereço original 'AFCONSO J SILVA'; provável 'AFONSO J SILVA'. Código e zona não identificados. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO L MARIANTE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO L OLIVEIRA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO LOURENCO MARIANTE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO M ORIQUES",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO MABILDE",
+      "cep": "91030-350",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO MARIANTE",
+      "cep": "91787-260",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO MARQUES",
+      "cep": "90240-060",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO P FEIJO",
+      "cep": "91140-070",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO PAULO FEIJO",
+      "cep": "91140-070",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO PENA",
+      "cep": "90760-020",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO R FILHO",
+      "cep": "90245-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP original '90245~ 30'. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO ROBLES",
+      "cep": "90245-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO ROBLES FILHO",
+      "cep": "90245-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO RODRIGUES",
+      "cep": "90690-170",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO S MARTIM",
+      "cep": "91410-100",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO SAN MARTIM",
+      "cep": "91410-100",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO SANMARTIM",
+      "cep": "91410-100",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO SAO MARTIM",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO SAO MARTIN",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO TAUNAI",
+      "cep": "90520-540",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFONSO TAUNAY",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AFRICA SUL",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGENOR M OURIQUES",
+      "cep": "91770-280",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGENOR MENDES ORIQUES",
+      "cep": "91770-280",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGENOR MENDES OURIQUES",
+      "cep": "91770-280",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGOSTINE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGOSTINHO BRAUL",
+      "cep": "91440-180",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGOSTINHO MELO",
+      "cep": "90240-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGOSTINI",
+      "cep": "90240-030",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGROPECUARIA",
+      "cep": "91450-010",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGROVET",
+      "cep": "91540-510",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": "AGROVETE",
+      "cep": "91540-510",
+      "ilegivel": true,
+      "observacao": "Código e zona não identificados no OCR. CEP associado por ordem."
+    }
+  ]
+}
+
+Parte 4
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 4,
+  "pagina_estimada": 4,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 33,
+      "zon": "Q",
+      "endereco": "AGROVETERINARIA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado no OCR."
+    },
+    {
+      "cod": 34,
+      "zon": "R",
+      "endereco": "AGUAS MORTAS",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'Goceoo-'."
+    },
+    {
+      "cod": 2418,
+      "zon": "I",
+      "endereco": "AGUIAR",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 35,
+      "zon": "Q",
+      "endereco": "AGULHAS NEGRAS",
+      "cep": "91710-080",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8656,
+      "zon": "R",
+      "endereco": "AIRTON SENA",
+      "cep": "91760-740",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8657,
+      "zon": "R",
+      "endereco": "AIRTON SENNA",
+      "cep": "91760-740",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9020,
+      "zon": "M",
+      "endereco": "AJ RENNER",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2419,
+      "zon": "W",
+      "endereco": "AJAX",
+      "cep": "91170-470",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7928,
+      "zon": "P",
+      "endereco": "AL 14 DE JULHO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7843,
+      "zon": "W",
+      "endereco": "AL 3 DE OUTUBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7952,
+      "zon": "I",
+      "endereco": "AL ALCEU WAMOSI",
+      "cep": "91340-300",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8304,
+      "zon": "P",
+      "endereco": "AL ALIPIO CESAR",
+      "cep": "91340-310",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3397,
+      "zon": "D",
+      "endereco": "AL ALVARO A M E SILVA",
+      "cep": "90160-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8090,
+      "zon": "D",
+      "endereco": "AL ALVARO A M SILVA",
+      "cep": "90160-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7228,
+      "zon": "P",
+      "endereco": "AL COELHO NETO",
+      "cep": "91340-340",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7821,
+      "zon": "P",
+      "endereco": "AL EDUARDO GUIMARAES",
+      "cep": "91340-350",
+      "ilegivel": false,
+      "observacao": "Original apresentava ruído gráfico após 'GUIMARAES'."
+    },
+    {
+      "cod": 7846,
+      "zon": "P",
+      "endereco": "AL EMILIO MENEZES",
+      "cep": "91340-360",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7893,
+      "zon": "I",
+      "endereco": "AL RAIMUNDO CORREA",
+      "cep": "91340-440",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8014,
+      "zon": "I",
+      "endereco": "AL SANTO AMARO",
+      "cep": "90520-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8395,
+      "zon": "P",
+      "endereco": "AL SEBASTIAO BRITO",
+      "cep": "91340-460",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3331,
+      "zon": "P",
+      "endereco": "AL VICENTE CARVALHO",
+      "cep": "91340-490",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7382,
+      "zon": "I",
+      "endereco": "AL VITOR A KESSLER",
+      "cep": "90520-040",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7421,
+      "zon": "I",
+      "endereco": "AL VITOR ADALBERTO KESSLER",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2417,
+      "zon": "V",
+      "endereco": "ALA",
+      "cep": "91430-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8174,
+      "zon": "P",
+      "endereco": "ALAGOINHA",
+      "cep": "90690-360",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8768,
+      "zon": "P",
+      "endereco": "ALAGOINHAS",
+      "cep": "90690-360",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9198,
+      "zon": "W",
+      "endereco": "ALAMEDA 3 DE OUTUBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9199,
+      "zon": "W",
+      "endereco": "ALAMEDA 3 OUTUBRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9164,
+      "zon": "P",
+      "endereco": "ALAMEDA ALIPIO CESAR",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9214,
+      "zon": "P",
+      "endereco": "ALAMEDA ALMIRANTE COELHO NETO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9165,
+      "zon": "P",
+      "endereco": "ALAMEDA EMILIO MENEZES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2974,
+      "zon": "Q",
+      "endereco": "ALAN KARDEC",
+      "cep": "90680-310",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8057,
+      "zon": "M",
+      "endereco": "ALAOR JOAO INACIO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 36,
+      "zon": "R",
+      "endereco": "ALARICO RIBEIRO",
+      "cep": "91910-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 37,
+      "zon": "Q",
+      "endereco": "ALARICO VALENCA",
+      "cep": "91520-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7277,
+      "zon": "L",
+      "endereco": "ALASCA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 38,
+      "zon": "L",
+      "endereco": "ALASKA",
+      "cep": "91050-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6544,
+      "zon": "R",
+      "endereco": "ALBA C DEGRAZIA",
+      "cep": "91910-520",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6848,
+      "zon": "W",
+      "endereco": "ALBA G OLIVEIRA",
+      "cep": "91160-320",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3434,
+      "zon": "W",
+      "endereco": "ALBA GARCIA OLIVEIRA",
+      "cep": "91160-320",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6881,
+      "zon": "V",
+      "endereco": "ALBA M OLIVEIRA",
+      "cep": "91160-321",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8070,
+      "zon": "I",
+      "endereco": "ALBERICO VESPUCIO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "Original apresentava 'ALBERICO VESPUCIO-0- O'."
+    },
+    {
+      "cod": 8491,
+      "zon": "V",
+      "endereco": "ALBERT R JUNIOR",
+      "cep": "91450-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5964,
+      "zon": "V",
+      "endereco": "ALBERT ROBERT",
+      "cep": "91450-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8490,
+      "zon": "V",
+      "endereco": "ALBERT ROBERT JUNIOR",
+      "cep": "91450-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 692,
+      "zon": "L",
+      "endereco": "ALBERTO ALBERTINI",
+      "cep": "91060-280",
+      "ilegivel": false,
+      "observacao": "Original apresentava ruído 'C- 300'."
+    },
+    {
+      "cod": 693,
+      "zon": "V",
+      "endereco": "ALBERTO BARBOSA",
+      "cep": "91320-040",
+      "ilegivel": false,
+      "observacao": "CEP original '91320-40'."
+    },
+    {
+      "cod": 41,
+      "zon": "X",
+      "endereco": "ALBERTO BINS",
+      "cep": "90030-142",
+      "ilegivel": false,
+      "observacao": "Original apresentava ruído gráfico após 'BINS'."
+    },
+    {
+      "cod": 8661,
+      "zon": "M",
+      "endereco": "ALBERTO H CRUCE",
+      "cep": "90250-761",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8659,
+      "zon": "M",
+      "endereco": "ALBERTO H KRUCE",
+      "cep": "90250-761",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8660,
+      "zon": "M",
+      "endereco": "ALBERTO HENRIQUE CRUCE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8658,
+      "zon": "M",
+      "endereco": "ALBERTO HENRIQUE KRUCE",
+      "cep": "90250-761",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2423,
+      "zon": "R",
+      "endereco": "ALBERTO J GONCALVES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2424,
+      "zon": "V",
+      "endereco": "ALBERTO M JUNIOR",
+      "cep": "91240-320",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 42,
+      "zon": "Q",
+      "endereco": "ALBERTO NEPOMUCENO",
+      "cep": "91440-120",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9190,
+      "zon": "V",
+      "endereco": "ALBERTO PASQUALINE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 43,
+      "zon": "V",
+      "endereco": "ALBERTO PASQUALINI",
+      "cep": "91215-1",
+      "ilegivel": true,
+      "observacao": "CEP original incompleto: '91215-1'."
+    },
+    {
+      "cod": 2320,
+      "zon": "V",
+      "endereco": "ALBERTO R JUNIOR",
+      "cep": "91450-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 44,
+      "zon": "I",
+      "endereco": "ALBERTO RAMOS",
+      "cep": "90520-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90520-50'."
+    },
+    {
+      "cod": 45,
+      "zon": "W",
+      "endereco": "ALBERTO RANGEL",
+      "cep": "91180-840",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5656,
+      "zon": "V",
+      "endereco": "ALBERTO SILVA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 47,
+      "zon": "D",
+      "endereco": "ALBERTO TORRES",
+      "cep": "90050-080",
+      "ilegivel": false,
+      "observacao": "CEP original '90050-80'."
+    },
+    {
+      "cod": 3210,
+      "zon": "V",
+      "endereco": "ALBERTO V ROSA",
+      "cep": "91450-210",
+      "ilegivel": true,
+      "observacao": "CEP original '$1450-210'; normalizado para '91450-210'."
+    }
+  ]
+}
+
+Parte 5
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 5,
+  "pagina_estimada": 5,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 7889,
+      "zon": "V",
+      "endereco": "ALBERTO VIANA ROSA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado no OCR."
+    },
+    {
+      "cod": 5966,
+      "zon": "R",
+      "endereco": "ALBINO ARESE",
+      "cep": "91450-210",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 478,
+      "zon": "L",
+      "endereco": "ALBINO CUNHA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'L=t'."
+    },
+    {
+      "cod": 48,
+      "zon": "Q",
+      "endereco": "ALBION",
+      "cep": "91040-040",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2432,
+      "zon": "W",
+      "endereco": "ALCANTARA",
+      "cep": "92330-020",
+      "ilegivel": false,
+      "observacao": "CEP original '92330 20'."
+    },
+    {
+      "cod": 2426,
+      "zon": "A",
+      "endereco": "ALCEBIADES A SANTOS",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado; ruído 'S('."
+    },
+    {
+      "cod": 8272,
+      "zon": "A",
+      "endereco": "ALCEBIADES ANTONIO SANTOS",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado; ruído 'ml f'."
+    },
+    {
+      "cod": 5967,
+      "zon": "P",
+      "endereco": "ALCEBIADES C SILVA",
+      "cep": "91720-550",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9726,
+      "zon": "P",
+      "endereco": "ALCEBIADES CAETANO SILVA",
+      "cep": "90618-210",
+      "ilegivel": true,
+      "observacao": "CEP original '90618''210'."
+    },
+    {
+      "cod": 6106,
+      "zon": "R",
+      "endereco": "ALCEBIADES RIBEIRO",
+      "cep": "91755-1",
+      "ilegivel": true,
+      "observacao": "CEP original incompleto: '91755-1'."
+    },
+    {
+      "cod": 6843,
+      "zon": "V",
+      "endereco": "ALCENI G FLORES",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: '91260:7Íg'."
+    },
+    {
+      "cod": 2425,
+      "zon": "W",
+      "endereco": "ALCEU S LIMA",
+      "cep": "91180-420",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2975,
+      "zon": "W",
+      "endereco": "ALCEU S OLIVEIRA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3432,
+      "zon": "W",
+      "endereco": "ALCEU SOARES LIMA",
+      "cep": "91180-420",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 49,
+      "zon": "I",
+      "endereco": "ALCEU WAMOSI",
+      "cep": "91340-300",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6107,
+      "zon": "L",
+      "endereco": "ALCIDES CEZAR",
+      "cep": "91060-600",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 695,
+      "zon": "U",
+      "endereco": "ALCIDES CRUZ",
+      "cep": "90630-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 50,
+      "zon": "Q",
+      "endereco": "ALCIDES CUNHA",
+      "cep": "90680-300",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6108,
+      "zon": "D",
+      "endereco": "ALCIDES GOMES",
+      "cep": "90160-120",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 51,
+      "zon": "I",
+      "endereco": "ALCIDES GONZAGA",
+      "cep": "90480-020",
+      "ilegivel": false,
+      "observacao": "CEP original '90480~ 20'."
+    },
+    {
+      "cod": 8663,
+      "zon": "V",
+      "endereco": "ALCIDES H SILVEIRA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8662,
+      "zon": "V",
+      "endereco": "ALCIDES HONORIO SILVEIRA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 52,
+      "zon": "A",
+      "endereco": "ALCIDES LIMA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 54,
+      "zon": "W",
+      "endereco": "ALCIDES MAIA",
+      "cep": "91120-440",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9501,
+      "zon": "W",
+      "endereco": "ALCIDES MAYA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2427,
+      "zon": "W",
+      "endereco": "ALCIDES S SEVERINO",
+      "cep": "91130-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8515,
+      "zon": "W",
+      "endereco": "ALCIDES SAO SEVERIANO",
+      "cep": "91130-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7416,
+      "zon": "W",
+      "endereco": "ALCIDES SAO SEVERINO",
+      "cep": "91130-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7509,
+      "zon": "W",
+      "endereco": "ALCIDES SEVERIANO",
+      "cep": "91130-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3365,
+      "zon": "W",
+      "endereco": "ALCIDES SEVERINO",
+      "cep": "91130-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 55,
+      "zon": "Q",
+      "endereco": "ALCINDO GUANABARA",
+      "cep": "90680-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9492,
+      "zon": "T",
+      "endereco": "ALDA O RIBAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9491,
+      "zon": "T",
+      "endereco": "ALDA OLIVEIRA RIBAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6109,
+      "zon": "I",
+      "endereco": "ALDO RIBEIRO",
+      "cep": "91030-410",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5968,
+      "zon": "R",
+      "endereco": "ALDO S CHAVES",
+      "cep": "91910-600",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 56,
+      "zon": "V",
+      "endereco": "ALDROVANDO LEAO",
+      "cep": "91320-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 57,
+      "zon": "P",
+      "endereco": "ALEGRETE",
+      "cep": "90460-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7461,
+      "zon": "V",
+      "endereco": "ALEGRIA",
+      "cep": "91330-680",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8123,
+      "zon": "I",
+      "endereco": "ALEIDES GONZAGA",
+      "cep": "90480-020",
+      "ilegivel": true,
+      "observacao": "Zona original parecia '1', provavelmente 'I'. Endereço original 'ALEIDES GO NZAGA'."
+    },
+    {
+      "cod": 58,
+      "zon": "Q",
+      "endereco": "ALEIXO GARCIA",
+      "cep": "91520-621",
+      "ilegivel": false,
+      "observacao": "Endereço original 'ALEIXO GA RCIA'."
+    },
+    {
+      "cod": 6111,
+      "zon": "V",
+      "endereco": "ALEMANHA",
+      "cep": "91340-010",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6112,
+      "zon": "Q",
+      "endereco": "ALEXANDRE CAMAQUA",
+      "cep": "91540-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 59,
+      "zon": "P",
+      "endereco": "ALEXANDRE HERCULANO",
+      "cep": "91420-360",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 60,
+      "zon": "V",
+      "endereco": "ALEXANDRE LUIZ",
+      "cep": "91225-090",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2433,
+      "zon": "M",
+      "endereco": "ALEXANDRE M ROSA",
+      "cep": "90250-030",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7917,
+      "zon": "M",
+      "endereco": "ALEXANDRE M SILVA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Endereço original 'ALEXANDRE M SI LVA'."
+    },
+    {
+      "cod": 7857,
+      "zon": "M",
+      "endereco": "ALEXANDRE MARTINS ROSA",
+      "cep": "90250-030",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'ALE XAN DRE MAR TIN S ROS A'."
+    },
+    {
+      "cod": 7916,
+      "zon": "M",
+      "endereco": "ALEXANDRE MARTINS SILVA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'A LE XA ND RE MA RT IN S SI LV A'."
+    },
+    {
+      "cod": 61,
+      "zon": "Q",
+      "endereco": "ALEXANDRE SNEL",
+      "cep": "90680-550",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'AL EX AN DR E SN EL'."
+    },
+    {
+      "cod": 9200,
+      "zon": "M",
+      "endereco": "ALEXANDRE VAGNER",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'A L E X A N D R E VA GN ER'."
+    },
+    {
+      "cod": 5969,
+      "zon": "M",
+      "endereco": "ALEXANDRE WAGNER",
+      "cep": "90245-040",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5970,
+      "zon": "V",
+      "endereco": "ALEXANDRINA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'A L E X A N D R I N A'."
+    },
+    {
+      "cod": 62,
+      "zon": "A",
+      "endereco": "ALEXANDRINO ALENCAR",
+      "cep": "90160-030",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 63,
+      "zon": "V",
+      "endereco": "ALFA",
+      "cep": "91330-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2976,
+      "zon": "G",
+      "endereco": "ALFANDEGA",
+      "cep": "90010-150",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5971,
+      "zon": "V",
+      "endereco": "ALFAZEMA",
+      "cep": "91450-180",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2916,
+      "zon": "A",
+      "endereco": "ALFERES DIAS",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'AL FE RR ES S DI AS'."
+    },
+    {
+      "cod": 5641,
+      "zon": "Q",
+      "endereco": "ALFREDO AZEVEDO",
+      "cep": "91710-010",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'AL FR ED O AZ EV ED O'."
+    },
+    {
+      "cod": 825,
+      "zon": null,
+      "endereco": null,
+      "cep": "90480-120",
+      "ilegivel": true,
+      "observacao": "Registro com código '82 5' e CEP '90 48 0-12 0'; endereço e zona não identificados."
+    },
+    {
+      "cod": 7702,
+      "zon": "I",
+      "endereco": "ALFREDO CORREA DAUD",
+      "cep": "90480-120",
+      "ilegivel": true,
+      "observacao": "Original 'ALFREDO C ORREA DAUD L F ipAL'."
+    },
+    {
+      "cod": 65,
+      "zon": "S",
+      "endereco": "ALFREDO COSTA",
+      "cep": "90880-340",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'ALF RED O COST A'."
+    },
+    {
+      "cod": 6113,
+      "zon": "A",
+      "endereco": "ALFREDO DIAS",
+      "cep": "90830-180",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'AL FR ED O DI AS'."
+    },
+    {
+      "cod": 66,
+      "zon": "P",
+      "endereco": "ALFREDO F RODRIGUES",
+      "cep": "91420-632",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'AL FR ED O F RO DR IG UE S'."
+    }
+  ]
+}
+
+Parte 6
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 6,
+  "pagina_estimada": 6,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 7495,
+      "zon": "P",
+      "endereco": "ALFREDO FERREIRA RODRIGUI",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado no OCR; possível versão de ALFREDO ... RODRIGUES."
+    },
+    {
+      "cod": 67,
+      "zon": "R",
+      "endereco": "ALFREDO I SILVEIRA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: '-ãââãg:fªº'."
+    },
+    {
+      "cod": 8588,
+      "zon": "R",
+      "endereco": "ALFREDO INACIO SILVEIRA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: '91750_1Íg'."
+    },
+    {
+      "cod": 69,
+      "zon": "V",
+      "endereco": "ALFREDO M OBINO",
+      "cep": "91225-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2430,
+      "zon": "I",
+      "endereco": "ALFREDO M WALDECK",
+      "cep": "90550-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90550- 50'."
+    },
+    {
+      "cod": 2434,
+      "zon": "I",
+      "endereco": "ALFREDO M WILTGEN",
+      "cep": "90480-060",
+      "ilegivel": false,
+      "observacao": "CEP original '90480- 60'."
+    },
+    {
+      "cod": 68,
+      "zon": "R",
+      "endereco": "ALFREDO MAGALHAES",
+      "cep": "91751-040",
+      "ilegivel": false,
+      "observacao": "CEP original '91751- 40'."
+    },
+    {
+      "cod": 8508,
+      "zon": "V",
+      "endereco": "ALFREDO MIRANDA OBINO",
+      "cep": "91225-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7494,
+      "zon": "P",
+      "endereco": "ALFREDO P RODRIGUES",
+      "cep": "91420-632",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7493,
+      "zon": "P",
+      "endereco": "ALFREDO PEREIRA RODRIGUES",
+      "cep": "91420-632",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 72,
+      "zon": "A",
+      "endereco": "ALFREDO S DIAS",
+      "cep": "90830-180",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 70,
+      "zon": "P",
+      "endereco": "ALFREDO SCHUET",
+      "cep": "91330-120",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 71,
+      "zon": "V",
+      "endereco": "ALFREDO SEHBE",
+      "cep": "91360-340",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8536,
+      "zon": "A",
+      "endereco": "ALFREDO SILVEIRA DIAS",
+      "cep": "90830-180",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 73,
+      "zon": "A",
+      "endereco": "ALFREDO VARELA",
+      "cep": "91720-180",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5972,
+      "zon": "W",
+      "endereco": "ALGARVE",
+      "cep": "91130-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8664,
+      "zon": "V",
+      "endereco": "ALGEMIRO A SANTOS",
+      "cep": "91260-540",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6114,
+      "zon": "V",
+      "endereco": "ALGEMIRO COSTA",
+      "cep": "91260-710",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6115,
+      "zon": "V",
+      "endereco": "ALGEMIRO SANTOS",
+      "cep": "91260-540",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2435,
+      "zon": "W",
+      "endereco": "ALIADOS",
+      "cep": "91170-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91170- 30'."
+    },
+    {
+      "cod": 74,
+      "zon": "L",
+      "endereco": "ALIANCA",
+      "cep": "91050-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91050- 10'."
+    },
+    {
+      "cod": 75,
+      "zon": "P",
+      "endereco": "ALIPIO CESAR",
+      "cep": "91340-310",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6359,
+      "zon": "T",
+      "endereco": "ALIPIO O REMIAO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9195,
+      "zon": "T",
+      "endereco": "ALIPIO OLIVEIRA REMIAO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5973,
+      "zon": "R",
+      "endereco": "ALMADA",
+      "cep": "91790-140",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6116,
+      "zon": "R",
+      "endereco": "ALMINDO SANTOS",
+      "cep": "91780-150",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9311,
+      "zon": "U",
+      "endereco": "ALMIRANTE ABREU",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7488,
+      "zon": "B",
+      "endereco": "ALMIRANTE BARROSO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9312,
+      "zon": "R",
+      "endereco": "ALMIRANTE CAMARA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9313,
+      "zon": "R",
+      "endereco": "ALMIRANTE COCHRANE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9314,
+      "zon": "P",
+      "endereco": "ALMIRANTE CUSTODIO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9315,
+      "zon": "R",
+      "endereco": "ALMIRANTE DELAMARE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9316,
+      "zon": "A",
+      "endereco": "ALMIRANTE GONCALVES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9317,
+      "zon": "R",
+      "endereco": "ALMIRANTE MARIATH",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7414,
+      "zon": "F",
+      "endereco": "ALMIRANTE TAMANDARE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "Original apresentava 'ALMIRANTE TAMANDARE-0- 0'."
+    },
+    {
+      "cod": 603,
+      "zon": "V",
+      "endereco": "ALMIRO CAUDURO",
+      "cep": "91220-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6545,
+      "zon": "V",
+      "endereco": "ALMIRO COIMBRA",
+      "cep": "91450-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91450- 10'."
+    },
+    {
+      "cod": 6117,
+      "zon": "Q",
+      "endereco": "ALMOXARIFADO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 77,
+      "zon": "U",
+      "endereco": "ALMT ABREU",
+      "cep": "90420-010",
+      "ilegivel": false,
+      "observacao": "CEP original '90420- 10'."
+    },
+    {
+      "cod": 9096,
+      "zon": "A",
+      "endereco": "ALMT ALVARO A M SILVA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9095,
+      "zon": "A",
+      "endereco": "ALMT ALVARO A MOTA SILVA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 79,
+      "zon": "B",
+      "endereco": "ALMT BARROSO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 80,
+      "zon": "R",
+      "endereco": "ALMT CAMARA",
+      "cep": "91920-450",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 81,
+      "zon": "R",
+      "endereco": "ALMT COCHRANE",
+      "cep": "91920-460",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 82,
+      "zon": "P",
+      "endereco": "ALMT CUSTODIO",
+      "cep": "91420-633",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 83,
+      "zon": "R",
+      "endereco": "ALMT DELAMARE",
+      "cep": "91920-420",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 84,
+      "zon": "A",
+      "endereco": "ALMT GONCALVES",
+      "cep": "90160-040",
+      "ilegivel": false,
+      "observacao": "CEP original '90160- 40'."
+    },
+    {
+      "cod": 86,
+      "zon": "R",
+      "endereco": "ALMT MARIATH",
+      "cep": "91920-500",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7,
+      "zon": "F",
+      "endereco": "ALMT TAMANDARE",
+      "cep": "90220-030",
+      "ilegivel": false,
+      "observacao": "CEP original '90220- 30'."
+    },
+    {
+      "cod": 8099,
+      "zon": "I",
+      "endereco": "ALMT VITOR ADALBERTO KESSLER",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 1690,
+      "zon": "V",
+      "endereco": "ALOIS KADES",
+      "cep": "91360-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 88,
+      "zon": "V",
+      "endereco": "ALOISIO AZEVEDO",
+      "cep": "91210-220",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2979,
+      "zon": "W",
+      "endereco": "ALOISIO O MELO",
+      "cep": "91180-430",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3398,
+      "zon": "W",
+      "endereco": "ALOISIO OLIMPIO MELO",
+      "cep": "91180-430",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3400,
+      "zon": "W",
+      "endereco": "ALOIZIO O MELO",
+      "cep": "91180-430",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3399,
+      "zon": "W",
+      "endereco": "ALOIZIO OLIMPIO MELO",
+      "cep": "91180-430",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6118,
+      "zon": "Q",
+      "endereco": "ALONSO COELHO",
+      "cep": "91540-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7313,
+      "zon": "Q",
+      "endereco": "ALONSO F COELHO",
+      "cep": "91540-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7312,
+      "zon": "Q",
+      "endereco": "ALONSO FONSECA COELHO",
+      "cep": "91540-170",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7150,
+      "zon": "Q",
+      "endereco": "ALPOIM",
+      "cep": "91510-710",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2309,
+      "zon": "V",
+      "endereco": "ALTAMIRA",
+      "cep": "91450-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91450- 20'."
+    },
+    {
+      "cod": 5974,
+      "zon": "D",
+      "endereco": "ALTER C OLIVEIRA",
+      "cep": "90110-030",
+      "ilegivel": false,
+      "observacao": "CEP original '90110- 30'."
+    },
+    {
+      "cod": 9653,
+      "zon": "D",
+      "endereco": "ALTER CINTRA OLIVEIRA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    }
+  ]
+}
+
+Parte 7
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 7,
+  "pagina_estimada": 7,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 2980,
+      "zon": "Q",
+      "endereco": "ALTEROSA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado no OCR."
+    },
+    {
+      "cod": 90,
+      "zon": "P",
+      "endereco": "ALVARENGA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'i'."
+    },
+    {
+      "cod": 2437,
+      "zon": "W",
+      "endereco": "ALVARENGA PEIXOTO",
+      "cep": "91110-450",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 91,
+      "zon": "P",
+      "endereco": "ALVARES AZEVEDO",
+      "cep": "90450-080",
+      "ilegivel": false,
+      "observacao": "CEP original '90450- 80'."
+    },
+    {
+      "cod": 92,
+      "zon": "L",
+      "endereco": "ALVARES CABRAL",
+      "cep": "91350-250",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7291,
+      "zon": "B",
+      "endereco": "ALVARES CHAVES",
+      "cep": "90220-040",
+      "ilegivel": false,
+      "observacao": "CEP original '90220- 40'."
+    },
+    {
+      "cod": 93,
+      "zon": "P",
+      "endereco": "ALVARES MACHADO",
+      "cep": "90630-010",
+      "ilegivel": false,
+      "observacao": "CEP original '90630- 10'."
+    },
+    {
+      "cod": 2438,
+      "zon": "W",
+      "endereco": "ALVARES MACIEL",
+      "cep": "90120-230",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7946,
+      "zon": "U",
+      "endereco": "ALVARES N PEREIRA",
+      "cep": "90570-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7945,
+      "zon": "U",
+      "endereco": "ALVARES NUNES PEREIRA",
+      "cep": "90570-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5909,
+      "zon": "A",
+      "endereco": "ALVARO A M SILVA",
+      "cep": "90160-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9097,
+      "zon": "A",
+      "endereco": "ALVARO A MOTA SILVA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5808,
+      "zon": "U",
+      "endereco": "ALVARO ALVIM",
+      "cep": "90420-020",
+      "ilegivel": false,
+      "observacao": "CEP original '90420- 20'."
+    },
+    {
+      "cod": 2439,
+      "zon": "W",
+      "endereco": "ALVARO B FERREIRA",
+      "cep": "91180-760",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3318,
+      "zon": "W",
+      "endereco": "ALVARO BARCELOS FERREIRA",
+      "cep": "91180-760",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5975,
+      "zon": "A",
+      "endereco": "ALVARO C BORGES",
+      "cep": "90150-030",
+      "ilegivel": false,
+      "observacao": "CEP original '90150- 30'."
+    },
+    {
+      "cod": 8035,
+      "zon": "L",
+      "endereco": "ALVARO CABRAL",
+      "cep": "91350-250",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7498,
+      "zon": "R",
+      "endereco": "ALVARO CANTO",
+      "cep": "91780-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 94,
+      "zon": "B",
+      "endereco": "ALVARO CHAVES",
+      "cep": "90220-040",
+      "ilegivel": false,
+      "observacao": "CEP original '90220- 40'."
+    },
+    {
+      "cod": 5976,
+      "zon": "R",
+      "endereco": "ALVARO DIFINT",
+      "cep": "91790-560",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2982,
+      "zon": "W",
+      "endereco": "ALVARO DOMINGUES",
+      "cep": "91180-440",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 95,
+      "zon": "Q",
+      "endereco": "ALVARO F RIBEIRO",
+      "cep": "91530-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8998,
+      "zon": "Q",
+      "endereco": "ALVARO FERNANDES RIBEIRO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 696,
+      "zon": null,
+      "endereco": "ALVARO FURTADO",
+      "cep": "90880-040",
+      "ilegivel": true,
+      "observacao": "Zona não identificada no OCR. CEP original '-90880- 40'."
+    },
+    {
+      "cod": 96,
+      "zon": "R",
+      "endereco": "ALVARO GUTERRES",
+      "cep": "91920-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91920- 10'."
+    },
+    {
+      "cod": 6119,
+      "zon": "A",
+      "endereco": "ALVARO M SILVA",
+      "cep": "90160-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2441,
+      "zon": "W",
+      "endereco": "ALVARO MACIEL",
+      "cep": "91120-230",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 97,
+      "zon": "S",
+      "endereco": "ALVARO MOREIRA",
+      "cep": "90660-220",
+      "ilegivel": true,
+      "observacao": "Zona original parecia '§'; normalizada para 'S'."
+    },
+    {
+      "cod": 2983,
+      "zon": "U",
+      "endereco": "ALVARO N PEREIRA",
+      "cep": "90570-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 98,
+      "zon": "V",
+      "endereco": "ALVARO NICOFE",
+      "cep": "91320-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91320- 20'."
+    },
+    {
+      "cod": 3440,
+      "zon": "U",
+      "endereco": "ALVARO NUNES PEREIRA",
+      "cep": "90570-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2442,
+      "zon": "A",
+      "endereco": "ALVARO O CAETANO",
+      "cep": "90840-450",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 99,
+      "zon": "Q",
+      "endereco": "ALVARO O CANTO",
+      "cep": "91780-160",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9048,
+      "zon": "Q",
+      "endereco": "ALVARO OLIVEIRA CANTO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2443,
+      "zon": "R",
+      "endereco": "ALVARO P ROSA",
+      "cep": "91755-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9081,
+      "zon": "R",
+      "endereco": "ALVARO PEDRO ROSA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'os à'."
+    },
+    {
+      "cod": 6978,
+      "zon": "A",
+      "endereco": "ALVARO S MASERA",
+      "cep": "90870-290",
+      "ilegivel": true,
+      "observacao": "Código original '6978A'."
+    },
+    {
+      "cod": 9291,
+      "zon": null,
+      "endereco": "ALVARO SERGIO MASERA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Código original '92914&'; zona não identificada."
+    },
+    {
+      "cod": 9290,
+      "zon": "S",
+      "endereco": "ALVARO SERGIO MAZERA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9604,
+      "zon": "V",
+      "endereco": "ALVARO V ANDRADE",
+      "cep": "91230-410",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 101,
+      "zon": "W",
+      "endereco": "ALVARO V GUIMARAES",
+      "cep": "91110-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91110- 30'."
+    },
+    {
+      "cod": 9603,
+      "zon": "V",
+      "endereco": "ALVARO VEIGA ANDRADE",
+      "cep": "91230-410",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8273,
+      "zon": "W",
+      "endereco": "ALVARO VIEIRA GUIMARAES",
+      "cep": "91110-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91110- 30'."
+    },
+    {
+      "cod": 8666,
+      "zon": "U",
+      "endereco": "ALVES C PRADO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original '8666/U)A LVES C PRADO~'."
+    },
+    {
+      "cod": 8665,
+      "zon": "U",
+      "endereco": "ALVES COLINA PRADO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original '8665( U/ ALVES COLINA PRADO'."
+    },
+    {
+      "cod": 2444,
+      "zon": "P",
+      "endereco": "ALVES NOGUEIRA",
+      "cep": "90470-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 102,
+      "zon": "A",
+      "endereco": "ALVES TORRES",
+      "cep": "91720-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6362,
+      "zon": "M",
+      "endereco": "ALVIN F LOZECAN",
+      "cep": "90250-250",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8667,
+      "zon": "R",
+      "endereco": "ALVINO BERNARDES",
+      "cep": "91787-592",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6120,
+      "zon": "Q",
+      "endereco": "ALVIRA MENINA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5977,
+      "zon": "Q",
+      "endereco": "ALVORADA",
+      "cep": "91550-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91550-20'."
+    },
+    {
+      "cod": 6361,
+      "zon": "M",
+      "endereco": "ALWIN F LOZECAN",
+      "cep": "90250-250",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2445,
+      "zon": "V",
+      "endereco": "ALZIRA F TAQUES",
+      "cep": "91260-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-30'."
+    },
+    {
+      "cod": 7920,
+      "zon": "V",
+      "endereco": "ALZIRA FREITAS TAQUES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7852,
+      "zon": "R",
+      "endereco": "AMABILE SAMARANO FERREIRA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 103,
+      "zon": "Q",
+      "endereco": "AMADEU AMARAL",
+      "cep": "91520-622",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7374,
+      "zon": "V",
+      "endereco": "AMADEU F FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 6344,
+      "zon": "V",
+      "endereco": "AMADEU F O FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 3201,
+      "zon": "V",
+      "endereco": "AMADEU F OLIVEIRA",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 8110,
+      "zon": "V",
+      "endereco": "AMADEU F OLIVEIRA FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 7373,
+      "zon": "V",
+      "endereco": "AMADEU FAGUNDES FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 8109,
+      "zon": "V",
+      "endereco": "AMADEU FAGUNDES O FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260-10'."
+    },
+    {
+      "cod": 8108,
+      "zon": "V",
+      "endereco": "AMADEU FAGUNDES OLIVEIRA FREITAS",
+      "cep": "91260-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91260- 10'."
+    }
+  ]
+}
+
+Parte 8
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 8,
+  "pagina_estimada": 8,
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 2447,
+      "zon": "V",
+      "endereco": "AMALIA AVEIRO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado no OCR."
+    },
+    {
+      "cod": 104,
+      "zon": "Q",
+      "endereco": "AMALIA FIGUEIROA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'ããããg:3ãg'."
+    },
+    {
+      "cod": 2448,
+      "zon": "W",
+      "endereco": "AMALIA IRACEMA",
+      "cep": "91170-230",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7347,
+      "zon": "R",
+      "endereco": "AMAPA",
+      "cep": "91740-460",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7054,
+      "zon": "V",
+      "endereco": "AMARAGI",
+      "cep": "91360-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8668,
+      "zon": "R",
+      "endereco": "AMARANTE F GUIMARAES",
+      "cep": "91780-270",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7398,
+      "zon": "R",
+      "endereco": "AMARANTE FREITAS GUIMARAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5978,
+      "zon": "P",
+      "endereco": "AMARANTE XAVIER",
+      "cep": "91750-240",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9429,
+      "zon": "V",
+      "endereco": "AMAURI CAFRUME",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9426,
+      "zon": "V",
+      "endereco": "AMAURI CAFRUNE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8043,
+      "zon": "M",
+      "endereco": "AMAURI CRIVELA COSTA",
+      "cep": "90250-730",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9428,
+      "zon": "V",
+      "endereco": "AMAURY CAFRUME",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9427,
+      "zon": "V",
+      "endereco": "AMAURY CAFRUNE",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 107,
+      "zon": "F",
+      "endereco": "AMAZONAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 108,
+      "zon": "P",
+      "endereco": "AMELIA TELES",
+      "cep": "90460-070",
+      "ilegivel": false,
+      "observacao": "CEP original '90460- 70'."
+    },
+    {
+      "cod": 109,
+      "zon": "I",
+      "endereco": "AMERICA",
+      "cep": "90440-020",
+      "ilegivel": false,
+      "observacao": "CEP original '90440~ 20'."
+    },
+    {
+      "cod": 110,
+      "zon": "V",
+      "endereco": "AMERICO SILVEIRA",
+      "cep": "91370-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91370- 10'."
+    },
+    {
+      "cod": 111,
+      "zon": "I",
+      "endereco": "AMERICO VESPUCIO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "Original apresentava 'AMERICO VESPUCIO~'."
+    },
+    {
+      "cod": 2452,
+      "zon": "V",
+      "endereco": "AMI H RAMIRES",
+      "cep": "91250-240",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7366,
+      "zon": "V",
+      "endereco": "AMI HERVE RAMIRES",
+      "cep": "91250-240",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3390,
+      "zon": "R",
+      "endereco": "AMIGOS",
+      "cep": "91770-300",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2450,
+      "zon": "M",
+      "endereco": "AMINTAS J MORAES",
+      "cep": "90245-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 50'."
+    },
+    {
+      "cod": 7482,
+      "zon": "M",
+      "endereco": "AMINTAS JACQUES MORAES",
+      "cep": "90245-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 50'."
+    },
+    {
+      "cod": 7772,
+      "zon": "M",
+      "endereco": "AMINTAS JAQUES",
+      "cep": "90245-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 50'."
+    },
+    {
+      "cod": 7483,
+      "zon": "M",
+      "endereco": "AMINTAS JAQUES MORAES",
+      "cep": "90245-050",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 50'."
+    },
+    {
+      "cod": 9473,
+      "zon": "M",
+      "endereco": "AMINTHAS J MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 112,
+      "zon": "R",
+      "endereco": "AMIZADE",
+      "cep": "91920-070",
+      "ilegivel": false,
+      "observacao": "CEP original '91920- 70'."
+    },
+    {
+      "cod": 3242,
+      "zon": "G",
+      "endereco": "AMORIM ALBUQUERQUE",
+      "cep": "90010-250",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 113,
+      "zon": "L",
+      "endereco": "AMOROSO COSTA",
+      "cep": "91040-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91040~ 10'."
+    },
+    {
+      "cod": 5981,
+      "zon": "V",
+      "endereco": "AMPARO",
+      "cep": "91120-350",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9357,
+      "zon": "M",
+      "endereco": "AMYNTAS J MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9356,
+      "zon": "M",
+      "endereco": "AMYNTAS JACQUES MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9355,
+      "zon": "M",
+      "endereco": "AMYNTAS JAQUES MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9359,
+      "zon": "M",
+      "endereco": "AMYNTHAS J MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9358,
+      "zon": "M",
+      "endereco": "AMYNTHAS JACQUES MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9360,
+      "zon": "M",
+      "endereco": "AMYNTHAS JAQUES MORAES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5839,
+      "zon": "V",
+      "endereco": "ANA A A LISBOA",
+      "cep": "91230-000",
+      "ilegivel": true,
+      "observacao": "CEP original '91230- 0'; normalizado com sufixo 000."
+    },
+    {
+      "cod": 7486,
+      "zon": "V",
+      "endereco": "ANA A AMARAL LISBOA",
+      "cep": "91230-000",
+      "ilegivel": true,
+      "observacao": "CEP original '91230- O'; normalizado com sufixo 000."
+    },
+    {
+      "cod": 8674,
+      "zon": "R",
+      "endereco": "ANA A DUBIN",
+      "cep": "91751-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8673,
+      "zon": "R",
+      "endereco": "ANA AIZEMBERG DUBIN",
+      "cep": "91751-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7196,
+      "zon": "V",
+      "endereco": "ANA AURORA",
+      "cep": "91230-000",
+      "ilegivel": true,
+      "observacao": "CEP original '91230- O'; normalizado com sufixo 000."
+    },
+    {
+      "cod": 7484,
+      "zon": "V",
+      "endereco": "ANA AURORA A LISBOA",
+      "cep": "91230-000",
+      "ilegivel": true,
+      "observacao": "CEP original '91230- 0'; normalizado com sufixo 000."
+    },
+    {
+      "cod": 7485,
+      "zon": "V",
+      "endereco": "ANA AURORA AMARAL LISBOA",
+      "cep": "91230-000",
+      "ilegivel": true,
+      "observacao": "CEP original '91230- O'; normalizado com sufixo 000."
+    },
+    {
+      "cod": 2453,
+      "zon": "L",
+      "endereco": "ANA CESAR",
+      "cep": "91360-350",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8198,
+      "zon": "Q",
+      "endereco": "ANA LUCIA R AMARAL",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5982,
+      "zon": "R",
+      "endereco": "ANA M BIAZETO",
+      "cep": "91751-410",
+      "ilegivel": false,
+      "observacao": "Original apresentava 'ANA M BIAZETO*'."
+    },
+    {
+      "cod": 9774,
+      "zon": "V",
+      "endereco": "ANA M JARDIM",
+      "cep": "91160-220",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9773,
+      "zon": "V",
+      "endereco": "ANA M ZARDIN",
+      "cep": "91160-220",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9772,
+      "zon": "V",
+      "endereco": "ANA MARIA ZARDIN",
+      "cep": "91160-220",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8669,
+      "zon": "Q",
+      "endereco": "ANA TERRA",
+      "cep": "91570-260",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5983,
+      "zon": "R",
+      "endereco": "ANCARA",
+      "cep": "91770-310",
+      "ilegivel": true,
+      "observacao": "Original apresentava 'ANCARA A-zla'."
+    },
+    {
+      "cod": 115,
+      "zon": "X",
+      "endereco": "ANCHIETA",
+      "cep": "91358-118",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5751,
+      "zon": "L",
+      "endereco": "ANDARAI",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: 'a S = PN o'."
+    },
+    {
+      "cod": 117,
+      "zon": "E",
+      "endereco": "ANDRADAS",
+      "cep": "90020-0",
+      "ilegivel": true,
+      "observacao": "Endereço original ruidoso: 'ANDRADAs-«ê i&—:,,:? Q'. CEP original '90020- O'."
+    },
+    {
+      "cod": 1012,
+      "zon": "G",
+      "endereco": "ANDRADE NEVES",
+      "cep": "90010-210",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5984,
+      "zon": "Q",
+      "endereco": "ANDRADINA OLIVEIRA",
+      "cep": "91440-010",
+      "ilegivel": false,
+      "observacao": "CEP original '91440- 10'."
+    },
+    {
+      "cod": 2454,
+      "zon": "L",
+      "endereco": "ANDRE A GUILHEN",
+      "cep": "91340-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9623,
+      "zon": "L",
+      "endereco": "ANDRE A GUILLEN",
+      "cep": "91340-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9621,
+      "zon": "L",
+      "endereco": "ANLRE ARJONAS GUILHEN",
+      "cep": "91340-130",
+      "ilegivel": true,
+      "observacao": "Endereço original 'ANLRE ARJONAS GUILHEN'; provável 'ANDRE ARJONAS GUILHEN'."
+    },
+    {
+      "cod": 9622,
+      "zon": "L",
+      "endereco": "ANDRE ARJONAS GUILLEN",
+      "cep": "91340-130",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 118,
+      "zon": null,
+      "endereco": "ANDRE BELO",
+      "cep": "90110-090",
+      "ilegivel": true,
+      "observacao": "Código/zona originais ruidosos: '118(AD'. CEP original '90110- 90'."
+    },
+    {
+      "cod": 7935,
+      "zon": "A",
+      "endereco": "ANDRE GRAMBOIS",
+      "cep": "90830-120",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9512,
+      "zon": "R",
+      "endereco": "ANDRE P BIASETO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    }
+  ]
+}
+
+Parte 9
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 9,
+  "pagina_estimada": "sem página (após página 8)",
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 2455,
+      "zon": "R",
+      "endereco": "ANDRE P BIAZETO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado; possível versão de ANDRE P BIASETO/ANDRE PRIMO BIAZETO."
+    },
+    {
+      "cod": 5985,
+      "zon": "R",
+      "endereco": "ANDRE P FRANK",
+      "cep": "91751-350",
+      "ilegivel": true,
+      "observacao": "CEP original 'STT51-350'."
+    },
+    {
+      "cod": 9541,
+      "zon": "R",
+      "endereco": "ANDRE PEDRO FRANK",
+      "cep": "91778-568",
+      "ilegivel": true,
+      "observacao": "CEP original '91778''568'."
+    },
+    {
+      "cod": 119,
+      "zon": "Q",
+      "endereco": "ANDRE PITHAN",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original '.'."
+    },
+    {
+      "cod": 9511,
+      "zon": "R",
+      "endereco": "ANDRE PRIMO BIASETO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original 'a SA'."
+    },
+    {
+      "cod": 9510,
+      "zon": "R",
+      "endereco": "ANDRE PRIMO BIAZETO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original '='."
+    },
+    {
+      "cod": null,
+      "zon": "R",
+      "endereco": "ANDRE PRIMO BIAZETTO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "Código ilegível: 'ªêàã'."
+    },
+    {
+      "cod": null,
+      "zon": "B",
+      "endereco": "ANDRE PUENTE",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "Código não identificado; linha original 'R B ANDRE PUENTE'."
+    },
+    {
+      "cod": 5585,
+      "zon": "D",
+      "endereco": "ANDRE ROCHA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original 'ãggâã-â—ãâ'."
+    },
+    {
+      "cod": 6436,
+      "zon": "M",
+      "endereco": "ANDRE ROSSI",
+      "cep": "90245-060",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 60'."
+    },
+    {
+      "cod": 120,
+      "zon": "P",
+      "endereco": "ANERON C OLIVEIRA",
+      "cep": "91410-070",
+      "ilegivel": false,
+      "observacao": "CEP original '91410- 70'."
+    },
+    {
+      "cod": 8429,
+      "zon": "P",
+      "endereco": "ANERON CORREA OLIVEIRA",
+      "cep": "91410-070",
+      "ilegivel": false,
+      "observacao": "CEP original '91410- 70'."
+    },
+    {
+      "cod": 1857,
+      "zon": "C",
+      "endereco": "ANES DIAS",
+      "cep": "90020-090",
+      "ilegivel": false,
+      "observacao": "CEP original '90020- 90'."
+    },
+    {
+      "cod": 8671,
+      "zon": "W",
+      "endereco": "ANGELINA GONCALVES",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado; ruído no OCR."
+    },
+    {
+      "cod": 2456,
+      "zon": "R",
+      "endereco": "ANGELO BARBOSA",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP não identificado; linha com ruído 'APGENTO A AMAUFEL'."
+    },
+    {
+      "cod": 5659,
+      "zon": "Q",
+      "endereco": "ANGELO BARCELOS",
+      "cep": "91520-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91520- 20'."
+    },
+    {
+      "cod": 2457,
+      "zon": "R",
+      "endereco": "ANGELO CORSO",
+      "cep": "91910-560",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 123,
+      "zon": "P",
+      "endereco": "ANGELO CRIVELARO",
+      "cep": "91410-080",
+      "ilegivel": false,
+      "observacao": "CEP original '91410- 80'."
+    },
+    {
+      "cod": 7158,
+      "zon": "W",
+      "endereco": "ANGELO DANTE PILA",
+      "cep": "91150-080",
+      "ilegivel": false,
+      "observacao": "CEP original '91150- 80'."
+    },
+    {
+      "cod": 124,
+      "zon": "M",
+      "endereco": "ANGELO DOURADO",
+      "cep": "90200-060",
+      "ilegivel": false,
+      "observacao": "CEP original '90200- 60'."
+    },
+    {
+      "cod": 507,
+      "zon": "V",
+      "endereco": "ANGELO FERRAZ",
+      "cep": "91380-340",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5986,
+      "zon": "A",
+      "endereco": "ANGELO J DOMINGUES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5987,
+      "zon": "R",
+      "endereco": "ANGELO PASSUELO",
+      "cep": "91740-641",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2076,
+      "zon": "I",
+      "endereco": "ANIBAL D P BECK",
+      "cep": "90480-180",
+      "ilegivel": true,
+      "observacao": "Original '2076_I_ ANIBAL D P BECK P= 1241'."
+    },
+    {
+      "cod": 2459,
+      "zon": "V",
+      "endereco": "ANIBAL M GENTA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8672,
+      "zon": "T",
+      "endereco": "ANIELO FEULA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 126,
+      "zon": "X",
+      "endereco": "ANITA GARIBALDI",
+      "cep": "90450-001",
+      "ilegivel": true,
+      "observacao": "CEP original '90450- 1'."
+    },
+    {
+      "cod": 8676,
+      "zon": "R",
+      "endereco": "ANNA A DUBIN",
+      "cep": "91751-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 8675,
+      "zon": "R",
+      "endereco": "ANNA AIZEMBERG DUBIN",
+      "cep": "91751-400",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9452,
+      "zon": "C",
+      "endereco": "ANNES DIAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6440,
+      "zon": "M",
+      "endereco": "ANSELMO M FILHO",
+      "cep": "90245-070",
+      "ilegivel": false,
+      "observacao": "CEP original '90245- 70'."
+    },
+    {
+      "cod": 9258,
+      "zon": "M",
+      "endereco": "ANSELMO MANSOLI FILHO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9257,
+      "zon": "M",
+      "endereco": "ANSELMO MANZOLI FILHO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5645,
+      "zon": "D",
+      "endereco": "ANTAO FARIAS",
+      "cep": "90035-270",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 518,
+      "zon": "P",
+      "endereco": "ANTENOR AMORIM",
+      "cep": "91420-390",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 3334,
+      "zon": "Q",
+      "endereco": "ANTENOR KJELIN",
+      "cep": "91540-410",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 128,
+      "zon": "A",
+      "endereco": "ANTENOR LEMOS",
+      "cep": "90850-100",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 7334,
+      "zon": "L",
+      "endereco": "ANTILHAS",
+      "cep": "91050-110",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 2462,
+      "zon": "W",
+      "endereco": "ANTONIETA C DIAS",
+      "cep": "91180-190",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 132,
+      "zon": "V",
+      "endereco": "ANTONIO A CARRARO",
+      "cep": "91215-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91215- 30'."
+    },
+    {
+      "cod": 8678,
+      "zon": "R",
+      "endereco": "ANTONIO A NUNES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 130,
+      "zon": "V",
+      "endereco": "ANTONIO A P CORUJA",
+      "cep": "91215-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91215- 20'."
+    },
+    {
+      "cod": 9240,
+      "zon": "V",
+      "endereco": "ANTONIO ALVARES P CORUJA",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 131,
+      "zon": "L",
+      "endereco": "ANTONIO AMABILE",
+      "cep": "91030-360",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 9144,
+      "zon": "V",
+      "endereco": "ANTONIO ANGELO CARRARO",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": "CEP original '6= 0'."
+    },
+    {
+      "cod": 8677,
+      "zon": "R",
+      "endereco": "ANTONIO AVILA NUNES",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5988,
+      "zon": "T",
+      "endereco": "ANTONIO BORGES",
+      "cep": "91712-450",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 6045,
+      "zon": "P",
+      "endereco": "ANTONIO C BERTA",
+      "cep": "91340-020",
+      "ilegivel": false,
+      "observacao": "CEP original '91340-20'."
+    },
+    {
+      "cod": 6890,
+      "zon": "Q",
+      "endereco": "ANTONIO C FERREIRA",
+      "cep": "91430-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91430-30'."
+    },
+    {
+      "cod": 2463,
+      "zon": "R",
+      "endereco": "ANTONIO C FREITAS",
+      "cep": "0",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5701,
+      "zon": "Q",
+      "endereco": "ANTONIO C LOPES",
+      "cep": "90880-010",
+      "ilegivel": false,
+      "observacao": "CEP original '90880-10'."
+    },
+    {
+      "cod": 134,
+      "zon": "W",
+      "endereco": "ANTONIO C MENEZES",
+      "cep": "91110-220",
+      "ilegivel": false,
+      "observacao": null
+    },
+    {
+      "cod": 5947,
+      "zon": "P",
+      "endereco": "ANTONIO C PINTO",
+      "cep": "90460-020",
+      "ilegivel": false,
+      "observacao": "CEP original '90460-20'."
+    },
+    {
+      "cod": 5764,
+      "zon": "P",
+      "endereco": "ANTONIO C TIBIRICA",
+      "cep": "90690-040",
+      "ilegivel": false,
+      "observacao": "CEP original '90690-40'."
+    },
+    {
+      "cod": 8486,
+      "zon": "Q",
+      "endereco": "ANTONIO CANDIDO FERREIRA",
+      "cep": "91430-030",
+      "ilegivel": false,
+      "observacao": "CEP original '91430-30'."
+    },
+    {
+      "cod": 9029,
+      "zon": "W",
+      "endereco": "ANTONIO CANDIDO MENEZES",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados."
+    },
+    {
+      "cod": 9004,
+      "zon": "P",
+      "endereco": "ANTONIO CARLOS LOPES",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados."
+    },
+    {
+      "cod": 8295,
+      "zon": "P",
+      "endereco": "ANTONIO CARLOS TIBIRICA",
+      "cep": "90690-040",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados. CEP original '9 0 6 9 0 -4 0'."
+    },
+    {
+      "cod": 498,
+      "zon": "P",
+      "endereco": "ANTONIO CARNEIRO PINTO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados. Código original '$498'."
+    },
+    {
+      "cod": 136,
+      "zon": "Q",
+      "endereco": "ANTONIO CARVALHO",
+      "cep": "91430-180",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados. CEP original aproximado '9 1 4 3 0 -1 8'."
+    },
+    {
+      "cod": 681,
+      "zon": "A",
+      "endereco": "ANTONIO D OLIVEIRA",
+      "cep": "90850-230",
+      "ilegivel": true,
+      "observacao": "Original com caracteres espaçados: 'A N T O N I O D O L I V E I R A'."
+    },
+    {
+      "cod": 1858,
+      "zon": "R",
+      "endereco": "ANTONIO D'AVILA",
+      "cep": "91920-730",
+      "ilegivel": true,
+      "observacao": "Original 'ANTONTO D''AVILA'."
+    },
+    {
+      "cod": 8680,
+      "zon": "A",
+      "endereco": "ANTONIO DIAS OLIVEIRA",
+      "cep": "90850-230",
+      "ilegivel": true,
+      "observacao": "Original 'ANTONTO DIAS OLIVEIRA'."
+    }
+  ]
+}
+
+Parte 10
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 10,
+  "pagina_estimada": "sem página (bloco ANTONIO DIVAN até ANTONIO R M LEITE)",
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "nota_pagina": "Neste bloco, códigos, zonas, endereços e CEPs vieram separados no OCR. A associação foi feita por ordem.",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 137,
+      "zon": "A",
+      "endereco": "ANTONIO DIVAN",
+      "cep": "90870-120",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 138,
+      "zon": "W",
+      "endereco": "ANTONIO F LISBOA",
+      "cep": "91180-040",
+      "ilegivel": true,
+      "observacao": "Original 'ANTONIOF LISBOA'. CEP original '91180- 40'."
+    },
+    {
+      "cod": 6123,
+      "zon": "Q",
+      "endereco": "ANTONIO F LOUZADA",
+      "cep": "91440-100",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 2465,
+      "zon": "D",
+      "endereco": "ANTONIO F ROCHA",
+      "cep": "90050-010",
+      "ilegivel": true,
+      "observacao": "CEP original '90050- 10'."
+    },
+    {
+      "cod": 6122,
+      "zon": "Q",
+      "endereco": "ANTONIO FARIAS",
+      "cep": "90660-310",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 479,
+      "zon": "Q",
+      "endereco": "ANTONIO FONTOURA",
+      "cep": "91710-040",
+      "ilegivel": true,
+      "observacao": "CEP original '91710- 40'."
+    },
+    {
+      "cod": 3306,
+      "zon": "W",
+      "endereco": "ANTONIO FRANCISCO LISBOA",
+      "cep": "91180-040",
+      "ilegivel": true,
+      "observacao": "CEP original '91180- 40'."
+    },
+    {
+      "cod": 8440,
+      "zon": "D",
+      "endereco": "ANTONIO FRANCISCO ROCHA",
+      "cep": "90050-010",
+      "ilegivel": true,
+      "observacao": "CEP original '90050~ 10'."
+    },
+    {
+      "cod": 298,
+      "zon": "V",
+      "endereco": "ANTONIO GIUDICE",
+      "cep": "91260-040",
+      "ilegivel": true,
+      "observacao": "CEP original '91260- 40'."
+    },
+    {
+      "cod": 7409,
+      "zon": "R",
+      "endereco": "ANTONIO INACIO SILVA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 6007,
+      "zon": "A",
+      "endereco": "ANTONIO J BRUGNERA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 140,
+      "zon": "L",
+      "endereco": "ANTONIO J MESQUITA",
+      "cep": "90840-390",
+      "ilegivel": true,
+      "observacao": "CEP original '80840-390'; normalizado para '90840-390'."
+    },
+    {
+      "cod": 141,
+      "zon": "W",
+      "endereco": "ANTONIO J MONTEIRO",
+      "cep": "91350-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 143,
+      "zon": "R",
+      "endereco": "ANTONIO J PERRONE",
+      "cep": "91110-230",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9217,
+      "zon": "R",
+      "endereco": "ANTONIO J PERRONI",
+      "cep": "91770-780",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 6008,
+      "zon": "R",
+      "endereco": "ANTONIO J REMIAO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 2321,
+      "zon": "Q",
+      "endereco": "ANTONIO J SANTANA",
+      "cep": "91770-670",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 142,
+      "zon": "A",
+      "endereco": "ANTONIO J SILVA",
+      "cep": "91540-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 139,
+      "zon": "A",
+      "endereco": "ANTONIO JOAO",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "CEP original '90820- 20'."
+    },
+    {
+      "cod": 8627,
+      "zon": "A",
+      "endereco": "ANTONIO JOAO BRUGNERA",
+      "cep": "90880-420",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7211,
+      "zon": "L",
+      "endereco": "ANTONIO JOAO MESQUITA",
+      "cep": "90840-390",
+      "ilegivel": true,
+      "observacao": "CEP original '80840-390'; normalizado para '90840-390'."
+    },
+    {
+      "cod": 706,
+      "zon": "L",
+      "endereco": "ANTONIO JOAQUIM MESQUITA",
+      "cep": "91350-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 8454,
+      "zon": "L",
+      "endereco": "ANTONIO JOSE MESQUITA",
+      "cep": "91350-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9069,
+      "zon": "W",
+      "endereco": "ANTONIO JOSE MONTEIRO",
+      "cep": "91350-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9215,
+      "zon": "R",
+      "endereco": "ANTONIO JOSE PERRONE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9216,
+      "zon": "R",
+      "endereco": "ANTONIO JOSE PERRONI",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 3322,
+      "zon": "R",
+      "endereco": "ANTONIO JOSE REMIAO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 8635,
+      "zon": "Q",
+      "endereco": "ANTONIO JOSE SANTANA",
+      "cep": "91770-670",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 8578,
+      "zon": "A",
+      "endereco": "ANTONIO JOSE SILVA",
+      "cep": "91540-180",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9083,
+      "zon": "R",
+      "endereco": "ANTONIO JOSEFINO PERRONE",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "CEP original '90820- 20'."
+    },
+    {
+      "cod": 2466,
+      "zon": "R",
+      "endereco": "ANTONIO K ARANHA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 2988,
+      "zon": "G",
+      "endereco": "ANTONIO K FILHO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 2467,
+      "zon": "S",
+      "endereco": "ANTONIO LOPES",
+      "cep": "91540-010",
+      "ilegivel": true,
+      "observacao": "CEP original '91540- 10'."
+    },
+    {
+      "cod": 8683,
+      "zon": "V",
+      "endereco": "ANTONIO M ROSA",
+      "cep": "90880-010",
+      "ilegivel": true,
+      "observacao": "CEP original '90880- 10'."
+    },
+    {
+      "cod": 8682,
+      "zon": "V",
+      "endereco": "ANTONIO MANOEL ROSA",
+      "cep": "91220-080",
+      "ilegivel": true,
+      "observacao": "CEP original '91220- 80'."
+    },
+    {
+      "cod": 6009,
+      "zon": "Q",
+      "endereco": "ANTONIO MARANGHELO",
+      "cep": "91220-080",
+      "ilegivel": true,
+      "observacao": "CEP original '91220- 80'."
+    },
+    {
+      "cod": 145,
+      "zon": "W",
+      "endereco": "ANTONIO MENEZES",
+      "cep": "91530-090",
+      "ilegivel": true,
+      "observacao": "CEP original '91530- 90'."
+    },
+    {
+      "cod": 7355,
+      "zon": "L",
+      "endereco": "ANTONIO MESQUITA",
+      "cep": "91110-220",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 6885,
+      "zon": "Q",
+      "endereco": "ANTONIO N VICENTE",
+      "cep": "91350-180",
+      "ilegivel": true,
+      "observacao": "Endereço original 'ANTCNIO N VICENTE'."
+    },
+    {
+      "cod": 8262,
+      "zon": null,
+      "endereco": "ANTONIO NUNES",
+      "cep": "91550-360",
+      "ilegivel": true,
+      "observacao": "Zona original ilegível: '4 2'."
+    },
+    {
+      "cod": 2468,
+      "zon": "A",
+      "endereco": "ANTONIO O PEIXOTO",
+      "cep": "91550-360",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9786,
+      "zon": "R",
+      "endereco": "ANTONIO O SILVEIRA",
+      "cep": "91830-460",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 9785,
+      "zon": "R",
+      "endereco": "ANTONIO ONOFRE SILVEIRA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7985,
+      "zon": "V",
+      "endereco": "ANTONIO P CORUJA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 8684,
+      "zon": "Q",
+      "endereco": "ANTONIO P FILHO",
+      "cep": null,
+      "ilegivel": true,
+      "observacao": "CEP original ilegível: '912915~ 20'."
+    },
+    {
+      "cod": 2346,
+      "zon": "L",
+      "endereco": "ANTONIO P FONSECA",
+      "cep": "91540-010",
+      "ilegivel": true,
+      "observacao": "CEP original '91540- 10'."
+    },
+    {
+      "cod": 7623,
+      "zon": "A",
+      "endereco": "ANTONIO P G SILVA",
+      "cep": "91360-450",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7393,
+      "zon": "A",
+      "endereco": "ANTONIO P GRECO SILVA",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "CEP original '90820- 20'."
+    },
+    {
+      "cod": 2344,
+      "zon": "A",
+      "endereco": "ANTONIO P JUNIOR",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "CEP original '90820- 20'."
+    },
+    {
+      "cod": 2345,
+      "zon": "Q",
+      "endereco": "ANTONIO P LOUZADA",
+      "cep": "90840-460",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7443,
+      "zon": null,
+      "endereco": "ANTONIO PADUA G SILVA",
+      "cep": "91440-100",
+      "ilegivel": true,
+      "observacao": "Zona original ilegível: '&'."
+    },
+    {
+      "cod": 7294,
+      "zon": null,
+      "endereco": "ANTONIO PADUA GRECO SILVA",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "Zona não identificada no OCR."
+    },
+    {
+      "cod": 7924,
+      "zon": null,
+      "endereco": "ANTONIO PARREIRA",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "Zona não identificada no OCR."
+    },
+    {
+      "cod": 146,
+      "zon": null,
+      "endereco": "ANTONIO PARREIRAS",
+      "cep": "90450-050",
+      "ilegivel": true,
+      "observacao": "Zona não identificada no OCR."
+    },
+    {
+      "cod": 9120,
+      "zon": "Q",
+      "endereco": "ANTONIO PEIXOTO FILHO",
+      "cep": "90450-050",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 147,
+      "zon": "R",
+      "endereco": "ANTONIO PELIN",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7897,
+      "zon": "M",
+      "endereco": "ANTONIO PENHA",
+      "cep": "91900-160",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 7982,
+      "zon": "V",
+      "endereco": "ANTONIO PEREIRA CORUJA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 8012,
+      "zon": "L",
+      "endereco": "ANTONIO POMPILHO FONSECA",
+      "cep": "91215-020",
+      "ilegivel": true,
+      "observacao": "CEP original '91215- 20'."
+    },
+    {
+      "cod": 6010,
+      "zon": "P",
+      "endereco": "ANTONIO PRADO",
+      "cep": "91360-450",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 6011,
+      "zon": "R",
+      "endereco": "ANTONIO R LEITE",
+      "cep": "91330-410",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": 6012,
+      "zon": "R",
+      "endereco": "ANTONIO R M LEITE",
+      "cep": "91790-150",
+      "ilegivel": true,
+      "observacao": "Associação por ordem; colunas separadas no OCR."
+    },
+    {
+      "cod": null,
+      "zon": null,
+      "endereco": null,
+      "cep": "91790-150",
+      "ilegivel": true,
+      "observacao": "CEP extra sem código/endereço claramente identificado; possível duplicidade de ANTONIO R M LEITE."
+    }
+  ]
+}
+
+Parte 11
+
+{
+  "tabelionato": "1 TABELIONATO DE PROTESTOS",
+  "arquivo": "2026-07-22 (1)_compressed.pdf",
+  "pdf_completo": false,
+  "parte": 11,
+  "pagina_estimada": "sem página (bloco final ANTONIO R MEIRELES LEITE até ARARAS)",
+  "nota_cep_zero": "CEP 0 indica versão, abreviação ou nome diferente da mesma rua.",
+  "nota_pagina": "Neste bloco, códigos, zonas, endereços e CEPs vieram separados no OCR. A associação foi feita por ordem. As zonas ficaram majoritariamente ilegíveis.",
+  "status": "conclusao_este_pdf",
+  "registros_nesta_parte": 63,
+  "registros": [
+    {
+      "cod": 9019,
+      "zon": null,
+      "endereco": "ANTONIO R MEIRELES LEITE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2989,
+      "zon": null,
+      "endereco": "ANTONIO REBOUCAS",
+      "cep": "90440-120",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2310,
+      "zon": null,
+      "endereco": "ANTONIO REGINATO",
+      "cep": "91170-180",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7847,
+      "zon": null,
+      "endereco": "ANTONIO RIBAS",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 148,
+      "zon": null,
+      "endereco": "ANTONIO RIBEIRO",
+      "cep": "90660-230",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7219,
+      "zon": null,
+      "endereco": "ANTONIO ROCHA",
+      "cep": "90050-010",
+      "ilegivel": true,
+      "observacao": "CEP original '90050- 10'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 9018,
+      "zon": null,
+      "endereco": "ANTONIO ROCHA M LEITE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 9017,
+      "zon": null,
+      "endereco": "ANTONIO ROCHA MEIRELES LEITE",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 149,
+      "zon": null,
+      "endereco": "ANTONIO RONA",
+      "cep": "90200-010",
+      "ilegivel": true,
+      "observacao": "CEP original '90200- 10'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 150,
+      "zon": null,
+      "endereco": "ANTONIO ROSA",
+      "cep": "91910-020",
+      "ilegivel": true,
+      "observacao": "CEP original '91910- 20'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2322,
+      "zon": null,
+      "endereco": "ANTONIO S P FREITAS",
+      "cep": "90050-170",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 152,
+      "zon": null,
+      "endereco": "ANTONIO S SO",
+      "cep": "91780-170",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8069,
+      "zon": null,
+      "endereco": "ANTONIO SALOMONTI",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 151,
+      "zon": null,
+      "endereco": "ANTONIO SEVERINO",
+      "cep": "91250-330",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8685,
+      "zon": null,
+      "endereco": "ANTONIO SILVA",
+      "cep": "90820-020",
+      "ilegivel": true,
+      "observacao": "CEP original '90820- 20'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8263,
+      "zon": null,
+      "endereco": "ANTONIO SILVA SO",
+      "cep": "91780-170",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7376,
+      "zon": null,
+      "endereco": "ANTONIO SILVEIRA",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 153,
+      "zon": null,
+      "endereco": "ANTONIO SIMCES",
+      "cep": "91520-160",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 154,
+      "zon": null,
+      "endereco": "ANTONIO TESSERA",
+      "cep": "91910-030",
+      "ilegivel": true,
+      "observacao": "CEP original '91910~ 30'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7091,
+      "zon": null,
+      "endereco": "ANTONIO TIBIRICA",
+      "cep": "90690-040",
+      "ilegivel": true,
+      "observacao": "CEP original '90690- 40'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 1691,
+      "zon": null,
+      "endereco": "ANTONIO VIEIRA",
+      "cep": "90640-060",
+      "ilegivel": true,
+      "observacao": "CEP original '90640- 60'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 6013,
+      "zon": null,
+      "endereco": "ANTONIO Z ROSSI",
+      "cep": "90245-080",
+      "ilegivel": true,
+      "observacao": "CEP original '90245- 80'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 6460,
+      "zon": null,
+      "endereco": "ANTONIO ZAGO",
+      "cep": "90250-260",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 155,
+      "zon": null,
+      "endereco": "ANTUNES RIBAS",
+      "cep": "91380-320",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8686,
+      "zon": null,
+      "endereco": "APARECIDA",
+      "cep": "91140-200",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7568,
+      "zon": null,
+      "endereco": "APARECIDO BORGES",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 5673,
+      "zon": null,
+      "endereco": "APARICIO BORGES",
+      "cep": "90680-570",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7098,
+      "zon": null,
+      "endereco": "APARICIO CARDOSO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 157,
+      "zon": null,
+      "endereco": "APARICIO MARIENSE",
+      "cep": "91030-370",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 6014,
+      "zon": null,
+      "endereco": "APARICIO TORELI",
+      "cep": "91180-450",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 158,
+      "zon": null,
+      "endereco": "APELES P ALEGRE",
+      "cep": "90240-070",
+      "ilegivel": true,
+      "observacao": "CEP original '90240~ 70'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 3506,
+      "zon": null,
+      "endereco": "APOLINARIA M BATISTA",
+      "cep": "91450-510",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 3312,
+      "zon": null,
+      "endereco": "APOLINARIA MATIAS BATISTA",
+      "cep": "91450-510",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 3415,
+      "zon": null,
+      "endereco": "APOLINARIO",
+      "cep": "91920-610",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 160,
+      "zon": null,
+      "endereco": "APOLINARIO P ALEGRE",
+      "cep": "91920-610",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 6015,
+      "zon": null,
+      "endereco": "APOLO",
+      "cep": "91215-040",
+      "ilegivel": true,
+      "observacao": "CEP original '91215- 40'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8687,
+      "zon": null,
+      "endereco": "APOLO 7",
+      "cep": "91570-130",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8688,
+      "zon": null,
+      "endereco": "APOLO SETE",
+      "cep": "91570-130",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 9089,
+      "zon": null,
+      "endereco": "APOLONIO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 161,
+      "zon": null,
+      "endereco": "APOSTOLOS",
+      "cep": "91720-460",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 6016,
+      "zon": null,
+      "endereco": "AQUARIO",
+      "cep": "91220-010",
+      "ilegivel": true,
+      "observacao": "CEP original '91220- 10'. Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2990,
+      "zon": null,
+      "endereco": "AQUILES P ALEGRE",
+      "cep": "91330-550",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 3401,
+      "zon": null,
+      "endereco": "AQUILES PORTO ALEGRE",
+      "cep": "91330-550",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 163,
+      "zon": null,
+      "endereco": "ARABUTA",
+      "cep": "90240-470",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7364,
+      "zon": null,
+      "endereco": "ARABUTAN",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 8689,
+      "zon": null,
+      "endereco": "ARACA",
+      "cep": "90520-240",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 165,
+      "zon": null,
+      "endereco": "ARACAI",
+      "cep": "91370-110",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 7183,
+      "zon": null,
+      "endereco": "ARACAJU",
+      "cep": "91740-321",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 167,
+      "zon": null,
+      "endereco": "ARACHANES",
+      "cep": "91770-130",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2349,
+      "zon": null,
+      "endereco": "ARACI",
+      "cep": "91210-230",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 2350,
+      "zon": null,
+      "endereco": "ARACI A JOSE",
+      "cep": "90840-470",
+      "ilegivel": true,
+      "observacao": "Zona ilegível/associação por ordem."
+    },
+    {
+      "cod": 5842,
+      "zon": null,
+      "endereco": "ARACID GUSMAO",
+      "cep": "91260-050",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados. CEP original '91260- 50'."
+    },
+    {
+      "cod": 9119,
+      "zon": null,
+      "endereco": "ARACID ANTAS GUSMAO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 2351,
+      "zon": null,
+      "endereco": "ARACI FROES",
+      "cep": "91210-230",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 6017,
+      "zon": null,
+      "endereco": "ARADO VELHO",
+      "cep": "91780-120",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 7169,
+      "zon": null,
+      "endereco": "ARAGUAIA",
+      "cep": "91900-350",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados. CEP original '81900-350'; normalizado para '91900-350'."
+    },
+    {
+      "cod": 7840,
+      "zon": null,
+      "endereco": "ARAMBARE",
+      "cep": "91710-490",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 600,
+      "zon": null,
+      "endereco": "ARAMIS SILVA",
+      "cep": "90850-440",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 170,
+      "zon": null,
+      "endereco": "ARAPEIA",
+      "cep": "90830-470",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 171,
+      "zon": null,
+      "endereco": "ARAPONGA",
+      "cep": "91330-130",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 8690,
+      "zon": null,
+      "endereco": "ARAQUETO",
+      "cep": "0",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 172,
+      "zon": null,
+      "endereco": "ARARANGUA",
+      "cep": "91770-140",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    },
+    {
+      "cod": 173,
+      "zon": null,
+      "endereco": "ARARAS",
+      "cep": "91130-370",
+      "ilegivel": true,
+      "observacao": "Endereço original com caracteres espaçados."
+    }
+  ]
+}

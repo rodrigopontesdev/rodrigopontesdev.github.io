@@ -1,0 +1,644 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proposta de avaliação do Traccar para rastreamento GPS, relatórios de trajetos e integração com o sistema de diligências de dois cartórios.">
+  <title>Traccar | Rastreamento de diligências</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #10233f;
+      --blue: #246bfd;
+      --pale: #f3f6fb;
+      --ink: #243247;
+      --muted: #68778d;
+    }
+
+    body {
+      color: var(--ink);
+      background: #fff;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .navbar {
+      background: var(--navy);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 1.3rem;
+    }
+
+    .hero {
+      color: #fff;
+      background:
+        radial-gradient(circle at 85% 20%, #2e5e9d 0, transparent 35%),
+        linear-gradient(130deg, #10233f, #193a67);
+      padding: 5rem 0;
+    }
+
+    .hero .lead {
+      color: #d7e4f7;
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      color: #75a7ff;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .section-space {
+      padding: 4rem 0;
+    }
+
+    .soft-bg {
+      background: var(--pale);
+    }
+
+    .feature-card {
+      height: 100%;
+      border: 1px solid #e4eaf3;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      background: #fff;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px #10233f12;
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      border-radius: 14px;
+      color: var(--blue);
+      background: #eaf1ff;
+      font-size: 1.4rem;
+    }
+
+    .price-card {
+      border: 1px solid #e1e7f0;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      background: white;
+      height: 100%;
+    }
+
+    .price {
+      color: var(--navy);
+      font-size: 2rem;
+      font-weight: 750;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 700;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .notice {
+      border-left: 4px solid #e7a62c;
+      background: #fff8e9;
+      border-radius: .4rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .footer {
+      color: #d2dced;
+      background: var(--navy);
+    }
+
+    .footer a {
+      color: #fff;
+    }
+
+    @media print {
+      .navbar, .no-print, .footer { display: none !important; }
+      .hero { padding: 2rem 0; }
+      .section-space { padding: 2rem 0; }
+      .feature-card, .price-card { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2"
+       href="#inicio">
+      <span class="brand-mark">⌖</span>
+      <span class="fw-semibold">Projeto de rastreamento</span>
+    </a>
+    <a class="btn btn-outline-light btn-sm no-print"
+       href="#custos">Ver custos</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-8">
+        <div class="eyebrow mb-3">Proposta de avaliação tecnológica</div>
+        <h1 class="display-4 fw-bold mb-4">
+          Rastreamento GPS para diligências
+        </h1>
+        <p class="lead fs-5 mb-4">
+          Avaliação do Traccar como ferramenta de monitoramento em tempo
+          real, registro de trajetos e integração com o sistema web
+          utilizado por dois cartórios.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#funcionalidades"
+             class="btn btn-primary btn-lg">Conhecer a solução</a>
+          <a href="#integracao"
+             class="btn btn-outline-light btn-lg">Ver integração</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 rounded-4 border border-light border-opacity-25"
+             style="background:#ffffff12">
+          <div class="fs-1 mb-3">📍</div>
+          <h2 class="h4">Cenário operacional</h2>
+          <div class="d-flex justify-content-between border-bottom
+                      border-light border-opacity-25 py-3">
+            <span>Cartórios</span>
+            <strong>2</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom
+                      border-light border-opacity-25 py-3">
+            <span>Intimadores</span>
+            <strong>20</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom
+                      border-light border-opacity-25 py-3">
+            <span>Volume habitual</span>
+            <strong>2–3 mil/dia</strong>
+          </div>
+          <div class="d-flex justify-content-between pt-3">
+            <span>Pico previsto</span>
+            <strong>6 mil/dia</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section-space">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="eyebrow text-primary mb-2">Objetivo</div>
+          <h2 class="fw-bold mb-3">
+            Complementar o sistema existente, sem criar outro do zero
+          </h2>
+          <p>
+            A proposta é utilizar uma ferramenta especializada em
+            rastreamento GPS para registrar as posições dos intimadores
+            durante o trabalho e disponibilizar os dados para o sistema
+            web de diligências.
+          </p>
+          <p>
+            O sistema atual continua responsável pelas diligências,
+            pelos usuários, pelas permissões e pelos registros oficiais.
+            O Traccar funcionaria como um serviço complementar de
+            localização.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="feature-card">
+            <h3 class="h5">Por que avaliar essa alternativa?</h3>
+            <ul class="mb-0">
+              <li class="mb-2">Evita desenvolver todo o rastreamento do zero.</li>
+              <li class="mb-2">Disponibiliza histórico de posições e trajetos.</li>
+              <li class="mb-2">Possibilita integração por API.</li>
+              <li>Permite avaliar o custo antes de ampliar a operação.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space soft-bg" id="funcionalidades">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="eyebrow text-primary mb-2">Funcionalidades</div>
+        <h2 class="fw-bold">O que o Traccar pode oferecer</h2>
+        <p class="text-secondary">
+          Recursos a avaliar para o fluxo de trabalho dos cartórios.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">📡</div>
+            <h3 class="h5">GPS em tempo real</h3>
+            <p class="text-secondary mb-0">
+              Visualização das posições dos dispositivos autorizados
+              no mapa, conforme a conexão e as permissões do celular.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3 class="h5">Histórico de trajetos</h3>
+            <p class="text-secondary mb-0">
+              Consulta das posições registradas ao longo de um período,
+              com horários e coordenadas disponíveis.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3 class="h5">Relatórios exportáveis</h3>
+            <p class="text-secondary mb-0">
+              Possibilidade de exportar dados de rastreamento em formatos
+              como CSV e KML, conforme o relatório utilizado.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="h5">Aplicativo para celular</h3>
+            <p class="text-secondary mb-0">
+              O Traccar Client pode transformar um celular compatível
+              em um dispositivo de rastreamento, sem exigir um aplicativo
+              desenvolvido exclusivamente para o cartório.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3 class="h5">Integração por API</h3>
+            <p class="text-secondary mb-0">
+              Consulta programática de posições, dispositivos e
+              informações de trajetos para integração com o sistema atual.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3 class="h5">Acesso controlado</h3>
+            <p class="text-secondary mb-0">
+              A integração deverá respeitar as permissões dos usuários,
+              a separação dos cartórios e a proteção dos dados pessoais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" id="integracao">
+    <div class="container">
+      <div class="eyebrow text-primary mb-2">Arquitetura proposta</div>
+      <h2 class="fw-bold mb-3">Como os dados chegariam ao sistema</h2>
+      <p class="text-secondary mb-5">
+        O sistema de diligências permanece como aplicação principal.
+        O rastreamento funciona como uma fonte adicional de dados.
+      </p>
+
+      <div class="row g-3 align-items-stretch text-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="h6">1. Celular</h3>
+            <p class="small text-secondary mb-0">
+              O intimador utiliza o aplicativo de rastreamento durante
+              o período autorizado.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3 class="h6">2. Traccar</h3>
+            <p class="small text-secondary mb-0">
+              Recebe posições GPS e disponibiliza os registros
+              e relatórios.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3 class="h6">3. Integração</h3>
+            <p class="small text-secondary mb-0">
+              Uma rotina de integração consulta a API e associa os dados
+              às diligências correspondentes.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon">🗄️</div>
+            <h3 class="h6">4. Supabase</h3>
+            <p class="small text-secondary mb-0">
+              Armazena os dados selecionados e seus vínculos com
+              profissionais, cartórios e diligências.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice mt-4">
+        <strong>Importante:</strong>
+        a integração não acontece automaticamente ao contratar o serviço.
+        Será necessário configurar a API, o vínculo entre dispositivos e
+        intimadores, as permissões e a associação dos trajetos às
+        diligências.
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space soft-bg">
+    <div class="container">
+      <div class="eyebrow text-primary mb-2">Dados e auditoria</div>
+      <h2 class="fw-bold mb-4">O que precisa ser confirmado</h2>
+
+      <div class="accordion" id="accordionDados">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dados1">
+              Coordenadas e horários
+            </button>
+          </h3>
+          <div id="dados1" class="accordion-collapse collapse show"
+               data-bs-parent="#accordionDados">
+            <div class="accordion-body">
+              Confirmar a frequência das posições, os horários registrados,
+              o comportamento quando não há internet e a forma de recuperar
+              dados após uma interrupção.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dados2">
+              Nome das ruas e trajetos
+            </button>
+          </h3>
+          <div id="dados2" class="accordion-collapse collapse"
+               data-bs-parent="#accordionDados">
+            <div class="accordion-body">
+              Coordenadas GPS não contêm necessariamente o nome da rua.
+              Poderá ser necessário um serviço de geocodificação reversa
+              ou processamento cartográfico para associar as posições
+              às vias percorridas.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dados3">
+              Exportação e integração
+            </button>
+          </h3>
+          <div id="dados3" class="accordion-collapse collapse"
+               data-bs-parent="#accordionDados">
+            <div class="accordion-body">
+              Verificar quais relatórios estão disponíveis no plano
+              contratado, seus formatos, limites de consulta e os campos
+              retornados pela API. Definir também se a integração será
+              automática ou por importação de arquivos.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dados4">
+              Segurança e confiabilidade
+            </button>
+          </h3>
+          <div id="dados4" class="accordion-collapse collapse"
+               data-bs-parent="#accordionDados">
+            <div class="accordion-body">
+              Avaliar autenticação, registros de acesso, retenção dos
+              históricos, backups, permissões e mecanismos para detectar
+              lacunas ou alterações nos dados. O GPS não comprova sozinho
+              a entrega de uma intimação.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" id="custos">
+    <div class="container">
+      <div class="eyebrow text-primary mb-2">Investimento</div>
+      <h2 class="fw-bold mb-3">Planos de hospedagem para avaliar</h2>
+      <p class="text-secondary mb-4">
+        Valores públicos de referência anteriormente consultados.
+        Confirmar preços, limites e disponibilidade diretamente com
+        o fornecedor antes da contratação.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="price-card">
+            <span class="badge text-bg-light mb-3">Entrada</span>
+            <h3 class="h4">Hospedagem compartilhada</h3>
+            <div class="price">US$ 9,95<small class="fs-6 fw-normal">/mês</small></div>
+            <p class="text-secondary">
+              Referência de preço anteriormente divulgada para o serviço
+              gerenciado do Traccar.
+            </p>
+            <ul>
+              <li>Menor custo inicial.</li>
+              <li>Menor responsabilidade de infraestrutura própria.</li>
+              <li>Confirmar limites de dispositivos, usuários, relatórios e API.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="price-card">
+            <span class="badge text-bg-primary mb-3">A avaliar</span>
+            <h3 class="h4">Servidor dedicado gerenciado</h3>
+            <div class="price">US$ 49,95<small class="fs-6 fw-normal">/mês</small></div>
+            <p class="text-secondary">
+              Referência de preço anteriormente divulgada para uma
+              configuração dedicada.
+            </p>
+            <ul>
+              <li>Maior controle sobre a configuração.</li>
+              <li>Possibilidade de estrutura personalizada.</li>
+              <li>Confirmar recursos incluídos e condições de suporte.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice mt-4">
+        <strong>Os valores não são uma cotação confirmada.</strong>
+        É necessário verificar a tabela vigente e as condições comerciais.
+        Também devem ser contabilizados o custo da integração, eventual
+        geocodificação e os recursos adicionais necessários.
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space soft-bg">
+    <div class="container">
+      <div class="eyebrow text-primary mb-2">Plano de avaliação</div>
+      <h2 class="fw-bold mb-4">Etapas antes de contratar</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div>
+          <h3 class="h6">Solicitar demonstração e cotação</h3>
+          <p class="text-secondary mb-0">
+            Informar que serão 20 dispositivos, dois cartórios e
+            necessidade de acesso à API e exportação de trajetos.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div>
+          <h3 class="h6">Testar um celular</h3>
+          <p class="text-secondary mb-0">
+            Verificar precisão, atualização em segundo plano, consumo
+            de bateria, recuperação após falta de sinal e histórico.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div>
+          <h3 class="h6">Testar a exportação</h3>
+          <p class="text-secondary mb-0">
+            Obter um relatório real e verificar coordenadas, horários,
+            identificação do dispositivo e possibilidade de associação
+            às diligências.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div>
+          <h3 class="h6">Integrar ao ambiente de desenvolvimento</h3>
+          <p class="text-secondary mb-0">
+            Testar a comunicação com o Supabase antes de liberar qualquer
+            integração no ambiente de produção.
+          </p>
+        </div>
+      </div>
+
+      <div class="step mb-0">
+        <div class="step-number">5</div>
+        <div>
+          <h3 class="h6">Validar segurança e custo total</h3>
+          <p class="text-secondary mb-0">
+            Conferir permissões, proteção dos registros, política de
+            retenção, suporte e preço para os 20 dispositivos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 text-white"
+           style="background:var(--navy)">
+        <div class="eyebrow mb-2">Conclusão</div>
+        <h2 class="fw-bold mb-3">Vale a pena avaliar o Traccar?</h2>
+        <p class="mb-4" style="color:#d7e4f7">
+          Sim. A plataforma é uma candidata para fornecer rastreamento
+          GPS e histórico de trajetos sem exigir a criação de um
+          aplicativo próprio. A contratação deve depender da confirmação
+          de que os dados podem ser exportados e integrados ao sistema
+          atual nos formatos e condições necessários.
+        </p>
+        <a href="https://www.traccar.org/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-primary btn-lg">
+          Acessar o site oficial
+        </a>
+        <a href="https://www.traccar.org/api-reference/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-outline-light btn-lg ms-sm-2 mt-2 mt-sm-0">
+          Consultar a API
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer py-4">
+  <div class="container d-flex flex-column flex-md-row
+              justify-content-between gap-2">
+    <span>Estudo preliminar de ferramenta de rastreamento GPS.</span>
+    <span class="small">Valores sujeitos à confirmação do fornecedor.</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
